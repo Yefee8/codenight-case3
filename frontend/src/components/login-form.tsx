@@ -17,16 +17,19 @@ const demos = [
 export function LoginForm() {
   const [gsm, setGsm] = useState("");
   const [otp, setOtp] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const login = useLogin();
   const router = useRouter();
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
+    setSubmitting(true);
     try {
       const result = await login.mutateAsync({ gsm, otp });
       router.replace(result.redirect_to);
       router.refresh();
     } catch (error) {
+      setSubmitting(false);
       toast.error(error instanceof Error ? error.message : "Giriş yapılamadı");
     }
   }
@@ -44,7 +47,7 @@ export function LoginForm() {
           <form onSubmit={submit} className="space-y-4">
             <div><Label htmlFor="login-gsm">GSM numarası</Label><Input id="login-gsm" autoComplete="tel" inputMode="tel" required value={gsm} onChange={(event) => setGsm(event.target.value)} placeholder="05xx xxx xx xx" /></div>
             <div><Label htmlFor="login-otp">Tek kullanımlık şifre</Label><div className="relative"><KeyRound className="absolute left-3 top-3 text-subtle" size={16} /><Input id="login-otp" className="pl-10 tracking-[.35em]" autoComplete="one-time-code" inputMode="numeric" maxLength={4} required value={otp} onChange={(event) => setOtp(event.target.value.replace(/\D/g, ""))} placeholder="••••" /></div></div>
-            <Button className="w-full" disabled={login.isPending}>{login.isPending ? "Doğrulanıyor…" : "Güvenli giriş"}</Button>
+            <Button className="w-full" loading={submitting}>{submitting ? "Doğrulanıyor…" : "Güvenli giriş"}</Button>
           </form>
           <div className="mt-8 border-t border-border pt-5"><p className="mb-3 text-[11px] font-bold uppercase tracking-[.16em] text-muted-foreground">Demo hesaplar</p><div className="space-y-2">{demos.map(([role, phone, code]) => <div key={role} className="grid grid-cols-[1fr_auto] gap-3 rounded-xl bg-muted px-3 py-2 text-xs"><span><strong className="mr-2 text-brand">{role}</strong>{phone}</span><code className="font-semibold">{code}</code></div>)}</div></div>
         </CardContent>

@@ -1,13 +1,15 @@
 import * as React from "react";
+import { LoaderCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline" | "danger" | "ghost";
   size?: "default" | "sm" | "icon";
+  loading?: boolean;
 };
 
 export const buttonStyles = ({ variant = "default", size = "default" }: Pick<ButtonProps, "variant" | "size"> = {}) => cn(
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center gap-2 rounded-full font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50",
   variant === "default" && "bg-brand-gradient text-white shadow-sm hover:brightness-105",
   variant === "outline" && "border border-border bg-surface hover:bg-muted",
   variant === "danger" && "bg-red-500 text-white hover:bg-red-400",
@@ -17,8 +19,11 @@ export const buttonStyles = ({ variant = "default", size = "default" }: Pick<But
   size === "icon" && "size-10",
 );
 
-export function Button({ className, variant, size, ...props }: ButtonProps) {
-  return <button className={cn(buttonStyles({ variant, size }), className)} {...props} />;
+export function Button({ className, variant, size, loading = false, disabled, children, ...props }: ButtonProps) {
+  return <button className={cn(buttonStyles({ variant, size }), className)} disabled={disabled || loading} aria-busy={loading || undefined} {...props}>
+    {loading && <LoaderCircle size={16} className="absolute inset-0 m-auto animate-spin motion-reduce:animate-none" />}
+    <span className={cn(loading && "opacity-0")}>{children}</span>
+  </button>;
 }
 
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {

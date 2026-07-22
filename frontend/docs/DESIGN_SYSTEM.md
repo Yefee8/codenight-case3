@@ -1,9 +1,7 @@
 # Paycell-inspired design system
-
 This is an adaptation, not a replica. The reference is the current [Paycell website](https://paycell.com.tr/), inspected on 22 July 2026.
 
 ## Verified reference tokens
-
 | Token | Reference | FraudCell use |
 |---|---|---|
 | Deep blue | `#034EA2` | Brand text and navigation |

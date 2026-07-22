@@ -43,7 +43,7 @@ export function AnalystDashboard({ initialCases, initialProfile, userId }: { ini
         <Summary icon={<Clock3 />} label="Kritik SLA" value={assigned.filter((item) => item.risk_level === "KRITIK").length} accent="red" />
         <Summary icon={<Target />} label="Bugünkü doğruluk" value="96.8%" />
       </div>
-      <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.25fr)_minmax(340px,.75fr)_280px]">
+      <div className="grid items-stretch gap-5 xl:grid-cols-[minmax(0,1.25fr)_minmax(340px,.75fr)_280px]">
         <Card className="min-w-0">
           <CardHeader><CardTitle>Atanmış vaka kuyruğu</CardTitle><p className="mt-1 text-xs text-muted-foreground">Risk önceliğine göre sıralı</p></CardHeader>
           <CardContent className="px-0 pb-1">
@@ -64,9 +64,9 @@ export function AnalystDashboard({ initialCases, initialProfile, userId }: { ini
           </CardContent>
         </Card>
 
-        <CaseDetail item={detail.data} loading={detail.isLoading} note={note} setNote={setNote} pending={decision.isPending} decide={decide} />
+        <CaseDetail item={detail.data} loading={detail.isLoading} note={note} setNote={setNote} pending={decision.isPending ? decision.variables?.decision : undefined} decide={decide} />
 
-        <Card className="xl:sticky xl:top-24">
+        <Card>
           <CardHeader className="bg-gradient-to-br from-blue-500/15 to-accent/10"><div className="flex items-center gap-2 text-brand"><Trophy size={18} /><CardTitle>Analist profili</CardTitle></div></CardHeader>
           <CardContent>
             {profile.isLoading ? <Skeleton className="h-36" /> : profile.data && <>
@@ -87,7 +87,7 @@ function Summary({ icon, label, value, accent }: { icon: React.ReactNode; label:
   return <Card><CardContent className="flex items-center gap-3 py-4"><span className={`grid size-9 place-items-center rounded-lg ${accent === "red" ? "bg-red-500/10 text-red-500" : "bg-brand-soft text-brand"}`}>{icon}</span><div><p className="text-xl font-semibold">{value}</p><p className="text-xs text-muted-foreground">{label}</p></div></CardContent></Card>;
 }
 
-function CaseDetail({ item, loading, note, setNote, pending, decide }: { item?: ReturnType<typeof useGetCase>["data"]; loading: boolean; note: string; setNote: (value: string) => void; pending: boolean; decide: (value: AnalystDecision) => void }) {
+function CaseDetail({ item, loading, note, setNote, pending, decide }: { item?: ReturnType<typeof useGetCase>["data"]; loading: boolean; note: string; setNote: (value: string) => void; pending?: AnalystDecision; decide: (value: AnalystDecision) => void }) {
   if (loading || !item) return <Card><CardContent><Skeleton className="h-[460px]" /></CardContent></Card>;
   return <Card>
     <CardHeader><div className="flex items-center justify-between"><CardTitle>Vaka detayı</CardTitle><RiskBadge risk={item.risk_level} /></div><p className="font-mono text-xs text-muted-foreground">{item.case_id}</p></CardHeader>
@@ -95,7 +95,7 @@ function CaseDetail({ item, loading, note, setNote, pending, decide }: { item?: 
       <div className="flex items-center justify-between rounded-xl bg-muted p-4"><div><p className="text-xs text-muted-foreground">AI risk skoru</p><p className="text-3xl font-semibold">%{Math.round(item.ai_analysis.risk_score * 100)}</p></div><Sparkles className="text-accent" /><div className="text-right"><p className="text-xs text-muted-foreground">Öneri</p><strong>{item.ai_analysis.recommended_decision}</strong></div></div>
       <dl className="grid grid-cols-2 gap-3 text-sm"><Info label="Tutar" value={money.format(item.transaction_details.amount)} /><Info label="İşlem" value={item.transaction_details.type} /><Info label="Alıcı" value={item.transaction_details.receiver} /><Info label="Fraud tipi" value={fraudLabels[item.ai_analysis.fraud_type]} /><Info label="Cihaz" value={item.transaction_details.device} /><Info label="Konum" value={item.transaction_details.location} icon={<MapPin size={12} />} /></dl>
       <div><label htmlFor="analyst-note" className="mb-1.5 block text-xs font-medium">Analist notu <span className="text-red-500">*</span></label><Textarea id="analyst-note" value={note} onChange={(event) => setNote(event.target.value)} placeholder="Karar gerekçenizi yazın…" /></div>
-      <div className="grid grid-cols-2 gap-3"><Button variant="outline" disabled={!note.trim() || pending} onClick={() => decide("ONAYLANDI")}>Onayla</Button><Button variant="danger" disabled={!note.trim() || pending} onClick={() => decide("BLOKLANDI")}>Blokla</Button></div>
+      <div className="grid grid-cols-2 gap-3"><Button variant="outline" loading={pending === "ONAYLANDI"} disabled={!note.trim() || Boolean(pending)} onClick={() => decide("ONAYLANDI")}>Onayla</Button><Button variant="danger" loading={pending === "BLOKLANDI"} disabled={!note.trim() || Boolean(pending)} onClick={() => decide("BLOKLANDI")}>Blokla</Button></div>
     </CardContent>
   </Card>;
 }

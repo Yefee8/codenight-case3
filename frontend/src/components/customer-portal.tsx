@@ -58,7 +58,7 @@ export function CustomerPortal() {
               <Field label="Alıcı / iş yeri" htmlFor="receiver" className="sm:col-span-2"><Input id="receiver" required value={form.receiver} onChange={(event) => setForm({ ...form, receiver: event.target.value })} placeholder="Örn. Atlas Danışmanlık Ltd." /></Field>
               <Field label="Cihaz" htmlFor="device"><Select id="device" value={form.device} onChange={(event) => setForm({ ...form, device: event.target.value })}><option>iPhone 15 Pro · iOS 18</option><option>Galaxy S24 · Android 15</option><option>Chrome · Windows 11</option><option>Safari · macOS 16</option></Select></Field>
               <Field label="Konum" htmlFor="location"><Input id="location" required value={form.location} onChange={(event) => setForm({ ...form, location: event.target.value })} /></Field>
-              <Button className="mt-2 sm:col-span-2" disabled={simulate.isPending}>{simulate.isPending ? "AI analiz ediyor…" : "İşlemi simüle et"}</Button>
+              <Button className="mt-2 sm:col-span-2" loading={simulate.isPending}>{simulate.isPending ? "AI analiz ediyor…" : "İşlemi simüle et"}</Button>
             </form>
           </CardContent>
         </Card>

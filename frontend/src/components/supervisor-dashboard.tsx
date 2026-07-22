@@ -70,7 +70,7 @@ export function SupervisorDashboard({ initialMetrics, initialPerformance, initia
                 <Select aria-label={`${item.case_id} için analist`} value={selections[item.case_id] ?? ""} onChange={(event) => setSelections((current) => ({ ...current, [item.case_id]: event.target.value }))}>
                   <option value="">Analist seçin</option>{performance.data?.map(({ analyst }) => <option key={analyst.user_id} value={analyst.user_id}>{analyst.full_name}</option>)}
                 </Select>
-                <Button size="icon" aria-label="Vakayı ata" disabled={!selections[item.case_id] || assign.isPending} onClick={() => assignCase(item.case_id)}><Send size={16} /></Button>
+                <Button size="icon" aria-label="Vakayı ata" loading={assign.isPending && assign.variables?.id === item.case_id} disabled={!selections[item.case_id] || assign.isPending} onClick={() => assignCase(item.case_id)}><Send size={16} /></Button>
               </div>
             ))}
           </CardContent>

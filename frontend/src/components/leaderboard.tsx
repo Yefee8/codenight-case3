@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Crown, Medal, Sparkles, Trophy } from "lucide-react";
+import { Award, CalendarDays, Crown, Medal, Trophy } from "lucide-react";
 import { PageHeading } from "@/components/page-heading";
 import { Badge, Card, CardContent, CardHeader, CardTitle, Skeleton } from "@/components/ui/primitives";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -22,9 +22,9 @@ export function Leaderboard({ initialEntries }: { initialEntries: LeaderboardEnt
 
   return (
     <>
-      <PageHeading eyebrow="FraudCell League" title="Analist liderlik tablosu" description="Hız, doğruluk ve başarılı fraud yakalamalarıyla puanlanan ilk 10 analist." action={<Badge className="border-accent/40 bg-brand-soft text-brand"><Sparkles size={12} className="mr-1" /> Günlük sezon</Badge>} />
-      {leaderboard.isLoading ? <Skeleton className="mb-5 h-52" /> : <div className="mb-5 grid gap-4 md:grid-cols-3">{top.map((entry) => <Podium key={entry.rank} entry={entry} />)}</div>}
-      <Card>
+      <PageHeading eyebrow="FraudCell League" title="Analist liderlik tablosu" description="Hız, doğruluk ve başarılı fraud yakalamalarıyla puanlanan ilk 10 analist." action={<Badge><CalendarDays size={12} className="mr-1" /> Günlük sezon</Badge>} />
+      {leaderboard.isLoading ? <Skeleton className="mb-5 h-52" /> : <div className="mb-5 grid gap-4 pt-4 md:grid-cols-3 md:items-stretch md:pt-7">{top.map((entry) => <Podium key={entry.rank} entry={entry} />)}</div>}
+      <Card className="shadow-none">
         <CardHeader><div className="flex items-center gap-2"><Trophy size={18} className="text-amber-500" /><CardTitle>Top 10 analist</CardTitle></div><p className="mt-1 text-xs text-muted-foreground">Puanlar her doğrulanmış karardan sonra güncellenir</p></CardHeader>
         <CardContent className="px-0 pb-1">
           {leaderboard.isLoading ? <div className="px-5"><Skeleton className="h-72" /></div> : <Table>
@@ -38,7 +38,17 @@ export function Leaderboard({ initialEntries }: { initialEntries: LeaderboardEnt
 }
 
 function Podium({ entry }: { entry: LeaderboardEntry }) {
-  return <Card className={cn("relative overflow-hidden", entry.rank === 1 && "border-amber-400/50 shadow-[0_12px_40px_-24px_#f59e0b]")}><div className={cn("absolute inset-x-0 top-0 h-1", entry.rank === 1 ? "bg-amber-400" : entry.rank === 2 ? "bg-slate-400" : "bg-orange-700")} /><CardContent className="flex items-center gap-4 py-6"><div className="relative"><Avatar name={entry.analyst.full_name} level={entry.profile.level} large />{entry.rank === 1 && <Crown className="absolute -right-2 -top-4 rotate-12 fill-amber-400 text-amber-400" size={24} />}</div><div className="min-w-0"><div className="mb-1 flex items-center gap-2"><Rank rank={entry.rank} /><strong className="truncate">{entry.analyst.full_name}</strong></div><p className="text-2xl font-semibold">{entry.profile.total_points.toLocaleString("tr-TR")} <small className="text-xs font-normal text-muted-foreground">puan</small></p><Badge className={cn("mt-2", levelStyle[entry.profile.level])}>{entry.profile.level}</Badge></div></CardContent></Card>;
+  return <div className={cn("h-full", entry.rank === 1 ? "md:order-2 md:-translate-y-4" : entry.rank === 2 ? "md:order-1" : "md:order-3")}>
+    <Card className={cn("group relative h-full overflow-visible rounded-xl border-t-4 shadow-none transition-transform duration-200 hover:-translate-y-1 motion-reduce:transform-none motion-reduce:transition-none", entry.rank === 1 ? "border-t-amber-400" : entry.rank === 2 ? "border-t-slate-400" : "border-t-orange-700")}>
+      <span className={cn("absolute -top-4 left-1/2 grid size-8 -translate-x-1/2 place-items-center rounded-full border-4 border-background text-xs font-bold", entry.rank === 1 ? "bg-amber-400 text-amber-950" : entry.rank === 2 ? "bg-slate-400 text-slate-950" : "bg-orange-700 text-white")}>{entry.rank}</span>
+      <CardContent className="flex flex-col items-center px-5 pb-6 pt-8 text-center">
+        <div className="relative mb-3"><Avatar name={entry.analyst.full_name} level={entry.profile.level} large />{entry.rank === 1 && <Crown className="absolute -right-3 -top-4 rotate-12 fill-amber-400 text-amber-500" size={23} />}</div>
+        <strong className="max-w-full truncate">{entry.analyst.full_name}</strong>
+        <p className="mt-2 text-2xl font-semibold">{entry.profile.total_points.toLocaleString("tr-TR")} <small className="text-xs font-normal text-muted-foreground">puan</small></p>
+        <Badge className={cn("mt-3", levelStyle[entry.profile.level])}>{entry.profile.level}</Badge>
+      </CardContent>
+    </Card>
+  </div>;
 }
 
 function Rank({ rank }: { rank: number }) {
