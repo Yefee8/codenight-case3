@@ -18,6 +18,7 @@ When real microservices arrive, replace the mock calls inside the server service
 - `app/loading.tsx` provides the prefetched Suspense fallback for dynamic navigation.
 - The request-time header cookie lookup is isolated behind its own Suspense boundary. It cannot block the page skeleton.
 - Native Next.js `Link` prefetching is retained instead of adding a second router abstraction.
+- The native web app manifest and install prompt make the same responsive shell installable on mobile and desktop without caching authenticated data offline.
 
 ## BFF response contract
 

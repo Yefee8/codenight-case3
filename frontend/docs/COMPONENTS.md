@@ -3,7 +3,7 @@
 | Component | Responsibility | Why it exists |
 |---|---|---|
 | `AppHeader` | Reads the signed server session | Keeps request-time cookie work outside the shared page shell. |
-| `AppShell` | Role-aware links, active state, theme and logout | These interactions require browser APIs; identity is still supplied by the server. |
+| `AppShell` | Role-aware links, active state, PWA install, theme and logout | Browser-only interactions stay together; identity is still supplied by the server. |
 | `LoginForm` | Collects GSM/OTP and invokes `useLogin` | Components never create authentication state locally. |
 | `AnalystDashboard` | Queue selection, decisions and profile overlay | One client boundary owns the analyst interactions while SSR provides the first data. |
 | `SupervisorDashboard` | Metrics, chart, performance and assignment | Related operations share one cache and avoid prop drilling. |

@@ -10,6 +10,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "FraudCell · Risk Command",
   description: "Gerçek zamanlı yapay zekâ destekli dolandırıcılık operasyon platformu",
+  applicationName: "FraudCell",
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "FraudCell" },
+  icons: { apple: [{ url: "/icon", sizes: "512x512", type: "image/png" }] },
 };
 
 export default function RootLayout({

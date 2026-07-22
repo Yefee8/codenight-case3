@@ -58,3 +58,7 @@ h1, h2, h3, .font-display { font-family: var(--font-display); }
 button, input, select, textarea { font: inherit; }
 button, select { cursor: pointer; }
 ::selection { background: #22cddb; color: #091229; }
+
+@media (display-mode: standalone) {
+  .pwa-install-button { display: none; }
+}
