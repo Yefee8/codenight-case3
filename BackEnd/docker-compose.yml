@@ -1,0 +1,74 @@
+services:
+  identity:
+    build: ./identity-service
+    environment:
+      PORT: 3001
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me}
+      SERVICE_TOKEN: ${SERVICE_TOKEN:-dev-service-token}
+      DB_PATH: /data/identity.db
+    volumes:
+      - identity_data:/data
+    expose: ["3001"]
+
+  transaction:
+    build: ./transaction-service
+    environment:
+      PORT: 3002
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me}
+      SERVICE_TOKEN: ${SERVICE_TOKEN:-dev-service-token}
+      AI_URL: http://ai:3003
+      GAMIFICATION_URL: http://gamification:3004
+      IDENTITY_URL: http://identity:3001
+      DB_PATH: /data/transaction.db
+    depends_on:
+      - identity
+    volumes:
+      - transaction_data:/data
+    expose: ["3002"]
+
+  ai:
+    build: ./ai-service
+    environment:
+      PORT: 3003
+      SERVICE_TOKEN: ${SERVICE_TOKEN:-dev-service-token}
+      IDENTITY_URL: http://identity:3001
+      DB_PATH: /data/ai.db
+    depends_on:
+      - identity
+    volumes:
+      - ai_data:/data
+    expose: ["3003"]
+
+  gamification:
+    build: ./gamification-service
+    environment:
+      PORT: 3004
+      SERVICE_TOKEN: ${SERVICE_TOKEN:-dev-service-token}
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me}
+      DB_PATH: /data/gamification.db
+    volumes:
+      - gamification_data:/data
+    expose: ["3004"]
+
+  gateway:
+    build: ./gateway
+    environment:
+      PORT: 8080
+      JWT_SECRET: ${JWT_SECRET:-dev-jwt-secret-change-me}
+      IDENTITY_URL: http://identity:3001
+      TRANSACTION_URL: http://transaction:3002
+      AI_URL: http://ai:3003
+      GAMIFICATION_URL: http://gamification:3004
+    depends_on:
+      - identity
+      - transaction
+      - ai
+      - gamification
+    ports:
+      - "8080:8080"
+
+volumes:
+  identity_data:
+  transaction_data:
+  ai_data:
+  gamification_data:

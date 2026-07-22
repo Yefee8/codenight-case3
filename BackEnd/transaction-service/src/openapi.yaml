@@ -1,0 +1,200 @@
+openapi: 3.0.3
+info:
+  title: FraudCell Transaction Service
+  version: 1.0.0
+  description: |
+    Fraud işlem yaşam döngüsü — işlem oluşturma, vaka state machine, SLA, müşteri doğrulama,
+    süpervizör dashboard. Tüm endpointler `{ success, data, error }` biçiminde döner.
+servers:
+  - url: http://localhost:8080/api/v1
+    description: API Gateway (public)
+  - url: http://localhost:3002
+    description: Direct (internal)
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ServiceToken:
+      type: apiKey
+      in: header
+      name: X-Service-Token
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        trx_number: { type: string, example: "TRX-2026-000001" }
+        customer_id: { type: string }
+        amount: { type: number, example: 30000 }
+        type: { type: string, enum: [ODEME, TRANSFER, FATURA, CEKIM] }
+        receiver: { type: string }
+        device: { type: string }
+        city: { type: string }
+        status: { type: string, enum: [PENDING, ONAYLI, INCELEMEDE, GECICI_BLOK] }
+        risk_score: { type: number, nullable: true }
+        risk_level: { type: string, enum: [DUSUK, ORTA, YUKSEK, KRITIK, BELIRSIZ], nullable: true }
+        fraud_type: { type: string, enum: [CALINTI_KART, HESAP_ELE_GECIRME, PARA_AKLAMA, SUPHELI_DAVRANIS, TEMIZ], nullable: true }
+        created_at: { type: string, format: date-time }
+    Case:
+      type: object
+      properties:
+        id: { type: string }
+        transaction_id: { type: string }
+        assigned_to: { type: string, nullable: true }
+        status: { type: string, enum: [YENI, ATANDI, INCELENIYOR, MUSTERI_DOGRULAMA, ONAYLANDI, BLOKLANDI, KAPANDI] }
+        decision: { type: string, nullable: true }
+        decision_note: { type: string, nullable: true }
+        sla_deadline: { type: string, format: date-time }
+        sla_exceeded_at: { type: string, format: date-time, nullable: true }
+        customer_verified: { type: string, enum: [FRAUD, LEGITIMATE], nullable: true }
+    Response:
+      type: object
+      properties:
+        success: { type: boolean }
+        data: { type: object }
+        error:
+          type: object
+          nullable: true
+          properties:
+            message: { type: string }
+            details: { type: object, nullable: true }
+security:
+  - BearerAuth: []
+paths:
+  /transactions:
+    post:
+      summary: İşlem oluştur (AI risk analizi tetiklenir)
+      tags: [Transactions]
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          schema: { type: string }
+          required: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, type]
+              properties:
+                amount: { type: number }
+                type: { type: string, enum: [ODEME, TRANSFER, FATURA, CEKIM] }
+                receiver: { type: string }
+                device: { type: string }
+                city: { type: string }
+      responses:
+        '200':
+          description: OK
+          content: { application/json: { schema: { $ref: '#/components/schemas/Response' } } }
+        '400': { description: Bad request }
+        '401': { description: Unauthorized }
+        '403': { description: Forbidden }
+    get:
+      summary: İşlem listesi (role bazlı görünürlük)
+      tags: [Transactions]
+      responses:
+        '200': { description: OK }
+  /transactions/{id}:
+    get:
+      summary: İşlem detayı
+      tags: [Transactions]
+      parameters:
+        - { in: path, name: id, required: true, schema: { type: string } }
+      responses:
+        '200': { description: OK }
+        '404': { description: Not found }
+  /cases:
+    get:
+      summary: Vaka listesi (role bazlı)
+      tags: [Cases]
+      responses: { '200': { description: OK } }
+  /cases/{id}:
+    get:
+      summary: Vaka detayı + geçmiş
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      responses: { '200': { description: OK } }
+  /cases/{id}/status:
+    patch:
+      summary: State machine geçişi
+      description: |
+        Kural dışı geçiş **422** döndürür. Geçerli geçişler §4.2 state machine'e uyar.
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [to]
+              properties:
+                to: { type: string, enum: [ATANDI, INCELENIYOR, MUSTERI_DOGRULAMA, ONAYLANDI, BLOKLANDI, KAPANDI] }
+                note: { type: string }
+      responses:
+        '200': { description: OK }
+        '422': { description: Geçersiz state transition }
+  /cases/{id}/decision:
+    patch:
+      summary: Analist kararı (ONAYLANDI / BLOKLANDI)
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision, note]
+              properties:
+                decision: { type: string, enum: [ONAYLANDI, BLOKLANDI] }
+                note: { type: string }
+                fraud_type: { type: string, enum: [CALINTI_KART, HESAP_ELE_GECIRME, PARA_AKLAMA, SUPHELI_DAVRANIS, TEMIZ] }
+      responses: { '200': { description: OK } }
+  /cases/{id}/assign:
+    patch:
+      summary: Manuel atama (SUPERVISOR/ADMIN)
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [analyst_id], properties: { analyst_id: { type: string } } } } }
+      responses: { '200': { description: OK } }
+  /cases/{id}/customer-verify:
+    post:
+      summary: Müşteri doğrulama
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [answer], properties: { answer: { type: string, enum: [I_DID_IT, NOT_ME] } } } } }
+      responses: { '200': { description: OK } }
+  /cases/{id}/feedback:
+    post:
+      summary: Müşteri 1-5 yıldız geri bildirimi (kapanmış vaka, tek seferlik)
+      tags: [Cases]
+      parameters: [{ in: path, name: id, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [rating], properties: { rating: { type: integer, minimum: 1, maximum: 5 } } } } }
+      responses:
+        '200': { description: OK }
+        '409': { description: Zaten geri bildirim verildi }
+  /dashboard:
+    get:
+      summary: Süpervizör dashboard (dağılımlar + AI doğruluk inline)
+      tags: [Dashboard]
+      responses: { '200': { description: OK } }
+  /dashboard/sla:
+    get:
+      summary: SLA uyum oranı + aktif ihlaller
+      tags: [Dashboard]
+      responses: { '200': { description: OK } }
+  /dashboard/analytics:
+    get:
+      summary: Analist bazlı performans (karar/süre/adet)
+      tags: [Dashboard]
+      responses: { '200': { description: OK } }

@@ -1,0 +1,133 @@
+openapi: 3.0.3
+info:
+  title: FraudCell AI Service
+  version: 1.0.0
+  description: |
+    Kural tabanlı risk skorlama + fraud türü sınıflandırma + akıllı analist atama + doğruluk metriği.
+    Skorlama/atama/feedback endpointleri X-Service-Token ile korunur ve gateway üzerinden dışarıya kapalıdır.
+servers:
+  - url: http://localhost:3003
+    description: Direct (internal)
+  - url: http://localhost:8080/api/v1/ai
+    description: Public bölüm (yalnızca /accuracy, /health)
+components:
+  securitySchemes:
+    ServiceToken:
+      type: apiKey
+      in: header
+      name: X-Service-Token
+  schemas:
+    ScoreInput:
+      type: object
+      required: [transaction_id]
+      properties:
+        transaction_id: { type: string }
+        amount: { type: number }
+        type: { type: string, enum: [ODEME, TRANSFER, FATURA, CEKIM] }
+        city: { type: string }
+        device: { type: string }
+        receiver: { type: string }
+        timestamp: { type: string, format: date-time }
+        customer_history:
+          type: object
+          properties:
+            avg_amount: { type: number }
+            home_city: { type: string }
+            known_device: { type: boolean }
+    ScoreResult:
+      type: object
+      properties:
+        prediction_id: { type: string }
+        risk_score: { type: number, minimum: 0, maximum: 1 }
+        risk_level: { type: string, enum: [DUSUK, ORTA, YUKSEK, KRITIK] }
+        fraud_type: { type: string, enum: [CALINTI_KART, HESAP_ELE_GECIRME, PARA_AKLAMA, SUPHELI_DAVRANIS, TEMIZ] }
+        decision: { type: string, enum: [ONAY, INCELEME, BLOK] }
+        model_version: { type: string, example: "rule-v1" }
+        features: { type: object, additionalProperties: { type: number } }
+paths:
+  /score:
+    post:
+      summary: Risk skorlama + tür sınıflandırma + karar
+      tags: [AI]
+      security: [{ ServiceToken: [] }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: '#/components/schemas/ScoreInput' } } }
+      responses:
+        '200':
+          description: OK
+          content: { application/json: { schema: { type: object, properties: { success: { type: boolean }, data: { $ref: '#/components/schemas/ScoreResult' } } } } }
+  /assign:
+    post:
+      summary: Akıllı analist ataması (uzmanlık*0.5 + boşluk*0.3 + performans*0.2)
+      tags: [AI]
+      security: [{ ServiceToken: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [case_id, fraud_type]
+              properties:
+                case_id: { type: string }
+                fraud_type: { type: string }
+      responses: { '200': { description: OK } }
+  /decisions:
+    post:
+      summary: Karar raporu (active case counter down, performans update)
+      tags: [AI]
+      security: [{ ServiceToken: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [analyst_id]
+              properties:
+                analyst_id: { type: string }
+                correct: { type: boolean }
+      responses: { '200': { description: OK } }
+  /feedback:
+    post:
+      summary: Analist AI türünü değiştirdi (accuracy feedback)
+      tags: [AI]
+      security: [{ ServiceToken: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [prediction_id, actual_type]
+              properties:
+                prediction_id: { type: string }
+                actual_type: { type: string, enum: [CALINTI_KART, HESAP_ELE_GECIRME, PARA_AKLAMA, SUPHELI_DAVRANIS, TEMIZ] }
+      responses: { '200': { description: OK } }
+  /accuracy:
+    get:
+      summary: Doğruluk metriği (genel + kategori bazlı) — public
+      tags: [AI]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  data:
+                    type: object
+                    properties:
+                      overall_accuracy: { type: number, nullable: true }
+                      total_feedback: { type: integer }
+                      by_category:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            fraud_type: { type: string }
+                            accuracy: { type: number, nullable: true }
+                            count: { type: integer }
