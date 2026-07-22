@@ -15,6 +15,12 @@ type InstallPrompt = Event & {
   userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
 };
 
+declare global {
+  interface Window {
+    __fraudcellInstallPrompt?: InstallPrompt;
+  }
+}
+
 const allNavigation: { href: string; label: string; icon: typeof UserRound; roles: Role[] }[] = [
   { href: "/analyst", label: "Vaka Merkezi", icon: UserRound, roles: ["ANALYST", "ADMIN"] },
   { href: "/supervisor", label: "Operasyon", icon: BarChart3, roles: ["SUPERVISOR", "ADMIN"] },
@@ -29,7 +35,7 @@ export function AppShell({ user }: { user: SessionUser | null }) {
   const pathname = usePathname();
   const router = useRouter();
   const logout = useLogout();
-  const [installPrompt, setInstallPrompt] = useState<InstallPrompt | null>(null);
+  const [installPrompt, setInstallPrompt] = useState<InstallPrompt | null>(() => typeof window === "undefined" ? null : window.__fraudcellInstallPrompt ?? null);
   const [isInstalled, setIsInstalled] = useState(false);
   const navigation = user ? allNavigation.filter((item) => item.roles.includes(user.role)) : [];
 
@@ -39,9 +45,11 @@ export function AppShell({ user }: { user: SessionUser | null }) {
 
     const handlePrompt = (event: Event) => {
       event.preventDefault();
-      setInstallPrompt(event as InstallPrompt);
+      window.__fraudcellInstallPrompt = event as InstallPrompt;
+      setInstallPrompt(window.__fraudcellInstallPrompt);
     };
     const handleInstalled = () => {
+      delete window.__fraudcellInstallPrompt;
       setIsInstalled(true);
       setInstallPrompt(null);
     };
@@ -79,6 +87,7 @@ export function AppShell({ user }: { user: SessionUser | null }) {
     try {
       await installPrompt.prompt();
       const { outcome } = await installPrompt.userChoice;
+      delete window.__fraudcellInstallPrompt;
       setIsInstalled(outcome === "accepted");
       setInstallPrompt(null);
     } catch {

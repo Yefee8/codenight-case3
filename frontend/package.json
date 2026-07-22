@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "check:auth": "node scripts/check-auth.mjs"
+    "check:auth": "node scripts/check-auth.mjs",
+    "check:pwa": "node scripts/check-pwa.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.20",
