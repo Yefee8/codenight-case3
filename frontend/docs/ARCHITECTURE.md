@@ -3,30 +3,43 @@
 ## Request flow
 
 ```text
-Browser → Next.js page/API → session role gate → shared fraud service → mock data
-        ← SSR HTML + hydrated TanStack Query cache ←
+Browser UI -> same-origin Next.js /api/v1 BFF -> private API Gateway -> domain services
+           <- { success, data, error, request_id } envelope <-
 ```
 
-The UI talks only to `/api/v1/...` through custom hooks. Server Components do not call those HTTP endpoints because that would add a second network hop inside the same application. They call `src/lib/server/fraud-service.ts`, the same data layer used by the BFF routes.
+Docker Compose builds this Next.js application from `frontend/` and exposes it on port 3000.
 
-When real microservices arrive, replace the mock calls inside the server service and keep component contracts unchanged.
+Client components use TanStack Query hooks in `src/hooks/use-fraudcell.ts`. The shared client
+in `src/lib/api-client.ts` unwraps the canonical envelope, adds the in-memory bearer token,
+performs one refresh-and-retry on 401, and converts non-success responses into typed errors.
+The BFF forwards only an allowlist of request and response headers and only to the configured
+Gateway origin; arbitrary proxy targets and browser-supplied identity headers are not accepted.
 
-## Rendering and navigation
+## Rendering and resilience
 
-- Page files verify the role and resolve their first dataset on the server.
-- Client dashboards receive that dataset as TanStack Query `initialData`, so the first HTML already contains useful content.
-- `app/loading.tsx` provides the prefetched Suspense fallback for dynamic navigation.
-- The request-time header cookie lookup is isolated behind its own Suspense boundary. It cannot block the page skeleton.
-- Native Next.js `Link` prefetching is retained instead of adding a second router abstraction.
-- The manifest, early install-prompt capture and network-first service worker make the responsive shell installable without caching authenticated data offline.
+- Server pages enforce the signed UI-session role before rendering a protected dashboard.
+- Dashboard data comes from the real Gateway after hydration; existing route loading skeletons
+  remain the first loading state.
+- HTTP failures are contained by Query/mutation handlers and shown with Sonner/shadcn-style
+  toasts. 403 and 404 messages do not disclose additional resource information.
+- Transaction creation is successful even when AI scoring is unavailable. Nullable scores and
+  `UNAVAILABLE` predictions render as `BELIRSIZ` and remain in the manual queue.
+- Authenticated SSE uses a fetch stream so the bearer header can be sent. It reconnects with
+  exponential backoff, forwards `Last-Event-ID`, and deduplicates notifications by event type
+  plus id before invalidating the relevant query.
+- The service worker never caches authenticated pages or API data.
 
 ## BFF response contract
 
-Every JSON route returns `ApiResponse<T>`:
+All JSON responses use the backend envelope unchanged:
 
 ```ts
-{ success: true, data: value, error: null }
-{ success: false, data: null, error: { code, message } }
+{
+  success: boolean;
+  data: T | null;
+  error: { code: string; message: string; field_errors?: Record<string, string[]> } | null;
+  request_id: string;
+}
 ```
 
-This stable envelope is shared by auth, queries and mutations.
+SSE responses are streamed without buffering or JSON transformation.

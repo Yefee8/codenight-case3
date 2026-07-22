@@ -1,0 +1,53 @@
+server:
+  port: ${SERVER_PORT:8082}
+  shutdown: graceful
+spring:
+  application:
+    name: transaction-service
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5434/fraudcell_transaction}
+    username: ${SPRING_DATASOURCE_USERNAME:transaction_app}
+    password: ${SPRING_DATASOURCE_PASSWORD:change-me}
+    hikari:
+      maximum-pool-size: 12
+      connection-timeout: 3000
+  flyway:
+    url: ${SPRING_FLYWAY_URL:${spring.datasource.url}}
+    user: ${SPRING_FLYWAY_USER:transaction_migrator}
+    password: ${SPRING_FLYWAY_PASSWORD:change-me}
+    clean-disabled: true
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:transaction_service}
+    password: ${SPRING_RABBITMQ_PASSWORD:change-me}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        default-requeue-rejected: false
+        prefetch: 20
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER:https://identity.fraudcell.local}
+          jwk-set-uri: ${JWKS_URI:http://identity-service:8081/.well-known/jwks.json}
+fraudcell:
+  ai:
+    base-url: ${AI_BASE_URL:http://localhost:8000}
+    internal-token: ${AI_INTERNAL_TOKEN:change-me}
+    connect-timeout: 500ms
+    read-timeout: 1500ms
+management:
+  endpoints.web.exposure.include: health,info,prometheus
+  endpoint.health:
+    probes.enabled: true
+    show-details: never
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+  api-docs.path: /openapi.json
+logging.level.root: ${LOG_LEVEL:INFO}

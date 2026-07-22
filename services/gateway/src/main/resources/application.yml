@@ -1,0 +1,64 @@
+server:
+  port: ${SERVER_PORT:8080}
+  shutdown: graceful
+  max-http-request-header-size: 16KB
+  netty:
+    max-initial-line-length: 8KB
+
+spring:
+  application:
+    name: fraudcell-gateway
+  codec:
+    max-in-memory-size: 64KB
+  data:
+    redis:
+      host: ${GATEWAY_REDIS_HOST:localhost}
+      port: ${GATEWAY_REDIS_PORT:6379}
+      username: ${GATEWAY_REDIS_USERNAME:gateway}
+      password: ${GATEWAY_REDIS_PASSWORD:change-me-gateway-redis}
+      connect-timeout: 1s
+      timeout: 1s
+      client-type: lettuce
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:gateway_service}
+    password: ${SPRING_RABBITMQ_PASSWORD:change-me-gateway-rabbit}
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        default-requeue-rejected: true
+
+fraudcell:
+  gateway:
+    identity-base-url: ${IDENTITY_BASE_URL:http://localhost:8081}
+    transaction-base-url: ${TRANSACTION_BASE_URL:http://localhost:8082}
+    ai-base-url: ${AI_BASE_URL:http://localhost:8000}
+    gamification-base-url: ${GAMIFICATION_BASE_URL:http://localhost:8083}
+    issuer: ${JWT_ISSUER:https://identity.fraudcell.local}
+    audience: ${JWT_AUDIENCE:fraudcell-api}
+    jwks-uri: ${JWKS_URI:http://localhost:8081/.well-known/jwks.json}
+    key-hmac-secret: ${GATEWAY_KEY_HMAC_SECRET:change-me-gateway-hmac-secret-32-bytes-minimum}
+    allowed-origins: ${ALLOWED_ORIGINS:http://localhost:3000}
+    access-token-maximum-ttl: 20m
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+  metrics:
+    tags:
+      application: fraudcell-gateway
+
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+    org.springframework.security: WARN

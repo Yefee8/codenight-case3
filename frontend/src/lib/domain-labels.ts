@@ -6,4 +6,5 @@ export const fraudLabels: Record<FraudType, string> = {
   PARA_AKLAMA: "Para Aklama",
   SUPHELI_DAVRANIS: "Şüpheli Davranış",
   TEMIZ: "Temiz",
+  BELIRSIZ: "Belirsiz",
 };

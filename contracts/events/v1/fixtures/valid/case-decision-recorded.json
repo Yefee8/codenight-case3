@@ -1,0 +1,21 @@
+{
+  "event_id": "019b2c83-7321-7ad4-9e3c-9ef7dc1d57c3",
+  "event_type": "case.decision-recorded",
+  "event_version": 1,
+  "producer": "transaction-service",
+  "occurred_at": "2026-07-22T09:30:00Z",
+  "aggregate_id": "019b2c83-8432-7f13-b402-f7764ae17f48",
+  "aggregate_version": 4,
+  "correlation_id": "019b2c83-8c3b-7136-94d8-36e182393cc8",
+  "causation_id": "019b2c83-912c-705e-af85-105750158655",
+  "payload": {
+    "case_id": "019b2c83-8432-7f13-b402-f7764ae17f48",
+    "analyst_id": "019b2c83-a1aa-7467-987f-1d649b87e8f3",
+    "decision": "BLOKLANDI",
+    "note": "Müşteri işlemi doğrulamadı.",
+    "decided_at": "2026-07-22T09:30:00Z",
+    "within_sla": true,
+    "fraud_type": "HESAP_ELE_GECIRME"
+  }
+}
+

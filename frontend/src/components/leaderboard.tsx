@@ -4,7 +4,8 @@ import { Award, CalendarDays, Crown, Medal, Trophy } from "lucide-react";
 import { PageHeading } from "@/components/page-heading";
 import { Badge, Card, CardContent, CardHeader, CardTitle, Skeleton } from "@/components/ui/primitives";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useGetLeaderboard } from "@/hooks/use-fraudcell";
+import { useApiErrorToast, useGetLeaderboard } from "@/hooks/use-fraudcell";
+import { useFraudcellEvents } from "@/hooks/use-fraudcell-events";
 import { cn } from "@/lib/utils";
 import type { GamificationProfile, LeaderboardEntry } from "@/types/domain";
 
@@ -15,10 +16,12 @@ const levelStyle: Record<GamificationProfile["level"], string> = {
   Bronz: "border-orange-700/30 bg-orange-700/10 text-orange-700",
 };
 
-/** Keeps the ranking interactive while rendering its first frame entirely on the server. */
-export function Leaderboard({ initialEntries }: { initialEntries: LeaderboardEntry[] }) {
-  const leaderboard = useGetLeaderboard(initialEntries);
+/** Keeps the live ranking interactive with query and SSE updates. */
+export function Leaderboard() {
+  const leaderboard = useGetLeaderboard();
   const top = leaderboard.data?.slice(0, 3) ?? [];
+  useFraudcellEvents("game");
+  useApiErrorToast(leaderboard.error, "Liderlik tablosu yüklenemedi");
 
   return (
     <>
@@ -29,7 +32,7 @@ export function Leaderboard({ initialEntries }: { initialEntries: LeaderboardEnt
         <CardContent className="px-0 pb-1">
           {leaderboard.isLoading ? <div className="px-5"><Skeleton className="h-72" /></div> : <Table>
             <TableHeader><TableRow><TableHead className="w-16">Sıra</TableHead><TableHead>Analist</TableHead><TableHead>Seviye</TableHead><TableHead>Rozetler</TableHead><TableHead className="text-right">Puan</TableHead></TableRow></TableHeader>
-            <TableBody>{leaderboard.data?.map((entry) => <TableRow key={entry.rank} className={entry.rank <= 3 ? "bg-amber-500/[.025]" : ""}><TableCell><Rank rank={entry.rank} /></TableCell><TableCell><div className="flex items-center gap-3"><Avatar name={entry.analyst.full_name} level={entry.profile.level} /><div><strong>{entry.analyst.full_name}</strong><p className="text-[11px] text-muted-foreground">Fraud Analyst</p></div></div></TableCell><TableCell><Badge className={levelStyle[entry.profile.level]}>{entry.profile.level}</Badge></TableCell><TableCell><div className="flex flex-wrap gap-1.5">{entry.profile.badges.map((badge) => <Badge key={badge} className="font-normal"><Award size={11} className="mr-1 text-amber-500" />{badge}</Badge>)}</div></TableCell><TableCell className="text-right text-base font-semibold">{entry.profile.total_points.toLocaleString("tr-TR")}</TableCell></TableRow>)}</TableBody>
+            <TableBody>{leaderboard.data?.map((entry) => <TableRow key={entry.rank} className={entry.rank <= 3 ? "bg-amber-500/[.025]" : ""}><TableCell><Rank rank={entry.rank} /></TableCell><TableCell><div className="flex items-center gap-3"><Avatar name={entry.analyst.full_name} level={entry.profile.level} /><div><strong>{entry.analyst.full_name}</strong><p className="text-[11px] text-muted-foreground">Fraud Analyst</p></div></div></TableCell><TableCell><Badge className={levelStyle[entry.profile.level]}>{entry.profile.level}</Badge></TableCell><TableCell><div className="flex flex-wrap gap-1.5">{entry.profile.badges.length === 0 ? <span className="text-muted-foreground">—</span> : entry.profile.badges.map((badge) => <Badge key={badge} className="font-normal"><Award size={11} className="mr-1 text-amber-500" />{badge}</Badge>)}</div></TableCell><TableCell className="text-right text-base font-semibold">{entry.profile.total_points.toLocaleString("tr-TR")}</TableCell></TableRow>)}</TableBody>
           </Table>}
         </CardContent>
       </Card>

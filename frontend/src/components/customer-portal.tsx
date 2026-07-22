@@ -7,7 +7,8 @@ import { PageHeading } from "@/components/page-heading";
 import { RiskBadge } from "@/components/case-badges";
 import { Button, Card, CardContent, CardHeader, CardTitle, Input, Label, Select } from "@/components/ui/primitives";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useSimulateTransaction } from "@/hooks/use-fraudcell";
+import { useApiErrorToast, useGetCase, useSimulateTransaction, useSubmitFeedback, useVerifyCustomer } from "@/hooks/use-fraudcell";
+import { useFraudcellEvents } from "@/hooks/use-fraudcell-events";
 import { money } from "@/lib/utils";
 import type { TransactionSimulationRequest, TransactionSimulationResult, TransactionType } from "@/types/domain";
 
@@ -18,32 +19,59 @@ export function CustomerPortal() {
   const [form, setForm] = useState(initialForm);
   const [result, setResult] = useState<TransactionSimulationResult | null>(null);
   const [verificationOpen, setVerificationOpen] = useState(false);
-  const [resolved, setResolved] = useState(false);
   const [rating, setRating] = useState(0);
   const simulate = useSimulateTransaction();
+  const verifyCustomer = useVerifyCustomer();
+  const feedback = useSubmitFeedback();
+  const liveCase = useGetCase(result?.case.case_id ?? null);
+  const currentCase = liveCase.data ?? result?.case;
+  useFraudcellEvents("cases");
+  useApiErrorToast(liveCase.error, "Vaka durumu yüklenemedi");
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
-    setResolved(false);
     setRating(0);
     try {
       const data = await simulate.mutateAsync(form);
       setResult(data);
       if (data.requires_verification) setVerificationOpen(true);
-      else {
-        setResolved(true);
-        toast.success("İşlem güvenle onaylandı");
-      }
+      else if (data.case.prediction_status === "UNAVAILABLE") toast.warning("AI erişilemedi; vaka manuel kuyruğa alındı.");
+      else if (data.case.status === "ONAYLANDI") toast.success("İşlem güvenle onaylandı");
+      else toast.info("İşlem manuel inceleme kuyruğuna alındı");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "İşlem simüle edilemedi");
     }
   }
 
-  function verify(madeByCustomer: boolean) {
-    setVerificationOpen(false);
-    setResolved(true);
-    toast[madeByCustomer ? "success" : "error"](madeByCustomer ? "İşleminiz doğrulandı" : "İşlem bloklandı, güvenlik ekibi bilgilendirildi");
+  async function verify(madeByCustomer: boolean) {
+    if (!currentCase) return;
+    try {
+      const updated = await verifyCustomer.mutateAsync({
+        id: currentCase.case_id,
+        response: madeByCustomer ? "CUSTOMER_CONFIRMED" : "CUSTOMER_DENIED",
+      });
+      setResult({ case: updated, requires_verification: false });
+      setVerificationOpen(false);
+      toast[madeByCustomer ? "success" : "warning"](madeByCustomer ? "Yanıtınız doğrulandı" : "Yanıtınız güvenlik ekibine iletildi");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Doğrulama yanıtı gönderilemedi");
+    }
   }
+
+  async function submitRating(value: number) {
+    if (!currentCase || feedback.isPending || rating > 0) return;
+    try {
+      await feedback.mutateAsync({ id: currentCase.case_id, score: value });
+      setRating(value);
+      toast.success("Geri bildiriminiz alındı");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Geri bildirim gönderilemedi");
+    }
+  }
+
+  const awaitingVerification = currentCase?.status === "MUSTERI_DOGRULAMA";
+  const manualReview = currentCase && ["YENI", "ATANDI", "INCELENIYOR"].includes(currentCase.status);
+  const aiUnavailable = currentCase?.prediction_status === "UNAVAILABLE";
 
   return (
     <>
@@ -67,21 +95,21 @@ export function CustomerPortal() {
           <Card className="overflow-hidden">
             <div className="h-1 bg-brand-gradient" />
             <CardContent className="py-6">
-              {result ? <>
-                <div className="mb-5 flex items-start justify-between"><div><p className="text-xs text-muted-foreground">Son analiz</p><strong className="font-mono text-sm">{result.case.case_id}</strong></div><RiskBadge risk={result.case.risk_level} /></div>
-                <div className="mb-5 grid grid-cols-2 gap-3"><Result label="Risk skoru" value={`%${Math.round(result.case.ai_analysis.risk_score * 100)}`} /><Result label="AI önerisi" value={result.case.ai_analysis.recommended_decision} /><Result label="Tutar" value={money.format(result.case.transaction_details.amount)} /><Result label="Doğrulama" value={result.requires_verification ? "Gerekli" : "Gerekli değil"} /></div>
-                <div className={`rounded-xl p-3 text-sm ${resolved ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400" : "bg-amber-500/10 text-amber-700 dark:text-amber-400"}`}>{resolved ? <span className="flex items-center gap-2"><CheckCircle2 size={17} /> İşlem akışı tamamlandı</span> : "Müşteri doğrulaması bekleniyor"}</div>
+              {currentCase ? <>
+                <div className="mb-5 flex items-start justify-between"><div><p className="text-xs text-muted-foreground">Son analiz</p><strong className="font-mono text-sm">{currentCase.transaction_details.transaction_number ?? currentCase.case_id}</strong></div><RiskBadge risk={currentCase.risk_level} /></div>
+                <div className="mb-5 grid grid-cols-2 gap-3"><Result label="Risk skoru" value={currentCase.ai_analysis.risk_score === null ? "BELİRSİZ" : `%${Math.round(currentCase.ai_analysis.risk_score * 100)}`} /><Result label="AI önerisi" value={currentCase.ai_analysis.recommended_decision} /><Result label="Tutar" value={money.format(currentCase.transaction_details.amount)} /><Result label="Doğrulama" value={awaitingVerification ? "Gerekli" : "Gerekli değil"} /></div>
+                <div className={`rounded-xl p-3 text-sm ${manualReview || awaitingVerification ? "bg-amber-500/10 text-amber-700 dark:text-amber-400" : "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"}`}>{aiUnavailable ? "AI erişilemedi; vaka manuel atama kuyruğuna alındı." : awaitingVerification ? "Müşteri doğrulaması bekleniyor" : manualReview ? "Vaka güvenlik ekibinin manuel incelemesine alındı." : <span className="flex items-center gap-2"><CheckCircle2 size={17} /> İşlem akışı tamamlandı</span>}</div>
               </> : <div className="py-10 text-center"><ShieldCheck className="mx-auto mb-3 text-brand" size={40} /><p className="font-medium">AI risk motoru hazır</p><p className="mt-1 text-xs text-muted-foreground">İşlem sonucu burada görünecek.</p></div>}
             </CardContent>
           </Card>
-          {resolved && <Rating rating={rating} setRating={setRating} />}
+          {currentCase?.status === "KAPANDI" && <Rating rating={rating} pending={feedback.isPending} submit={submitRating} />}
         </div>
       </div>
 
       <Dialog open={verificationOpen} onOpenChange={setVerificationOpen}>
         <DialogContent>
-          <DialogHeader><div className="mb-3 grid size-12 place-items-center rounded-full bg-red-500/10 text-red-500"><ShieldCheck /></div><DialogTitle>Bu işlemi siz mi yaptınız?</DialogTitle><DialogDescription>Did you make this transaction? {result && `${result.case.transaction_details.receiver} için ${money.format(result.case.transaction_details.amount)} tutarında işlem algılandı.`}</DialogDescription></DialogHeader>
-          <div className="grid grid-cols-2 gap-3"><Button variant="outline" onClick={() => verify(true)}>Evet, benim</Button><Button variant="danger" onClick={() => verify(false)}>Hayır, blokla</Button></div>
+          <DialogHeader><div className="mb-3 grid size-12 place-items-center rounded-full bg-red-500/10 text-red-500"><ShieldCheck /></div><DialogTitle>Bu işlemi siz mi yaptınız?</DialogTitle><DialogDescription>Did you make this transaction? {currentCase && `${currentCase.transaction_details.receiver} için ${money.format(currentCase.transaction_details.amount)} tutarında işlem algılandı.`}</DialogDescription></DialogHeader>
+          <div className="grid grid-cols-2 gap-3"><Button variant="outline" loading={verifyCustomer.isPending && verifyCustomer.variables?.response === "CUSTOMER_CONFIRMED"} disabled={verifyCustomer.isPending} onClick={() => verify(true)}>Evet, benim</Button><Button variant="danger" loading={verifyCustomer.isPending && verifyCustomer.variables?.response === "CUSTOMER_DENIED"} disabled={verifyCustomer.isPending} onClick={() => verify(false)}>Hayır, blokla</Button></div>
         </DialogContent>
       </Dialog>
     </>
@@ -90,4 +118,4 @@ export function CustomerPortal() {
 
 function Field({ label, htmlFor, className, children }: { label: string; htmlFor: string; className?: string; children: React.ReactNode }) { return <div className={className}><Label htmlFor={htmlFor}>{label}</Label>{children}</div>; }
 function Result({ label, value }: { label: string; value: string }) { return <div className="rounded-xl bg-muted p-3"><p className="text-[11px] text-muted-foreground">{label}</p><p className="mt-1 font-semibold">{value}</p></div>; }
-function Rating({ rating, setRating }: { rating: number; setRating: (value: number) => void }) { return <Card><CardContent className="py-5 text-center"><p className="text-sm font-medium">Deneyiminizi puanlayın</p><p className="mb-3 text-xs text-muted-foreground">Geri bildiriminiz güvenlik akışını iyileştirir.</p><div className="flex justify-center gap-1">{[1, 2, 3, 4, 5].map((value) => <button key={value} aria-label={`${value} yıldız`} onClick={() => { setRating(value); toast.success("Geri bildiriminiz alındı"); }} className="rounded-lg p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"><Star size={25} className={value <= rating ? "fill-amber-400 text-amber-400" : "text-subtle"} /></button>)}</div></CardContent></Card>; }
+function Rating({ rating, pending, submit }: { rating: number; pending: boolean; submit: (value: number) => void }) { return <Card><CardContent className="py-5 text-center"><p className="text-sm font-medium">Deneyiminizi puanlayın</p><p className="mb-3 text-xs text-muted-foreground">Geri bildiriminiz güvenlik akışını iyileştirir.</p><div className="flex justify-center gap-1">{[1, 2, 3, 4, 5].map((value) => <button key={value} aria-label={`${value} yıldız`} disabled={pending || rating > 0} onClick={() => submit(value)} className="rounded-lg p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-not-allowed disabled:opacity-60"><Star size={25} className={value <= rating ? "fill-amber-400 text-amber-400" : "text-subtle"} /></button>)}</div></CardContent></Card>; }

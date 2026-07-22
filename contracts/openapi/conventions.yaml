@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: FraudCell API Conventions
+  version: 1.0.0
+  description: Canonical reusable response and security definitions. Service snapshots reference equivalent local components.
+paths: {}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    RequestId:
+      name: X-Request-ID
+      in: header
+      required: false
+      schema:
+        type: string
+        format: uuid
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 16
+        maxLength: 128
+  headers:
+    RequestId:
+      schema:
+        type: string
+        format: uuid
+    RetryAfter:
+      schema:
+        type: integer
+        minimum: 1
+  schemas:
+    FieldErrors:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+    ApiError:
+      type: object
+      additionalProperties: false
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        field_errors:
+          $ref: '#/components/schemas/FieldErrors'
+    ErrorEnvelope:
+      type: object
+      additionalProperties: false
+      required: [success, data, error, request_id]
+      properties:
+        success:
+          const: false
+        data:
+          type: 'null'
+        error:
+          $ref: '#/components/schemas/ApiError'
+        request_id:
+          type: string
+          format: uuid

@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import type { CaseStatus, RiskLevel } from "@/types/domain";
 
 const riskStyles: Record<RiskLevel, string> = {
+  BELIRSIZ: "border-slate-400/30 bg-slate-400/10 text-slate-600 dark:text-slate-400",
   KRITIK: "border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400",
   YUKSEK: "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400",
   ORTA: "border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-400",

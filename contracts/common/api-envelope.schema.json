@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fraudcell.local/contracts/common/api-envelope.schema.json",
+  "title": "FraudCell API Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["success", "data", "error", "request_id"],
+  "properties": {
+    "success": {"type": "boolean"},
+    "data": {},
+    "error": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["code", "message"],
+          "properties": {
+            "code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+            "message": {"type": "string", "minLength": 1, "maxLength": 500},
+            "field_errors": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      ]
+    },
+    "request_id": {"type": "string", "format": "uuid"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"success": {"const": true}}},
+      "then": {"properties": {"error": {"type": "null"}}}
+    },
+    {
+      "if": {"properties": {"success": {"const": false}}},
+      "then": {"properties": {"data": {"type": "null"}, "error": {"type": "object"}}}
+    }
+  ]
+}
+

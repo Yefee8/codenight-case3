@@ -1,0 +1,75 @@
+services:
+  rabbitmq:
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_BOOTSTRAP_USER:?RabbitMQ bootstrap user is required}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_BOOTSTRAP_PASSWORD:?RabbitMQ bootstrap password is required}
+
+  rabbitmq-bootstrap:
+    image: python:3.13.5-alpine
+    restart: "no"
+    environment:
+      RABBITMQ_MANAGEMENT_URL: http://rabbitmq:15672/api
+      RABBITMQ_BOOTSTRAP_USER: ${RABBITMQ_BOOTSTRAP_USER:?RabbitMQ bootstrap user is required}
+      RABBITMQ_BOOTSTRAP_PASSWORD: ${RABBITMQ_BOOTSTRAP_PASSWORD:?RabbitMQ bootstrap password is required}
+      RABBITMQ_OPERATOR_USER: ${RABBITMQ_OPERATOR_USER:-fraudcell_operator}
+      RABBITMQ_OPERATOR_PASSWORD: ${RABBITMQ_OPERATOR_PASSWORD:?RabbitMQ operator password is required}
+      IDENTITY_RABBITMQ_USER: ${IDENTITY_RABBITMQ_USER:-identity_service}
+      IDENTITY_RABBITMQ_PASSWORD: ${IDENTITY_RABBITMQ_PASSWORD:?Identity RabbitMQ password is required}
+      TRANSACTION_RABBITMQ_USER: ${TRANSACTION_RABBITMQ_USER:-transaction_service}
+      TRANSACTION_RABBITMQ_PASSWORD: ${TRANSACTION_RABBITMQ_PASSWORD:?Transaction RabbitMQ password is required}
+      AI_RABBITMQ_USER: ${AI_RABBITMQ_USER:-ai_service}
+      AI_RABBITMQ_PASSWORD: ${AI_RABBITMQ_PASSWORD:?AI RabbitMQ password is required}
+      GAMIFICATION_RABBITMQ_USER: ${GAMIFICATION_RABBITMQ_USER:-gamification_service}
+      GAMIFICATION_RABBITMQ_PASSWORD: ${GAMIFICATION_RABBITMQ_PASSWORD:?Gamification RabbitMQ password is required}
+      GATEWAY_RABBITMQ_USER: ${GATEWAY_RABBITMQ_USER:-gateway_service}
+      GATEWAY_RABBITMQ_PASSWORD: ${GATEWAY_RABBITMQ_PASSWORD:?Gateway RabbitMQ password is required}
+    command: ["python", "/opt/fraudcell/bootstrap_users.py"]
+    volumes:
+      - ./infrastructure/rabbitmq/bootstrap_users.py:/opt/fraudcell/bootstrap_users.py:ro
+      - ./infrastructure/rabbitmq/definitions-hardened.json:/opt/fraudcell/definitions.json:ro
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - messaging
+
+  identity-service:
+    environment:
+      SPRING_RABBITMQ_USERNAME: ${IDENTITY_RABBITMQ_USER:-identity_service}
+      SPRING_RABBITMQ_PASSWORD: ${IDENTITY_RABBITMQ_PASSWORD:?Identity RabbitMQ password is required}
+    depends_on:
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+
+  transaction-service:
+    environment:
+      SPRING_RABBITMQ_USERNAME: ${TRANSACTION_RABBITMQ_USER:-transaction_service}
+      SPRING_RABBITMQ_PASSWORD: ${TRANSACTION_RABBITMQ_PASSWORD:?Transaction RabbitMQ password is required}
+    depends_on:
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+
+  ai-service:
+    environment:
+      RABBITMQ_URL: amqp://${AI_RABBITMQ_USER:-ai_service}:${AI_RABBITMQ_PASSWORD:?AI RabbitMQ password is required}@rabbitmq:5672/%2F
+    depends_on:
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+
+  gamification-service:
+    environment:
+      SPRING_RABBITMQ_USERNAME: ${GAMIFICATION_RABBITMQ_USER:-gamification_service}
+      SPRING_RABBITMQ_PASSWORD: ${GAMIFICATION_RABBITMQ_PASSWORD:?Gamification RabbitMQ password is required}
+    depends_on:
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+
+  gateway:
+    environment:
+      SPRING_RABBITMQ_USERNAME: ${GATEWAY_RABBITMQ_USER:-gateway_service}
+      SPRING_RABBITMQ_PASSWORD: ${GATEWAY_RABBITMQ_PASSWORD:?Gateway RabbitMQ password is required}
+    depends_on:
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully

@@ -1,0 +1,457 @@
+name: ${COMPOSE_PROJECT_NAME:-fraudcell}
+
+x-postgres-common: &postgres-common
+  image: postgres:18.4-alpine
+  restart: unless-stopped
+  environment: &postgres-environment
+    POSTGRES_USER: postgres
+    POSTGRES_DB: postgres
+    POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256 --auth-local=scram-sha-256
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+    interval: 5s
+    timeout: 3s
+    retries: 20
+    start_period: 10s
+  security_opt:
+    - no-new-privileges:true
+
+x-java-service-common: &java-service-common
+  restart: unless-stopped
+  security_opt:
+    - no-new-privileges:true
+  networks:
+    - backend
+    - messaging
+
+services:
+  identity-db:
+    <<: *postgres-common
+    environment:
+      <<: *postgres-environment
+      POSTGRES_PASSWORD: ${IDENTITY_DB_BOOTSTRAP_PASSWORD:?Identity database bootstrap password is required}
+      APP_DATABASE: ${IDENTITY_DB_NAME:-fraudcell_identity}
+      MIGRATION_USER: ${IDENTITY_DB_MIGRATION_USER:-identity_migrator}
+      MIGRATION_PASSWORD: ${IDENTITY_DB_MIGRATION_PASSWORD:?Identity migration password is required}
+      RUNTIME_USER: ${IDENTITY_DB_RUNTIME_USER:-identity_app}
+      RUNTIME_PASSWORD: ${IDENTITY_DB_RUNTIME_PASSWORD:?Identity runtime password is required}
+    volumes:
+      - identity-db-data:/var/lib/postgresql
+      - ./infrastructure/postgres/bootstrap-service-db.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+    networks:
+      - identity-db-net
+
+  transaction-db:
+    <<: *postgres-common
+    environment:
+      <<: *postgres-environment
+      POSTGRES_PASSWORD: ${TRANSACTION_DB_BOOTSTRAP_PASSWORD:?Transaction database bootstrap password is required}
+      APP_DATABASE: ${TRANSACTION_DB_NAME:-fraudcell_transaction}
+      MIGRATION_USER: ${TRANSACTION_DB_MIGRATION_USER:-transaction_migrator}
+      MIGRATION_PASSWORD: ${TRANSACTION_DB_MIGRATION_PASSWORD:?Transaction migration password is required}
+      RUNTIME_USER: ${TRANSACTION_DB_RUNTIME_USER:-transaction_app}
+      RUNTIME_PASSWORD: ${TRANSACTION_DB_RUNTIME_PASSWORD:?Transaction runtime password is required}
+    volumes:
+      - transaction-db-data:/var/lib/postgresql
+      - ./infrastructure/postgres/bootstrap-service-db.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+    networks:
+      - transaction-db-net
+
+  ai-db:
+    <<: *postgres-common
+    environment:
+      <<: *postgres-environment
+      POSTGRES_PASSWORD: ${AI_DB_BOOTSTRAP_PASSWORD:?AI database bootstrap password is required}
+      APP_DATABASE: ${AI_DB_NAME:-fraudcell_ai}
+      MIGRATION_USER: ${AI_DB_MIGRATION_USER:-ai_migrator}
+      MIGRATION_PASSWORD: ${AI_DB_MIGRATION_PASSWORD:?AI migration password is required}
+      RUNTIME_USER: ${AI_DB_RUNTIME_USER:-ai_app}
+      RUNTIME_PASSWORD: ${AI_DB_RUNTIME_PASSWORD:?AI runtime password is required}
+    volumes:
+      - ai-db-data:/var/lib/postgresql
+      - ./infrastructure/postgres/bootstrap-service-db.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+    networks:
+      - ai-db-net
+
+  gamification-db:
+    <<: *postgres-common
+    environment:
+      <<: *postgres-environment
+      POSTGRES_PASSWORD: ${GAMIFICATION_DB_BOOTSTRAP_PASSWORD:?Gamification database bootstrap password is required}
+      APP_DATABASE: ${GAMIFICATION_DB_NAME:-fraudcell_gamification}
+      MIGRATION_USER: ${GAMIFICATION_DB_MIGRATION_USER:-gamification_migrator}
+      MIGRATION_PASSWORD: ${GAMIFICATION_DB_MIGRATION_PASSWORD:?Gamification migration password is required}
+      RUNTIME_USER: ${GAMIFICATION_DB_RUNTIME_USER:-gamification_app}
+      RUNTIME_PASSWORD: ${GAMIFICATION_DB_RUNTIME_PASSWORD:?Gamification runtime password is required}
+    volumes:
+      - gamification-db-data:/var/lib/postgresql
+      - ./infrastructure/postgres/bootstrap-service-db.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+    networks:
+      - gamification-db-net
+
+  gateway-redis:
+    image: redis:8.0.6-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${GATEWAY_REDIS_PASSWORD:?Gateway Redis password is required}
+    command: ["sh", "/opt/fraudcell/start-redis.sh"]
+    volumes:
+      - gateway-redis-data:/data
+      - ./infrastructure/redis/gateway-security.conf:/etc/redis/redis.conf:ro
+      - ./infrastructure/redis/start-gateway-redis.sh:/opt/fraudcell/start-redis.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --user gateway --pass \"$$REDIS_PASSWORD\" --no-auth-warning ping | grep PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - gateway-security-net
+
+  gamification-redis:
+    image: redis:8.0.6-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${GAMIFICATION_REDIS_PASSWORD:?Gamification Redis password is required}
+    command: ["sh", "/opt/fraudcell/start-redis.sh"]
+    volumes:
+      - ./infrastructure/redis/gamification-cache.conf:/etc/redis/redis.conf:ro
+      - ./infrastructure/redis/start-gamification-redis.sh:/opt/fraudcell/start-redis.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli --user gamification --pass \"$$REDIS_PASSWORD\" --no-auth-warning ping | grep PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - gamification-cache-net
+
+  rabbitmq:
+    image: rabbitmq:4.3.2-management-alpine
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_BOOTSTRAP_USER:?RabbitMQ bootstrap user is required}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_BOOTSTRAP_PASSWORD:?RabbitMQ bootstrap password is required}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+      - ./infrastructure/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - messaging
+
+  rabbitmq-bootstrap:
+    image: python:3.13-alpine
+    restart: "no"
+    environment:
+      RABBITMQ_MANAGEMENT_URL: http://rabbitmq:15672/api
+      RABBITMQ_BOOTSTRAP_USER: ${RABBITMQ_BOOTSTRAP_USER:?RabbitMQ bootstrap user is required}
+      RABBITMQ_BOOTSTRAP_PASSWORD: ${RABBITMQ_BOOTSTRAP_PASSWORD:?RabbitMQ bootstrap password is required}
+      RABBITMQ_OPERATOR_USER: ${RABBITMQ_OPERATOR_USER:-fraudcell_operator}
+      RABBITMQ_OPERATOR_PASSWORD: ${RABBITMQ_OPERATOR_PASSWORD:?RabbitMQ operator password is required}
+      IDENTITY_RABBITMQ_USER: ${IDENTITY_RABBITMQ_USER:-identity_service}
+      IDENTITY_RABBITMQ_PASSWORD: ${IDENTITY_RABBITMQ_PASSWORD:?Identity RabbitMQ password is required}
+      TRANSACTION_RABBITMQ_USER: ${TRANSACTION_RABBITMQ_USER:-transaction_service}
+      TRANSACTION_RABBITMQ_PASSWORD: ${TRANSACTION_RABBITMQ_PASSWORD:?Transaction RabbitMQ password is required}
+      AI_RABBITMQ_USER: ${AI_RABBITMQ_USER:-ai_service}
+      AI_RABBITMQ_PASSWORD: ${AI_RABBITMQ_PASSWORD:?AI RabbitMQ password is required}
+      GAMIFICATION_RABBITMQ_USER: ${GAMIFICATION_RABBITMQ_USER:-gamification_service}
+      GAMIFICATION_RABBITMQ_PASSWORD: ${GAMIFICATION_RABBITMQ_PASSWORD:?Gamification RabbitMQ password is required}
+      GATEWAY_RABBITMQ_USER: ${GATEWAY_RABBITMQ_USER:-gateway_service}
+      GATEWAY_RABBITMQ_PASSWORD: ${GATEWAY_RABBITMQ_PASSWORD:?Gateway RabbitMQ password is required}
+    command: ["python", "/opt/fraudcell/bootstrap_users.py"]
+    volumes:
+      - ./infrastructure/rabbitmq/bootstrap_users.py:/opt/fraudcell/bootstrap_users.py:ro
+      - ./infrastructure/rabbitmq/definitions-hardened.json:/opt/fraudcell/definitions.json:ro
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - messaging
+
+  identity-service:
+    <<: *java-service-common
+    build:
+      context: ./services/identity-service
+    environment:
+      SERVER_PORT: 8081
+      SPRING_DATASOURCE_URL: jdbc:postgresql://identity-db:5432/${IDENTITY_DB_NAME:-fraudcell_identity}
+      SPRING_DATASOURCE_USERNAME: ${IDENTITY_DB_RUNTIME_USER:-identity_app}
+      SPRING_DATASOURCE_PASSWORD: ${IDENTITY_DB_RUNTIME_PASSWORD:?Identity runtime password is required}
+      SPRING_FLYWAY_URL: jdbc:postgresql://identity-db:5432/${IDENTITY_DB_NAME:-fraudcell_identity}
+      SPRING_FLYWAY_USER: ${IDENTITY_DB_MIGRATION_USER:-identity_migrator}
+      SPRING_FLYWAY_PASSWORD: ${IDENTITY_DB_MIGRATION_PASSWORD:?Identity migration password is required}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_USERNAME: ${IDENTITY_RABBITMQ_USER:-identity_service}
+      SPRING_RABBITMQ_PASSWORD: ${IDENTITY_RABBITMQ_PASSWORD:?Identity RabbitMQ password is required}
+      JWT_ISSUER: ${JWT_ISSUER:-https://identity.fraudcell.local}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-fraudcell-api}
+      JWT_KEY_ID: ${JWT_KEY_ID:-fraudcell-local-2026}
+      DEMO_MODE: ${DEMO_MODE:-false}
+      DEMO_OTP_CODE: ${DEMO_OTP_CODE:-}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    depends_on:
+      identity-db:
+        condition: service_healthy
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8081/actuator/health/readiness"]
+      interval: 10s
+      timeout: 4s
+      retries: 20
+      start_period: 40s
+    networks:
+      - backend
+      - messaging
+      - identity-db-net
+
+  transaction-service:
+    <<: *java-service-common
+    build:
+      context: ./services/transaction-service
+    environment:
+      SERVER_PORT: 8082
+      SPRING_DATASOURCE_URL: jdbc:postgresql://transaction-db:5432/${TRANSACTION_DB_NAME:-fraudcell_transaction}
+      SPRING_DATASOURCE_USERNAME: ${TRANSACTION_DB_RUNTIME_USER:-transaction_app}
+      SPRING_DATASOURCE_PASSWORD: ${TRANSACTION_DB_RUNTIME_PASSWORD:?Transaction runtime password is required}
+      SPRING_FLYWAY_URL: jdbc:postgresql://transaction-db:5432/${TRANSACTION_DB_NAME:-fraudcell_transaction}
+      SPRING_FLYWAY_USER: ${TRANSACTION_DB_MIGRATION_USER:-transaction_migrator}
+      SPRING_FLYWAY_PASSWORD: ${TRANSACTION_DB_MIGRATION_PASSWORD:?Transaction migration password is required}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_USERNAME: ${TRANSACTION_RABBITMQ_USER:-transaction_service}
+      SPRING_RABBITMQ_PASSWORD: ${TRANSACTION_RABBITMQ_PASSWORD:?Transaction RabbitMQ password is required}
+      JWT_ISSUER: ${JWT_ISSUER:-https://identity.fraudcell.local}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-fraudcell-api}
+      JWKS_URI: http://identity-service:8081/.well-known/jwks.json
+      AI_BASE_URL: http://ai-service:8000
+      AI_INTERNAL_TOKEN: ${AI_INTERNAL_TOKEN:?AI internal token is required}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    depends_on:
+      transaction-db:
+        condition: service_healthy
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+      ai-service:
+        condition: service_started
+        required: false
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8082/actuator/health/readiness"]
+      interval: 10s
+      timeout: 4s
+      retries: 20
+      start_period: 40s
+    networks:
+      - backend
+      - messaging
+      - transaction-db-net
+
+  ai-migrate:
+    restart: "no"
+    build:
+      context: ./services/ai-service
+    environment:
+      APP_MODE: migrate
+      AI_MIGRATION_DATABASE_URL: postgresql+psycopg://${AI_DB_MIGRATION_USER:-ai_migrator}:${AI_DB_MIGRATION_PASSWORD:?AI migration password is required}@ai-db:5432/${AI_DB_NAME:-fraudcell_ai}
+    depends_on:
+      ai-db:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - ai-db-net
+
+  ai-service:
+    restart: unless-stopped
+    build:
+      context: ./services/ai-service
+    environment:
+      PORT: 8000
+      APP_ENV: production
+      AI_DATABASE_URL: postgresql+psycopg://${AI_DB_RUNTIME_USER:-ai_app}:${AI_DB_RUNTIME_PASSWORD:?AI runtime password is required}@ai-db:5432/${AI_DB_NAME:-fraudcell_ai}
+      AI_INTERNAL_TOKEN: ${AI_INTERNAL_TOKEN:?AI internal token is required}
+      RABBITMQ_URL: amqp://${AI_RABBITMQ_USER:-ai_service}:${AI_RABBITMQ_PASSWORD:?AI RabbitMQ password is required}@rabbitmq:5672/%2F
+      JWT_ISSUER: ${JWT_ISSUER:-https://identity.fraudcell.local}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-fraudcell-api}
+      JWKS_URI: http://identity-service:8081/.well-known/jwks.json
+      MODEL_ARTIFACT_PATH: /app/model-artifacts/model.joblib
+      MODEL_MANIFEST_PATH: /app/model-artifacts/manifest.json
+      SYNTHETIC_DATA_PATH: /app/synthetic-data/fraudcell.csv
+      MODEL_SEED: 2026
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    volumes:
+      - ./data/model-artifacts:/app/model-artifacts
+      - ./data/synthetic:/app/synthetic-data
+    depends_on:
+      ai-migrate:
+        condition: service_completed_successfully
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready', timeout=2)"]
+      interval: 10s
+      timeout: 4s
+      retries: 20
+      start_period: 60s
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - backend
+      - messaging
+      - ai-db-net
+
+  gamification-service:
+    <<: *java-service-common
+    build:
+      context: ./services/gamification-service
+    environment:
+      SERVER_PORT: 8083
+      SPRING_DATASOURCE_URL: jdbc:postgresql://gamification-db:5432/${GAMIFICATION_DB_NAME:-fraudcell_gamification}
+      SPRING_DATASOURCE_USERNAME: ${GAMIFICATION_DB_RUNTIME_USER:-gamification_app}
+      SPRING_DATASOURCE_PASSWORD: ${GAMIFICATION_DB_RUNTIME_PASSWORD:?Gamification runtime password is required}
+      SPRING_FLYWAY_URL: jdbc:postgresql://gamification-db:5432/${GAMIFICATION_DB_NAME:-fraudcell_gamification}
+      SPRING_FLYWAY_USER: ${GAMIFICATION_DB_MIGRATION_USER:-gamification_migrator}
+      SPRING_FLYWAY_PASSWORD: ${GAMIFICATION_DB_MIGRATION_PASSWORD:?Gamification migration password is required}
+      SPRING_DATA_REDIS_HOST: gamification-redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_USERNAME: gamification
+      SPRING_DATA_REDIS_PASSWORD: ${GAMIFICATION_REDIS_PASSWORD:?Gamification Redis password is required}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_USERNAME: ${GAMIFICATION_RABBITMQ_USER:-gamification_service}
+      SPRING_RABBITMQ_PASSWORD: ${GAMIFICATION_RABBITMQ_PASSWORD:?Gamification RabbitMQ password is required}
+      JWT_ISSUER: ${JWT_ISSUER:-https://identity.fraudcell.local}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-fraudcell-api}
+      JWKS_URI: http://identity-service:8081/.well-known/jwks.json
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    depends_on:
+      gamification-db:
+        condition: service_healthy
+      gamification-redis:
+        condition: service_healthy
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8083/actuator/health/readiness"]
+      interval: 10s
+      timeout: 4s
+      retries: 20
+      start_period: 40s
+    networks:
+      - backend
+      - messaging
+      - gamification-db-net
+      - gamification-cache-net
+
+  gateway:
+    restart: unless-stopped
+    build:
+      context: ./services/gateway
+    environment:
+      SERVER_PORT: 8080
+      IDENTITY_BASE_URL: http://identity-service:8081
+      TRANSACTION_BASE_URL: http://transaction-service:8082
+      AI_BASE_URL: http://ai-service:8000
+      GAMIFICATION_BASE_URL: http://gamification-service:8083
+      JWT_ISSUER: ${JWT_ISSUER:-https://identity.fraudcell.local}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-fraudcell-api}
+      JWKS_URI: http://identity-service:8081/.well-known/jwks.json
+      APP_ENV: production
+      GATEWAY_KEY_HMAC_SECRET: ${GATEWAY_KEY_HMAC_SECRET:?Gateway HMAC secret is required}
+      GATEWAY_REDIS_HOST: gateway-redis
+      GATEWAY_REDIS_USERNAME: gateway
+      GATEWAY_REDIS_PASSWORD: ${GATEWAY_REDIS_PASSWORD:?Gateway Redis password is required}
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_USERNAME: ${GATEWAY_RABBITMQ_USER:-gateway_service}
+      SPRING_RABBITMQ_PASSWORD: ${GATEWAY_RABBITMQ_PASSWORD:?Gateway RabbitMQ password is required}
+      ALLOWED_ORIGINS: http://localhost:${FRONTEND_PORT:-3000}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    ports:
+      - "${GATEWAY_PORT:-8080}:8080"
+    depends_on:
+      gateway-redis:
+        condition: service_healthy
+      identity-service:
+        condition: service_healthy
+      transaction-service:
+        condition: service_healthy
+      gamification-service:
+        condition: service_healthy
+      rabbitmq-bootstrap:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health/readiness"]
+      interval: 10s
+      timeout: 4s
+      retries: 20
+      start_period: 40s
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - edge
+      - backend
+      - gateway-security-net
+      - messaging
+
+  frontend:
+    restart: unless-stopped
+    build:
+      context: ./frontend
+    environment:
+      GATEWAY_INTERNAL_URL: http://gateway:8080
+      AUTH_SECRET: ${AUTH_SECRET:?Frontend auth secret is required}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      gateway:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode<500?0:1)).on('error',()=>process.exit(1))"]
+      interval: 10s
+      timeout: 4s
+      retries: 10
+      start_period: 20s
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - edge
+
+volumes:
+  identity-db-data:
+  transaction-db-data:
+  ai-db-data:
+  gamification-db-data:
+  gateway-redis-data:
+  rabbitmq-data:
+
+networks:
+  edge:
+  backend:
+    internal: true
+  messaging:
+    internal: true
+  identity-db-net:
+    internal: true
+  transaction-db-net:
+    internal: true
+  ai-db-net:
+    internal: true
+  gamification-db-net:
+    internal: true
+  gateway-security-net:
+    internal: true
+  gamification-cache-net:
+    internal: true

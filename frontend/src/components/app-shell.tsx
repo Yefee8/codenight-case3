@@ -22,9 +22,9 @@ declare global {
 }
 
 const allNavigation: { href: string; label: string; icon: typeof UserRound; roles: Role[] }[] = [
-  { href: "/analyst", label: "Vaka Merkezi", icon: UserRound, roles: ["ANALYST", "ADMIN"] },
+  { href: "/analyst", label: "Vaka Merkezi", icon: UserRound, roles: ["ANALYST"] },
   { href: "/supervisor", label: "Operasyon", icon: BarChart3, roles: ["SUPERVISOR", "ADMIN"] },
-  { href: "/customer", label: "İşlemler", icon: UsersRound, roles: ["CUSTOMER", "ADMIN"] },
+  { href: "/customer", label: "İşlemler", icon: UsersRound, roles: ["CUSTOMER"] },
   { href: "/leaderboard", label: "Liderlik", icon: Trophy, roles: ["ANALYST", "SUPERVISOR", "ADMIN"] },
 ];
 
@@ -71,10 +71,11 @@ export function AppShell({ user }: { user: SessionUser | null }) {
   async function signOut() {
     try {
       await logout.mutateAsync();
+    } catch {
+      toast.warning("Oturum bu cihazda kapatıldı; sunucu oturumu doğrulanamadı.");
+    } finally {
       router.replace("/login");
       router.refresh();
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Oturum kapatılamadı");
     }
   }
 

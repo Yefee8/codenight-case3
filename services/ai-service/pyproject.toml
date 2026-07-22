@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fraudcell-ai-service"
+version = "1.0.0"
+description = "FraudCell calibrated risk, fraud type and analyst-ranking service"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.139.2",
+  "uvicorn[standard]==0.41.0",
+  "pydantic==2.13.4",
+  "pydantic-settings==2.12.0",
+  "numpy==2.4.2",
+  "pandas==3.0.1",
+  "scikit-learn==1.9.0",
+  "joblib==1.5.3",
+  "sqlalchemy==2.0.46",
+  "psycopg[binary]==3.3.3",
+  "alembic==1.18.5",
+  "pika==1.3.2",
+  "prometheus-client==0.24.1",
+  "PyJWT[crypto]==2.11.0",
+  "httpx2==2.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.0.2",
+  "pytest-asyncio==1.3.0",
+  "pytest-cov==7.0.0",
+  "hypothesis==6.148.9",
+  "ruff==0.14.14",
+  "testcontainers[postgres,rabbitmq]==4.14.1",
+]
+
+[project.scripts]
+fraudcell-ai = "app.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config --cov=app --cov-branch --cov-report=term-missing --cov-fail-under=85"
+testpaths = ["tests"]
+markers = ["integration: requires Docker services"]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+branch = true
+source = ["app"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+exclude_also = ["if TYPE_CHECKING:", "if __name__ == .__main__.:"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "RUF"]
+ignore = ["S101", "E501", "RUF001", "UP046"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S105", "S106", "RUF012"]

@@ -1,0 +1,16 @@
+# Include explicitly until the v2 bootstrap becomes the only canonical mount:
+# docker compose -f docker-compose.yml -f docker-compose.database-bootstrap.override.yml up
+services:
+  identity-db:
+    volumes:
+      - ./infrastructure/postgres/bootstrap-service-db-v2.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+  transaction-db:
+    volumes:
+      - ./infrastructure/postgres/bootstrap-service-db-v2.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+  ai-db:
+    volumes:
+      - ./infrastructure/postgres/bootstrap-service-db-v2.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+  gamification-db:
+    volumes:
+      - ./infrastructure/postgres/bootstrap-service-db-v2.sh:/docker-entrypoint-initdb.d/10-bootstrap-service-db.sh:ro
+

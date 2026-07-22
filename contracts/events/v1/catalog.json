@@ -1,0 +1,41 @@
+{
+  "catalog_version": 1,
+  "exchange": "fraudcell.events.v1",
+  "delivery": "at-least-once",
+  "content_type": "application/json",
+  "events": [
+    {"type":"staff.created","producer":"identity-service","aggregate":"staff","required_payload":["staff_id","role","status","specialties","regions"]},
+    {"type":"staff.profile-updated","producer":"identity-service","aggregate":"staff","required_payload":["staff_id","changed_fields"]},
+    {"type":"staff.status-changed","producer":"identity-service","aggregate":"staff","required_payload":["staff_id","status"]},
+    {"type":"role.changed","producer":"identity-service","aggregate":"user","required_payload":["user_id","roles","session_epoch"]},
+    {"type":"sessions.revoked","producer":"identity-service","aggregate":"user","required_payload":["user_id","session_epoch","reason"]},
+
+    {"type":"transaction.created","producer":"transaction-service","aggregate":"transaction","required_payload":["transaction_id","transaction_number","customer_id","amount","currency","occurred_at"]},
+    {"type":"transaction.risk-assessed","producer":"transaction-service","aggregate":"transaction","required_payload":["transaction_id","prediction_id","model_version","risk_score","risk_level","fraud_type","decision"]},
+    {"type":"transaction.analysis-unavailable","producer":"transaction-service","aggregate":"transaction","required_payload":["transaction_id","reason","retry_count"]},
+    {"type":"case.created","producer":"transaction-service","aggregate":"case","required_payload":["case_id","transaction_id","customer_id","status","risk_level","due_at"]},
+    {"type":"case.assigned","producer":"transaction-service","aggregate":"case","required_payload":["case_id","analyst_id","assigned_by","manual","reason"]},
+    {"type":"case.status-changed","producer":"transaction-service","aggregate":"case","required_payload":["case_id","from_status","to_status","actor_id","reason"]},
+    {"type":"case.customer-verification-requested","producer":"transaction-service","aggregate":"case","required_payload":["case_id","customer_id","requested_by","expires_at"]},
+    {"type":"case.customer-verification-responded","producer":"transaction-service","aggregate":"case","required_payload":["case_id","customer_id","response"]},
+    {"type":"case.fraud-type-overridden","producer":"transaction-service","aggregate":"case","required_payload":["case_id","original_type","effective_type","actor_id","reason"]},
+    {"type":"case.risk-level-overridden","producer":"transaction-service","aggregate":"case","required_payload":["case_id","original_level","effective_level","actor_id","reason"]},
+    {"type":"case.decision-recorded","producer":"transaction-service","aggregate":"case","required_payload":["case_id","analyst_id","decision","note","decided_at","within_sla","fraud_type"]},
+    {"type":"case.sla-breached","producer":"transaction-service","aggregate":"case","required_payload":["case_id","analyst_id","risk_level","due_at","breached_at"]},
+    {"type":"case.closed","producer":"transaction-service","aggregate":"case","required_payload":["case_id","analyst_id","closed_at","decision"]},
+    {"type":"case.feedback-submitted","producer":"transaction-service","aggregate":"case","required_payload":["case_id","customer_id","score","submitted_at"]},
+    {"type":"case.ground-truth-set","producer":"transaction-service","aggregate":"case","required_payload":["case_id","truth","fraud_type","source","set_at"]},
+
+    {"type":"ai.prediction-created","producer":"ai-service","aggregate":"prediction","required_payload":["prediction_id","transaction_id","model_version","risk_score","fraud_type","reason_codes"]},
+    {"type":"ai.classification-evaluated","producer":"ai-service","aggregate":"prediction","required_payload":["prediction_id","ground_truth","is_correct","fraud_type_correct"]},
+    {"type":"ai.model-activated","producer":"ai-service","aggregate":"model","required_payload":["model_version","artifact_hash","feature_schema_version","activated_at"]},
+    {"type":"ai.assignment-recommended","producer":"ai-service","aggregate":"recommendation","required_payload":["recommendation_id","case_id","ranked_candidates","formula_version"]},
+
+    {"type":"points.changed","producer":"gamification-service","aggregate":"analyst","required_payload":["analyst_id","ledger_id","delta","reason","effective_total"]},
+    {"type":"badge.earned","producer":"gamification-service","aggregate":"analyst","required_payload":["analyst_id","badge_code","earned_at"]},
+    {"type":"level.changed","producer":"gamification-service","aggregate":"analyst","required_payload":["analyst_id","from_level","to_level","effective_points"]},
+
+    {"type":"audit.record-requested","producer":"any","aggregate":"audit-subject","required_payload":["actor_id","actor_role","action","resource_type","resource_id","result","request_id"]}
+  ]
+}
+

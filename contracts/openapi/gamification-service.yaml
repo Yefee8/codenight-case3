@@ -1,0 +1,155 @@
+openapi: 3.1.0
+info:
+  title: FraudCell Gamification Service API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/game/profile/me:
+    get:
+      operationId: getMyGameProfile
+      responses:
+        '200': {$ref: '#/components/responses/Profile'}
+        '401': {$ref: '#/components/responses/Error'}
+        '403': {$ref: '#/components/responses/Error'}
+  /api/v1/game/profiles/{analystId}:
+    get:
+      operationId: getGameProfile
+      parameters:
+        - name: analystId
+          in: path
+          required: true
+          schema: {type: string, format: uuid}
+      responses:
+        '200': {$ref: '#/components/responses/Profile'}
+        '404': {$ref: '#/components/responses/Error'}
+  /api/v1/game/leaderboard:
+    get:
+      operationId: getLeaderboard
+      parameters:
+        - name: period
+          in: query
+          schema: {type: string, enum: [daily, weekly], default: daily}
+      responses:
+        '200':
+          description: Leaderboard envelope
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/LeaderboardEnvelope'}
+        '400': {$ref: '#/components/responses/Error'}
+  /api/v1/game/badges:
+    get:
+      operationId: getBadges
+      responses:
+        '200':
+          description: Badge catalog envelope
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/BadgeEnvelope'}
+  /api/v1/game/notifications/stream:
+    get:
+      operationId: streamGameNotifications
+      parameters:
+        - name: Last-Event-ID
+          in: header
+          schema: {type: string, format: uuid}
+      responses:
+        '200':
+          description: SSE points.changed, badge.earned and level.changed events
+          content:
+            text/event-stream:
+              schema: {type: string}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    Profile:
+      description: Game profile envelope
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/ProfileEnvelope'}
+    Error:
+      description: Canonical safe error
+      content:
+        application/json:
+          schema: {$ref: '#/components/schemas/ErrorEnvelope'}
+  schemas:
+    Badge:
+      type: object
+      additionalProperties: false
+      required: [code, name, description, earned]
+      properties:
+        code: {type: string}
+        name: {type: string}
+        description: {type: string}
+        earned: {type: boolean}
+    Profile:
+      type: object
+      additionalProperties: false
+      required: [analystId, displayName, totalPoints, level, badges]
+      properties:
+        analystId: {type: string, format: uuid}
+        displayName: {type: string}
+        totalPoints: {type: integer, format: int64}
+        level: {type: string, enum: [BEGINNER, EXPERIENCED, EXPERT, MASTER]}
+        badges: {type: array, items: {$ref: '#/components/schemas/Badge'}}
+    LeaderboardEntry:
+      type: object
+      additionalProperties: false
+      required: [rank, analystId, displayName, points, completedCases]
+      properties:
+        rank: {type: integer, minimum: 1}
+        analystId: {type: string, format: uuid}
+        displayName: {type: string}
+        points: {type: integer, format: int64}
+        completedCases: {type: integer, minimum: 0}
+    ProfileEnvelope:
+      allOf:
+        - {$ref: '#/components/schemas/SuccessEnvelope'}
+        - type: object
+          properties: {data: {$ref: '#/components/schemas/Profile'}}
+    LeaderboardEnvelope:
+      allOf:
+        - {$ref: '#/components/schemas/SuccessEnvelope'}
+        - type: object
+          properties:
+            data:
+              type: object
+              required: [period, generatedAt, stale, entries]
+              properties:
+                period: {type: string, enum: [daily, weekly]}
+                generatedAt: {type: string, format: date-time}
+                stale: {type: boolean}
+                entries: {type: array, items: {$ref: '#/components/schemas/LeaderboardEntry'}}
+    BadgeEnvelope:
+      allOf:
+        - {$ref: '#/components/schemas/SuccessEnvelope'}
+        - type: object
+          properties: {data: {type: array, items: {$ref: '#/components/schemas/Badge'}}}
+    SuccessEnvelope:
+      type: object
+      required: [success, data, error, request_id]
+      properties:
+        success: {const: true}
+        data: {}
+        error: {type: 'null'}
+        request_id: {type: string, format: uuid}
+    ErrorEnvelope:
+      type: object
+      required: [success, data, error, request_id]
+      properties:
+        success: {const: false}
+        data: {type: 'null'}
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code: {type: string}
+            message: {type: string}
+            field_errors: {type: object}
+        request_id: {type: string, format: uuid}

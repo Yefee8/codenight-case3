@@ -1,0 +1,63 @@
+{
+  "artifact_sha256": "bf1ebf85329674042ce35a2f1d4ddc2ce445d075d308deeeca831b5dc1f0f031",
+  "dataset_sha256": "a5f071b3001b5f021b43a4b973b6e762558b95be61b3b06e3f04d75e62cb4562",
+  "dependencies": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.2",
+    "pandas": "3.0.1",
+    "python": "3.13.14",
+    "scikit-learn": "1.9.0"
+  },
+  "feature_schema_version": "fraudcell-features-v1",
+  "features": [
+    "city",
+    "region",
+    "country_code",
+    "transaction_type",
+    "amount",
+    "hour",
+    "new_device",
+    "new_recipient",
+    "frequency_1h",
+    "frequency_24h",
+    "deviation_score"
+  ],
+  "label_counts": {
+    "CALINTI_KART": 450,
+    "HESAP_ELE_GECIRME": 450,
+    "PARA_AKLAMA": 450,
+    "SUPHELI_DAVRANIS": 450,
+    "TEMIZ": 10200
+  },
+  "metrics": {
+    "category_precision": {
+      "CALINTI_KART": 0.9420289855072463,
+      "HESAP_ELE_GECIRME": 0.9491525423728814,
+      "PARA_AKLAMA": 0.9487179487179487,
+      "SUPHELI_DAVRANIS": 0.961038961038961
+    },
+    "category_recall": {
+      "CALINTI_KART": 0.9701492537313433,
+      "HESAP_ELE_GECIRME": 0.9180327868852459,
+      "PARA_AKLAMA": 0.9736842105263158,
+      "SUPHELI_DAVRANIS": 0.9367088607594937
+    },
+    "holdout_count": 1924,
+    "risk_brier": 0.00999217315785472,
+    "risk_pr_auc": 0.9928302291792793,
+    "risk_recall": 0.950530035335689,
+    "risk_roc_auc": 0.9985960469678276,
+    "type_macro_f1": 0.9582101194500379
+  },
+  "model_code_sha256": "7da96f7a704125f0e2e218886e9a7a87ff85857894e7851d899acf7d531732bc",
+  "model_version": "fraudcell-rf-1c8edefc2b2e91eb",
+  "rows": 12000,
+  "split_counts": {
+    "holdout": 1924,
+    "train": 8256,
+    "validation": 1820
+  },
+  "trained_at": "2026-07-22T21:23:38.777504+00:00",
+  "training_seed": 2026,
+  "training_signature": "1c8edefc2b2e91eb5d82a300b7a4ef60c0a87dbe8f939e3086cd6ec8a2b59a75"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fraudcell.local/contracts/events/v1/event-envelope.schema.json",
+  "title": "FraudCell Event Envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "event_version",
+    "producer",
+    "occurred_at",
+    "aggregate_id",
+    "aggregate_version",
+    "correlation_id",
+    "causation_id",
+    "payload"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "format": "uuid"},
+    "event_type": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "event_version": {"const": 1},
+    "producer": {
+      "enum": [
+        "identity-service",
+        "transaction-service",
+        "ai-service",
+        "gamification-service"
+      ]
+    },
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "aggregate_id": {"type": "string", "format": "uuid"},
+    "aggregate_version": {"type": "integer", "minimum": 0},
+    "correlation_id": {"type": "string", "format": "uuid"},
+    "causation_id": {
+      "oneOf": [
+        {"type": "string", "format": "uuid"},
+        {"type": "null"}
+      ]
+    },
+    "payload": {"type": "object"}
+  }
+}
+

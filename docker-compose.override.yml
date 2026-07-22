@@ -1,0 +1,33 @@
+# Development resilience overrides loaded automatically by Docker Compose.
+# Core services wait for their own database, but do not require asynchronous or
+# optional downstream dependencies to be healthy before they can start.
+services:
+  identity-service:
+    depends_on:
+      rabbitmq:
+        condition: service_started
+  transaction-service:
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      ai-service:
+        condition: service_started
+  ai-service:
+    depends_on:
+      rabbitmq:
+        condition: service_started
+  gamification-service:
+    depends_on:
+      rabbitmq:
+        condition: service_started
+      gamification-redis:
+        condition: service_started
+  gateway:
+    depends_on:
+      identity-service:
+        condition: service_started
+      transaction-service:
+        condition: service_started
+      gamification-service:
+        condition: service_started
+

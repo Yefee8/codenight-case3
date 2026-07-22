@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FraudCell frontend
 
-## Getting Started
+This directory contains the React 19 / Next.js frontend built by Docker Compose.
 
-First, run the development server:
+## Run with the platform
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+From the repository root:
+
+```sh
+cp .env.example .env
+# Replace every CHANGE_ME value in .env with a unique secret.
+docker compose up --build --wait
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. Browser API traffic stays on the same origin under `/api/v1`;
+Next.js forwards it to the private API Gateway container. The Gateway is also exposed at
+`http://localhost:8080` for API diagnostics.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The login screen lists local seed credentials. They exist only when `DEMO_MODE=true`; the
+customer OTP is read from `DEMO_OTP_CODE` and defaults to `1234` in `.env.example`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Run only the frontend
 
-## Learn More
+Keep the Docker backend running, then start Next.js outside Docker:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+pnpm install --frozen-lockfile
+GATEWAY_INTERNAL_URL=http://localhost:8080 \
+AUTH_SECRET="$(openssl rand -hex 32)" \
+COOKIE_SECURE=false \
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+pnpm lint
+pnpm build
+pnpm check:auth # requires the running demo stack
+pnpm check:sse
+pnpm check:pwa
+```
 
-## Deploy on Vercel
+`check:auth` uses the seeded analyst by default. Override it with `AUTH_TEST_IDENTIFIER` and
+`AUTH_TEST_SECRET` when the demo credentials differ.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The browser holds access tokens only in module memory. Refresh tokens are opaque,
+`HttpOnly`, `SameSite=Strict` cookies and are never exposed to JavaScript or local storage.
+See `docs/AUTHENTICATION.md` and `docs/ARCHITECTURE.md` for the request flow.

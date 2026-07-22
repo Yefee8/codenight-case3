@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "check:auth": "node scripts/check-auth.mjs",
-    "check:pwa": "node scripts/check-pwa.mjs"
+    "check:pwa": "node scripts/check-pwa.mjs",
+    "check:sse": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-sse.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.20",

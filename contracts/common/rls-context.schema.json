@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fraudcell.local/contracts/common/rls-context.schema.json",
+  "title": "Trusted RLS Context",
+  "description": "Internal representation only. Values must originate from a verified JWT or an explicitly authenticated service job, never directly from client headers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["actor_id", "actor_role", "service_name", "request_id"],
+  "properties": {
+    "actor_id": {"type": "string", "format": "uuid"},
+    "actor_role": {"enum": ["CUSTOMER", "ANALYST", "SUPERVISOR", "ADMIN", "SYSTEM"]},
+    "service_name": {"enum": ["identity-service", "transaction-service", "ai-service", "gamification-service"]},
+    "request_id": {"type": "string", "format": "uuid"}
+  }
+}
+

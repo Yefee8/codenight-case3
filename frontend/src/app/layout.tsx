@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import { Suspense } from "react";
 import { AppHeader, AppHeaderSkeleton } from "@/components/app-header";
@@ -16,22 +17,23 @@ export const metadata: Metadata = {
   icons: { apple: [{ url: "/icon", sizes: "512x512", type: "image/png" }] },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
     <html lang="tr" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.cdnfonts.com" />
-        <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/campton" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
+        <link nonce={nonce} rel="preconnect" href="https://fonts.cdnfonts.com" />
+        <link nonce={nonce} rel="stylesheet" href="https://fonts.cdnfonts.com/css/campton" />
+        <link nonce={nonce} rel="preconnect" href="https://fonts.googleapis.com" />
+        <link nonce={nonce} rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link nonce={nonce} rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" />
       </head>
       <body>
-        <Script id="pwa-install" strategy="beforeInteractive">{`
+        <Script id="pwa-install" nonce={nonce} strategy="beforeInteractive">{`
           window.addEventListener("beforeinstallprompt", function (event) {
             event.preventDefault();
             window.__fraudcellInstallPrompt = event;

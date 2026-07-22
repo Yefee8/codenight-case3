@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 
 const baseUrl = process.env.PWA_BASE_URL ?? "http://localhost:3000";
+const pageResponse = await fetch(baseUrl);
+assert.equal(pageResponse.status, 200);
+if (new URL(baseUrl).protocol === "http:") {
+  assert.doesNotMatch(pageResponse.headers.get("content-security-policy") ?? "", /upgrade-insecure-requests/i);
+}
+
 const manifestResponse = await fetch(`${baseUrl}/manifest.webmanifest`);
 assert.equal(manifestResponse.status, 200);
 

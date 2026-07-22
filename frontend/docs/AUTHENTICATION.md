@@ -1,25 +1,42 @@
 # Authentication and authorization
 
-## Why this shape
+## Token handling
 
-Authentication happens in `POST /api/v1/auth/login`; the browser never decides its own role. Correct credentials create an eight-hour, HMAC-signed session in an `HttpOnly`, `SameSite=Lax` cookie. Only the user id is stored in the token, and the server resolves the current role.
+The login card submits an identifier and secret to the same-origin BFF. The BFF maps a GSM
+identifier to the Identity customer challenge/login flow and an email identifier to staff login.
+The backend decides the user's role.
 
-Page checks live next to server data reads. API checks live at the start of each public Route Handler. Hiding a header link is therefore presentation, not authorization.
+The returned access token is kept only in browser module memory. The Identity Service issues the
+opaque refresh token as a `HttpOnly`, `SameSite=Strict` cookie scoped to `/api/v1/auth`; the BFF
+forwards only that named cookie to the Gateway. Neither token is stored in local storage.
 
-Login and logout clear the browser Query cache so data from one role cannot survive an account switch.
+Next.js also creates a signed, HttpOnly UI-session cookie containing only user id, display name,
+role, and expiry. It lets Server Components gate pages without putting a bearer token in HTML.
+It is updated after refresh and removed after logout. Domain services and the Gateway remain the
+authorization authority for every resource and mutation.
 
-`src/proxy.ts` performs only the cheap optimistic signature check for protected pages. This prevents a loading shell from streaming before an anonymous redirect. Secure role checks still run beside each page/API data read.
+## Error and lockout behavior
 
-## Demo accounts
+- A 401 triggers one single-flight refresh and one replay of the original request.
+- 403 and 404 are displayed as generic authorization/not-found messages.
+- Validation and conflict responses preserve field errors and request ids for diagnostics.
+- 423 account lockout and 429 rate limits are shown without crashing; `Retry-After` is converted
+  to a remaining-seconds message when the Gateway supplies it.
+- Logging out attempts backend refresh-session revocation and always clears browser auth state;
+  the UI still returns to login when the Gateway cannot confirm revocation.
 
-| Role | GSM | OTP | Allowed areas |
-|---|---|---:|---|
-| Customer | `0532 000 00 01` | `1234` | Customer simulator |
-| Analyst | `0532 111 20 26` | `2468` | Case queue and leaderboard |
-| Supervisor | `0532 000 00 03` | `8642` | Operations and leaderboard |
+Five failed staff attempts lock the backend account for 15 minutes. The frontend does not try to
+replicate or bypass that policy.
 
-Five failed attempts in one minute return `429`. The limiter is process-local because the current BFF is a mock; use Redis or an API gateway when the app runs on multiple instances.
+## Local demo identities
 
-## Production handoff
+With `DEMO_MODE=true`, use the credentials displayed on the login page:
 
-Set `AUTH_SECRET` to a random secret. Replace the demo account lookup with the identity provider, keep `SessionUser` minimal, and add refresh/revocation through the provider. The cookie and role-gate call sites do not need to change.
+| Role | Identifier | Secret |
+|---|---|---|
+| Customer | `+90 555 111 11 11` | `1234` |
+| Analyst | `analyst1@fraudcell.local` | `Analyst123!` |
+| Supervisor | `supervisor@fraudcell.local` | `Supervisor123!` |
+
+Set `AUTH_SECRET` to at least 32 random bytes and `COOKIE_SECURE=true` behind HTTPS. The frontend
+fails startup in production when its signing secret is missing or too short.

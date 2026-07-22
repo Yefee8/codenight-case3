@@ -1,55 +1,162 @@
-import { apiError, apiSuccess } from "@/lib/api-response";
-import { authenticate, createSession, homeForRole } from "@/lib/server/auth";
-import type { LoginRequest, LoginResult } from "@/types/domain";
+import { createSession, homeForRole } from "@/lib/server/auth";
+import {
+  gatewayError,
+  gatewayFetch,
+  gatewayResponse,
+  readGatewayEnvelope,
+  requestIdFor,
+} from "@/lib/server/gateway";
+import type {
+  AuthResult,
+  LoginCredentials,
+  LoginResult,
+  OtpChallengeResult,
+  Role,
+  SessionUser,
+} from "@/types/domain";
 
-const attempts = new Map<string, { count: number; resetAt: number }>();
-const WINDOW_MS = 60_000;
-const MAX_ATTEMPTS = 5;
+const ROLES = new Set<Role>(["CUSTOMER", "ANALYST", "SUPERVISOR", "ADMIN"]);
+const JSON_HEADERS = { Accept: "application/json", "Content-Type": "application/json" };
 
-function clientKey(request: Request) {
-  return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
 }
 
-function isRateLimited(key: string) {
-  const now = Date.now();
-  const state = attempts.get(key);
-  if (!state || state.resetAt <= now) {
-    attempts.set(key, { count: 0, resetAt: now + WINDOW_MS });
-    return false;
-  }
-  return state.count >= MAX_ATTEMPTS;
+function isAuthResult(value: unknown): value is AuthResult {
+  if (!isRecord(value) || !isRecord(value.user)) return false;
+  const user = value.user;
+  return typeof value.access_token === "string"
+    && typeof value.expires_in === "number"
+    && typeof user.id === "string"
+    && typeof user.first_name === "string"
+    && typeof user.last_name === "string"
+    && typeof user.role === "string"
+    && ROLES.has(user.role as Role)
+    && Array.isArray(user.specialties)
+    && Array.isArray(user.regions);
 }
 
-function recordFailure(key: string) {
-  const state = attempts.get(key);
-  if (state) state.count += 1;
+function toSessionUser(result: AuthResult): SessionUser {
+  return {
+    user_id: result.user.id,
+    full_name: `${result.user.first_name} ${result.user.last_name}`.trim(),
+    role: result.user.role,
+  };
 }
 
-/** Validates mock credentials server-side and issues a signed HttpOnly session cookie. */
+function normalizeGsm(identifier: string) {
+  const compact = identifier.replace(/[\s()-]/g, "");
+  if (compact.startsWith("+")) return compact;
+  if (/^0[1-9][0-9]{9}$/.test(compact)) return `+90${compact.slice(1)}`;
+  return `+${compact}`;
+}
+
+/** Translates the shared login card into the Identity Service's exact auth flows. */
 export async function POST(request: Request) {
-  const key = clientKey(request);
-  if (isRateLimited(key)) return apiError(429, "Çok fazla deneme. Bir dakika sonra tekrar deneyin");
-
-  let body: Partial<LoginRequest>;
+  const requestId = requestIdFor(request);
+  let credentials: LoginCredentials;
   try {
-    body = await request.json();
+    credentials = await request.json() as LoginCredentials;
   } catch {
-    return apiError(400, "Geçerli bir JSON gövdesi gönderin");
-  }
-  if (typeof body.gsm !== "string" || typeof body.otp !== "string" || body.otp.length !== 4) {
-    return apiError(422, "GSM ve dört haneli OTP zorunludur");
+    return gatewayError(400, "INVALID_JSON", "Geçerli bir JSON gövdesi gönderin.", requestId);
   }
 
-  const user = authenticate(body.gsm, body.otp);
-  if (!user) {
-    recordFailure(key);
-    return apiError(401, "GSM veya OTP hatalı");
+  if (
+    typeof credentials?.identifier !== "string"
+    || typeof credentials.secret !== "string"
+    || !credentials.identifier.trim()
+    || !credentials.secret.trim()
+  ) {
+    return gatewayError(
+      422,
+      "VALIDATION_ERROR",
+      "GSM/e-posta ve OTP/parola zorunludur.",
+      requestId,
+    );
   }
 
-  attempts.delete(key);
-  await createSession(user);
-  const result: LoginResult = { user, redirect_to: homeForRole(user.role) };
-  return apiSuccess(result);
+  try {
+    const identifier = credentials.identifier.trim();
+    let authPath = "/api/v1/auth/staff/login";
+    let authBody: Record<string, unknown> = { email: identifier, password: credentials.secret };
+
+    if (!identifier.includes("@")) {
+      const gsm = normalizeGsm(identifier);
+      const challengeResponse = await gatewayFetch(request, "/api/v1/auth/otp/challenges", {
+        method: "POST",
+        headers: JSON_HEADERS,
+        body: JSON.stringify({ gsm }),
+      });
+      if (!challengeResponse.ok) return gatewayResponse(challengeResponse);
+
+      const challenge = await readGatewayEnvelope<OtpChallengeResult>(challengeResponse);
+      if (!challenge.envelope) {
+        return gatewayError(
+          503,
+          "INVALID_GATEWAY_RESPONSE",
+          "Kimlik servisi geçersiz bir yanıt döndürdü.",
+          requestId,
+        );
+      }
+      if (!challenge.envelope.success) {
+        return gatewayResponse(challengeResponse, challenge.body);
+      }
+      if (typeof challenge.envelope.data?.challenge_id !== "string") {
+        return gatewayError(
+          503,
+          "INVALID_GATEWAY_RESPONSE",
+          "Kimlik servisi geçersiz bir yanıt döndürdü.",
+          challenge.envelope.request_id,
+        );
+      }
+
+      authPath = "/api/v1/auth/customers/login";
+      authBody = {
+        challenge_id: challenge.envelope.data.challenge_id,
+        gsm,
+        otp_code: credentials.secret,
+      };
+    }
+
+    const authResponse = await gatewayFetch(request, authPath, {
+      method: "POST",
+      headers: JSON_HEADERS,
+      body: JSON.stringify(authBody),
+    });
+    if (!authResponse.ok) return gatewayResponse(authResponse);
+
+    const parsed = await readGatewayEnvelope<AuthResult>(authResponse);
+    if (!parsed.envelope) {
+      return gatewayError(
+        503,
+        "INVALID_GATEWAY_RESPONSE",
+        "Kimlik servisi geçersiz bir yanıt döndürdü.",
+        requestId,
+      );
+    }
+    if (!parsed.envelope.success) return gatewayResponse(authResponse, parsed.body);
+    if (!isAuthResult(parsed.envelope.data)) {
+      return gatewayError(
+        503,
+        "INVALID_GATEWAY_RESPONSE",
+        "Kimlik servisi geçersiz bir yanıt döndürdü.",
+        parsed.envelope.request_id,
+      );
+    }
+
+    const sessionUser = toSessionUser(parsed.envelope.data);
+    await createSession(sessionUser);
+    const result: LoginResult = {
+      ...parsed.envelope.data,
+      redirect_to: homeForRole(sessionUser.role),
+    };
+    return gatewayResponse(authResponse, JSON.stringify({ ...parsed.envelope, data: result }));
+  } catch {
+    return gatewayError(
+      503,
+      "AUTHENTICATION_UNAVAILABLE",
+      "Kimlik doğrulama geçici olarak kullanılamıyor.",
+      requestId,
+    );
+  }
 }
-
-// ponytail: process-local throttling is enough for mocks; use a shared store when instances scale out.
