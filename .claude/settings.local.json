@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import PyPDF2; print\\('ok'\\)\")",
+      "Bash(python3 -c \"import pdfplumber; print\\('ok'\\)\")",
+      "Bash(pdftotext -layout codenight-case3/case.pdf codenight-case3/case.txt)",
+      "Bash(docker --version)",
+      "Bash(docker compose *)",
+      "Bash(npm --version)",
+      "Bash(docker builder *)",
+      "Bash(wsl --shutdown)",
+      "Bash(docker info *)"
+    ]
+  }
+}
