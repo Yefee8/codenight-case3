@@ -184,7 +184,7 @@ Transaction create body:
 
 ### AI Service
 
-`POST /internal/v1/score` Compose ağı içinde Transaction tarafından çağrılır. Jüri/BFF entegrasyonu için aynı skor sözleşmesi `POST /api/v1/ai/score` üzerinden de standart zarfla yayınlanır.
+`POST /internal/v1/score` Compose ağı içinde Transaction tarafından çağrılır. Jüri/BFF entegrasyonu için aynı skor sözleşmesi `POST /api/v1/ai/score` üzerinden de standart zarfla yayınlanır. Normal çalışmada `prediction_engine=ML_MODEL` ve `model_version=fraudcell-rf-v1` döner; model artifact load edilemezse contract bozulmadan rule-based fallback devreye girer.
 
 ```json
 {

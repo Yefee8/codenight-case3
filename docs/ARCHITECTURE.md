@@ -24,7 +24,7 @@ flowchart LR
 | Nginx Gateway | `/api/v1/...` yollarını doğru mikroservise yönlendirme ve 64 KiB body limiti |
 | Identity | Kullanıcı, bcrypt parola, JWT, refresh rotation/logout, lockout ve audit |
 | Transaction | İşlem, AI çağrısı, risk vakası, state machine, SLA zamanı ve karar eventi |
-| AI | Deterministik kural bazlı risk skoru, karar ve fraud tipi |
+| AI | Eğitilmiş scikit-learn modeliyle risk skoru, karar ve fraud tipi; model yoksa güvenli rule-based fallback |
 | Gamification | RabbitMQ consumer, idempotent puan ledger'ı, profil, leaderboard ve puan SSE stream |
 | RabbitMQ | `fraudcell.events.v1` topic exchange üzerinden `transaction.blocked` olayı |
 
@@ -124,7 +124,7 @@ YENI → ATANDI → INCELENIYOR → ONAYLANDI → KAPANDI
 
 ## Bilinçli minimal tercihler
 
-- Gerçek ML yerine deterministik kurallar.
+- Tam model registry yerine repoda yeniden üretilebilir tek scikit-learn artifact.
 - Redis/Kubernetes yerine servis başına PostgreSQL ve Docker Compose.
 - Event outbox/retry altyapısı yerine karar DB'ye yazıldıktan sonra best-effort persistent publish.
 - Compose tek Next.js instance çalıştırır; birden fazla replica kullanılırsa hepsine aynı `AUTH_SECRET` verilmelidir.

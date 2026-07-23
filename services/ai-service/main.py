@@ -1,5 +1,7 @@
 import re
+import logging
 from contextlib import asynccontextmanager
+from dataclasses import dataclass
 
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.encoders import jsonable_encoder
@@ -9,9 +11,13 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from sqlalchemy.orm import Session
 
 from database import get_db, init_db
+from ml.predictor import load_model, predict
 from models import Prediction
 
 SCRIPT_RE = re.compile(r"</?script\b[^>]*>", re.IGNORECASE)
+logger = logging.getLogger("fraudcell.ai")
+logging.basicConfig(level=logging.INFO)
+MODEL_ARTIFACT: dict | None = None
 
 
 def clean_text(value: str | None) -> str | None:
@@ -43,6 +49,17 @@ class ScoreResponse(BaseModel):
     decision: str
     recommended_decision: str
     reason: str
+    model_version: str | None = None
+    prediction_engine: str
+
+
+@dataclass(slots=True)
+class ScoringResult:
+    risk_score: float
+    fraud_type: str
+    reason: str
+    prediction_engine: str = "RULE_BASED_FALLBACK"
+    model_version: str | None = None
 
 
 DOMESTIC_MARKERS = (
@@ -73,7 +90,7 @@ def decision_for(score: float) -> str:
     return "BLOK"
 
 
-def score_transaction(item: ScoreRequest) -> tuple[float, str, str]:
+def rule_based_score(item: ScoreRequest) -> ScoringResult:
     score = 0.05
     reasons: list[str] = []
 
@@ -128,12 +145,44 @@ def score_transaction(item: ScoreRequest) -> tuple[float, str, str]:
     else:
         fraud_type = "SUPHELI_DAVRANIS"
 
-    return score, fraud_type, ",".join(reasons) or "NORMAL_PATTERN"
+    return ScoringResult(score, fraud_type, ",".join(reasons) or "NORMAL_PATTERN")
+
+
+def score_transaction(item: ScoreRequest, artifact: dict | None = None) -> ScoringResult:
+    model = artifact if artifact is not None else MODEL_ARTIFACT
+    if model:
+        try:
+            result = predict(model, item)
+            logger.info(
+                "prediction_engine=%s model_version=%s risk_score=%s fraud_type=%s",
+                result["prediction_engine"],
+                result["model_version"],
+                result["risk_score"],
+                result["fraud_type"],
+            )
+            return ScoringResult(
+                risk_score=result["risk_score"],
+                fraud_type=result["fraud_type"],
+                reason=result["reason"],
+                prediction_engine=result["prediction_engine"],
+                model_version=result["model_version"],
+            )
+        except Exception:
+            logger.exception("prediction_engine=RULE_BASED_FALLBACK model_version=None reason=ml_prediction_failed")
+    result = rule_based_score(item)
+    logger.warning("prediction_engine=%s model_version=None risk_score=%s fraud_type=%s", result.prediction_engine, result.risk_score, result.fraud_type)
+    return result
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    global MODEL_ARTIFACT
     init_db()
+    MODEL_ARTIFACT = load_model()
+    if MODEL_ARTIFACT:
+        logger.info("prediction_engine=ML_MODEL model_version=%s loaded=true", MODEL_ARTIFACT.get("model_version"))
+    else:
+        logger.warning("prediction_engine=RULE_BASED_FALLBACK model_version=None loaded=false")
     yield
 
 
@@ -164,31 +213,37 @@ def validation_error(_: Request, exc: RequestValidationError):
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "prediction_engine": "ML_MODEL" if MODEL_ARTIFACT else "RULE_BASED_FALLBACK",
+        "model_version": str(MODEL_ARTIFACT.get("model_version")) if MODEL_ARTIFACT else "",
+    }
 
 
 @app.post("/internal/v1/score", response_model=ScoreResponse)
 def score(item: ScoreRequest, db: Session = Depends(get_db)) -> ScoreResponse:
-    risk_score, fraud_type, reason = score_transaction(item)
-    decision = decision_for(risk_score)
+    result = score_transaction(item)
+    decision = decision_for(result.risk_score)
     db.add(
         Prediction(
             amount=item.amount,
             transaction_type=item.transaction_type.upper(),
             location=item.location,
-            risk_score=risk_score,
-            fraud_type=fraud_type,
+            risk_score=result.risk_score,
+            fraud_type=result.fraud_type,
             decision=decision,
-            reason=reason,
+            reason=result.reason,
         )
     )
     db.commit()
     return ScoreResponse(
-        risk_score=risk_score,
-        fraud_type=fraud_type,
+        risk_score=result.risk_score,
+        fraud_type=result.fraud_type,
         decision=decision,
         recommended_decision=decision,
-        reason=reason,
+        reason=result.reason,
+        model_version=result.model_version,
+        prediction_engine=result.prediction_engine,
     )
 
 

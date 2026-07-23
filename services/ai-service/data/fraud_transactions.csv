@@ -1,0 +1,1601 @@
+amount,transaction_type,location,receiver,device,country_code,hour,is_new_device,is_new_recipient,label
+33387.46,ODEME,"Tbilisi, GE",Aile Transferi,Bilinmeyen iPhone,,17,1,0,CALINTI_KART
+1327.69,ODEME,"Ankara, TR",Market Harcama,Android bilinen cihaz,TR,17,0,0,TEMIZ
+59260.9,ODEME,"Amsterdam, NL",Restoran,Bilinmeyen iPhone,,2,0,1,CALINTI_KART
+376.03,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+4313.47,FATURA,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+717.56,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+2039.36,FATURA,"Manisa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+106131.25,TRANSFER,"London, UK",Yeni Alıcı,Yeni web oturumu,,9,1,1,PARA_AKLAMA
+13900.13,ODEME,"Amsterdam, NL",New Recipient Ltd,Bilinmeyen iPhone,,23,1,1,CALINTI_KART
+2587.45,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+3655.97,ODEME,"Manisa, TR",Elektrik Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+43273.76,ODEME,"Dubai, AE",Offshore Services,Yeni web oturumu,TR,3,1,1,HESAP_ELE_GECIRME
+13391.12,ODEME,"Amsterdam, NL",Yeni Alıcı,Yeni web oturumu,TR,17,0,1,CALINTI_KART
+73058.2,CEKIM,"İzmir, TR",Kripto Exchange,Yeni cihaz,TR,23,1,1,CALINTI_KART
+33410.4,CEKIM,"Dubai, AE",Sigorta Fatura,Android bilinen cihaz,TR,13,1,1,SUPHELI_DAVRANIS
+1560.83,ODEME,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+486.59,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+59858.89,TRANSFER,"Berlin, DE",Offshore Services,Unknown Android,,2,1,1,HESAP_ELE_GECIRME
+1307.2,FATURA,"Bursa, TR",Telekom Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+4071.25,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+210077.91,TRANSFER,"Bursa, TR",Kripto Exchange,Unknown Android,,3,0,1,PARA_AKLAMA
+3811.91,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+24076.72,FATURA,"Berlin, DE",Offshore Services,iPhone 13 bilinen cihaz,,2,1,0,CALINTI_KART
+49677.68,ODEME,"Amsterdam, NL",Global Trade,Android bilinen cihaz,TR,15,1,1,CALINTI_KART
+2038.01,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+27403.37,CEKIM,"London, UK",Yeni Alıcı,Yeni web oturumu,TR,12,1,1,SUPHELI_DAVRANIS
+2815.85,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+676.07,ODEME,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+3018.58,FATURA,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+3309.95,ODEME,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+2633.2,ODEME,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+3742.66,FATURA,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,9,0,0,TEMIZ
+88055.07,FATURA,"Berlin, DE",Aile Transferi,iPhone 13 bilinen cihaz,TR,3,0,0,CALINTI_KART
+35997.8,CEKIM,"Amsterdam, NL",Global Trade,Yeni web oturumu,,3,0,0,CALINTI_KART
+2250.55,ODEME,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+1957.66,FATURA,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+1403.5,FATURA,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,13,0,0,TEMIZ
+44135.93,TRANSFER,"İzmir, TR",Ulaşım,Bilinmeyen iPhone,TR,8,1,1,HESAP_ELE_GECIRME
+20169.13,CEKIM,"Dubai, AE",E-Ticaret,iPhone 13 bilinen cihaz,TR,20,0,1,SUPHELI_DAVRANIS
+34049.48,ODEME,"Dubai, AE",Aile Transferi,Bilinmeyen iPhone,,23,1,1,CALINTI_KART
+1438.73,ODEME,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+65746.34,ODEME,"Paris, FR",Offshore Services,Yeni web oturumu,,11,1,0,CALINTI_KART
+4047.6,ODEME,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+4014.8,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+118327.41,CEKIM,"London, UK",Aile Transferi,Yeni web oturumu,,10,1,1,CALINTI_KART
+42295.21,FATURA,"London, UK",New Recipient Ltd,Yeni web oturumu,,5,1,1,CALINTI_KART
+221537.09,TRANSFER,"Eskişehir, TR",Kripto Exchange,Unknown Android,TR,8,0,1,PARA_AKLAMA
+103428.02,TRANSFER,"Tbilisi, GE",Kripto Exchange,Web güvenilir tarayıcı,,5,0,1,PARA_AKLAMA
+175630.03,TRANSFER,"Ankara, TR",New Recipient Ltd,Unknown Android,TR,17,1,0,PARA_AKLAMA
+7346.91,FATURA,"Ankara, TR",Ulaşım,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+7560.36,TRANSFER,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+15709.47,ODEME,"London, UK",Offshore Services,Yeni web oturumu,,5,1,0,CALINTI_KART
+1815.27,ODEME,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+62567.43,TRANSFER,"Berlin, DE",Global Trade,Paycell kayıtlı cihaz,,21,0,1,PARA_AKLAMA
+3254.84,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+437.07,ODEME,"Eskişehir, TR",Okul Ödemesi,Android bilinen cihaz,TR,13,0,0,TEMIZ
+2416.68,TRANSFER,"Manisa, TR",E-Ticaret,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+1668.2,ODEME,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+13591.56,CEKIM,"Eskişehir, TR",Kira Ödemesi,Yeni web oturumu,TR,12,0,0,SUPHELI_DAVRANIS
+609.48,FATURA,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+923.79,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+195558.17,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Android bilinen cihaz,TR,10,0,1,PARA_AKLAMA
+102292.72,ODEME,"Dubai, AE",Yeni Alıcı,Yeni web oturumu,,2,1,0,CALINTI_KART
+73166.49,ODEME,"Paris, FR",New Recipient Ltd,Yeni cihaz,,5,1,0,CALINTI_KART
+120542.83,TRANSFER,"İstanbul, TR",Global Trade,Yeni cihaz,TR,14,1,1,PARA_AKLAMA
+40754.72,TRANSFER,"Manisa, TR",Global Trade,Unknown Android,,18,1,1,HESAP_ELE_GECIRME
+250254.24,TRANSFER,"Dubai, AE",Offshore Services,Web güvenilir tarayıcı,,1,1,1,PARA_AKLAMA
+4420.79,ODEME,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+54564.86,TRANSFER,"Amsterdam, NL",Ulaşım,Bilinmeyen iPhone,,2,0,0,HESAP_ELE_GECIRME
+1319.27,FATURA,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+937.23,FATURA,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+71161.97,TRANSFER,"Tbilisi, GE",Restoran,Unknown Android,,3,1,1,HESAP_ELE_GECIRME
+648.79,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+72543.82,ODEME,"Tbilisi, GE",Global Trade,Yeni cihaz,,5,1,0,HESAP_ELE_GECIRME
+240476.69,TRANSFER,"Berlin, DE",Global Trade,Bilinmeyen iPhone,,5,0,0,PARA_AKLAMA
+232267.21,TRANSFER,"Dubai, AE",New Recipient Ltd,Web güvenilir tarayıcı,TR,16,0,0,PARA_AKLAMA
+11233.8,CEKIM,"Berlin, DE",Ulaşım,Paycell kayıtlı cihaz,,19,0,1,SUPHELI_DAVRANIS
+20130.31,TRANSFER,"Paris, FR",Ulaşım,Unknown Android,TR,14,1,1,HESAP_ELE_GECIRME
+5700.25,FATURA,"İstanbul, TR",E-Ticaret,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+35396.51,TRANSFER,"Eskişehir, TR",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,11,1,1,SUPHELI_DAVRANIS
+104031.43,TRANSFER,"Dubai, AE",Offshore Services,Yeni web oturumu,TR,1,0,1,PARA_AKLAMA
+118744.27,ODEME,"Dubai, AE",Offshore Services,Android bilinen cihaz,,17,0,1,CALINTI_KART
+3177.32,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+13884.11,CEKIM,"İzmir, TR",E-Ticaret,Unknown Android,,18,1,0,SUPHELI_DAVRANIS
+55461.87,TRANSFER,"Ankara, TR",Yeni Alıcı,Paycell kayıtlı cihaz,TR,3,0,1,PARA_AKLAMA
+2188.98,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,2,0,0,TEMIZ
+7604.56,ODEME,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,1,0,0,TEMIZ
+1911.92,ODEME,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+40107.6,ODEME,"Dubai, AE",Okul Ödemesi,Unknown Android,TR,14,0,0,SUPHELI_DAVRANIS
+14684.92,ODEME,"Ankara, TR",Ulaşım,Bilinmeyen iPhone,TR,16,1,1,SUPHELI_DAVRANIS
+45377.53,TRANSFER,"Tbilisi, GE",Kripto Exchange,Yeni cihaz,,23,0,0,HESAP_ELE_GECIRME
+335.45,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+21688.35,ODEME,"Paris, FR",Restoran,iPhone 13 bilinen cihaz,TR,11,0,0,SUPHELI_DAVRANIS
+2704.7,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+66140.74,FATURA,"Amsterdam, NL",Yeni Alıcı,Android bilinen cihaz,,3,1,1,CALINTI_KART
+1736.86,FATURA,"İzmir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+2436.85,FATURA,"İstanbul, TR",Market Harcama,Android bilinen cihaz,TR,8,0,0,TEMIZ
+27933.05,TRANSFER,"Paris, FR",Yeni Alıcı,Web güvenilir tarayıcı,TR,2,0,0,SUPHELI_DAVRANIS
+39038.2,ODEME,"Paris, FR",Telekom Fatura,Paycell kayıtlı cihaz,TR,17,0,0,SUPHELI_DAVRANIS
+3435.97,FATURA,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+109541.19,ODEME,"Ankara, TR",Restoran,iPhone 13 bilinen cihaz,,11,1,0,CALINTI_KART
+52121.11,CEKIM,"Paris, FR",Kripto Exchange,Yeni web oturumu,TR,3,1,0,CALINTI_KART
+3435.67,ODEME,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+39699.31,CEKIM,"İzmir, TR",Aile Transferi,Yeni cihaz,TR,19,1,1,SUPHELI_DAVRANIS
+18864.75,TRANSFER,"London, UK",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,1,0,SUPHELI_DAVRANIS
+25056.22,CEKIM,"Dubai, AE",Telekom Fatura,Bilinmeyen iPhone,TR,13,1,0,SUPHELI_DAVRANIS
+4128.96,FATURA,"Manisa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+247667.33,TRANSFER,"Ankara, TR",Yeni Alıcı,Android bilinen cihaz,TR,1,0,1,PARA_AKLAMA
+77006.46,FATURA,"Ankara, TR",Aile Transferi,Bilinmeyen iPhone,TR,2,1,1,CALINTI_KART
+3150.94,ODEME,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+78184.71,TRANSFER,"İzmir, TR",Offshore Services,Yeni cihaz,TR,17,1,1,PARA_AKLAMA
+3732.3,FATURA,"Manisa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+285.55,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+1514.12,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+85382.37,FATURA,"Amsterdam, NL",Ulaşım,iPhone 13 bilinen cihaz,TR,8,0,0,CALINTI_KART
+3217.26,ODEME,"Ankara, TR",Market Harcama,Android bilinen cihaz,TR,17,0,0,TEMIZ
+1772.58,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,19,0,0,TEMIZ
+2271.04,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+111633.37,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Yeni web oturumu,TR,3,0,1,PARA_AKLAMA
+1963.2,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+37124.15,CEKIM,"İstanbul, TR",Kira Ödemesi,Yeni cihaz,TR,18,1,1,SUPHELI_DAVRANIS
+443.64,ODEME,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+13308.28,TRANSFER,"Paris, FR",Yeni Alıcı,Yeni web oturumu,TR,4,1,0,SUPHELI_DAVRANIS
+1755.09,ODEME,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+238671.7,TRANSFER,"Eskişehir, TR",New Recipient Ltd,Paycell kayıtlı cihaz,TR,2,0,1,PARA_AKLAMA
+56401.08,FATURA,"Amsterdam, NL",Global Trade,Unknown Android,,4,1,1,CALINTI_KART
+31028.54,ODEME,"Dubai, AE",Kira Ödemesi,Yeni web oturumu,TR,23,1,0,HESAP_ELE_GECIRME
+1466.77,FATURA,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+1336.32,FATURA,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,12,0,0,TEMIZ
+1789.46,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+6190.86,TRANSFER,"İstanbul, TR",E-Ticaret,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+2264.39,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+1718.26,ODEME,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+2462.38,ODEME,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+1620.11,FATURA,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+1956.98,FATURA,"Ankara, TR",Market Harcama,Android bilinen cihaz,TR,16,0,0,TEMIZ
+3105.42,FATURA,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+2269.58,ODEME,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+13678.38,TRANSFER,"Paris, FR",Aile Transferi,Bilinmeyen iPhone,,13,1,1,HESAP_ELE_GECIRME
+1458.93,ODEME,"Ankara, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+3607.22,FATURA,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+70483.01,FATURA,"London, UK",E-Ticaret,Bilinmeyen iPhone,,11,1,0,CALINTI_KART
+1853.25,ODEME,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+1206.41,ODEME,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+60702.22,TRANSFER,"London, UK",New Recipient Ltd,Web güvenilir tarayıcı,,18,1,1,PARA_AKLAMA
+852.29,FATURA,"İstanbul, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+1923.87,ODEME,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+99987.82,TRANSFER,"London, UK",New Recipient Ltd,Web güvenilir tarayıcı,,11,0,0,PARA_AKLAMA
+2245.04,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+3588.61,FATURA,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+2076.94,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+3710.96,ODEME,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+3741.27,FATURA,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+1995.45,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+776.11,FATURA,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+16962.32,CEKIM,"İzmir, TR",Global Trade,Yeni cihaz,TR,23,0,0,SUPHELI_DAVRANIS
+77996.64,TRANSFER,"Bursa, TR",Global Trade,Yeni web oturumu,,23,1,1,HESAP_ELE_GECIRME
+43735.88,CEKIM,"Manisa, TR",Kripto Exchange,Yeni web oturumu,,0,1,0,CALINTI_KART
+4399.67,ODEME,"Manisa, TR",Aile Transferi,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+450.88,ODEME,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+32005.87,FATURA,"Bursa, TR",Ulaşım,Yeni web oturumu,TR,4,0,0,CALINTI_KART
+3438.46,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+17534.48,ODEME,"London, UK",Yeni Alıcı,Unknown Android,,23,0,1,HESAP_ELE_GECIRME
+1152.99,ODEME,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+89173.69,CEKIM,"Amsterdam, NL",Kira Ödemesi,Bilinmeyen iPhone,TR,16,1,1,CALINTI_KART
+191509.35,TRANSFER,"Bursa, TR",Kripto Exchange,Android bilinen cihaz,TR,9,1,1,PARA_AKLAMA
+30531.49,ODEME,"İstanbul, TR",Offshore Services,Yeni cihaz,,5,1,1,HESAP_ELE_GECIRME
+3376.02,ODEME,"Eskişehir, TR",Okul Ödemesi,Android bilinen cihaz,TR,9,0,0,TEMIZ
+584.9,FATURA,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+2913.23,FATURA,"Eskişehir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+5467.85,TRANSFER,"İstanbul, TR",Restoran,Unknown Android,,0,1,0,HESAP_ELE_GECIRME
+34425.87,FATURA,"London, UK",New Recipient Ltd,Yeni cihaz,,10,1,0,CALINTI_KART
+54847.15,CEKIM,"Ankara, TR",Aile Transferi,Yeni cihaz,TR,0,0,0,CALINTI_KART
+17173.02,CEKIM,"Paris, FR",Market Harcama,Yeni web oturumu,TR,18,0,0,SUPHELI_DAVRANIS
+1418.73,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+2936.53,FATURA,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+34346.71,CEKIM,"London, UK",Kira Ödemesi,Yeni cihaz,TR,19,1,1,CALINTI_KART
+11351.26,ODEME,"İzmir, TR",Offshore Services,Unknown Android,TR,19,1,1,SUPHELI_DAVRANIS
+91849.84,ODEME,"Ankara, TR",Aile Transferi,Bilinmeyen iPhone,TR,5,0,0,CALINTI_KART
+2315.64,FATURA,"Bursa, TR",Sigorta Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+36159.83,CEKIM,"Dubai, AE",Telekom Fatura,Android bilinen cihaz,TR,8,0,1,SUPHELI_DAVRANIS
+3116.06,FATURA,"İstanbul, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+38016.52,ODEME,"Amsterdam, NL",Yeni Alıcı,Yeni cihaz,TR,8,0,1,CALINTI_KART
+1295.5,ODEME,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,1,0,0,TEMIZ
+17372.21,TRANSFER,"Tbilisi, GE",New Recipient Ltd,Paycell kayıtlı cihaz,TR,15,0,0,SUPHELI_DAVRANIS
+199804.25,TRANSFER,"İstanbul, TR",Kripto Exchange,Paycell kayıtlı cihaz,TR,18,0,0,PARA_AKLAMA
+41.53,FATURA,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+41623.06,TRANSFER,"İstanbul, TR",New Recipient Ltd,Yeni cihaz,TR,23,1,0,HESAP_ELE_GECIRME
+49405.35,ODEME,"Dubai, AE",E-Ticaret,Bilinmeyen iPhone,TR,3,1,1,CALINTI_KART
+3834.33,ODEME,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+1750.96,TRANSFER,"Ankara, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,3,0,0,TEMIZ
+3474.55,ODEME,"İzmir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+17500.61,TRANSFER,"Tbilisi, GE",Ulaşım,Yeni cihaz,TR,10,1,1,HESAP_ELE_GECIRME
+19873.97,CEKIM,"Ankara, TR",Elektrik Fatura,Yeni cihaz,TR,8,0,0,SUPHELI_DAVRANIS
+160089.6,TRANSFER,"Ankara, TR",Yeni Alıcı,Android bilinen cihaz,TR,23,0,1,PARA_AKLAMA
+78777.95,ODEME,"Manisa, TR",Kripto Exchange,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+445.68,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+3269.58,ODEME,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+109684.22,ODEME,"Berlin, DE",Aile Transferi,Unknown Android,,4,1,1,CALINTI_KART
+121178.44,TRANSFER,"Tbilisi, GE",New Recipient Ltd,iPhone 13 bilinen cihaz,,13,0,1,PARA_AKLAMA
+2560.63,ODEME,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,4,0,0,TEMIZ
+14541.79,TRANSFER,"Ankara, TR",Market Harcama,Bilinmeyen iPhone,TR,11,0,1,SUPHELI_DAVRANIS
+1225.04,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+94221.86,TRANSFER,"Dubai, AE",Aile Transferi,Yeni web oturumu,,5,1,1,HESAP_ELE_GECIRME
+4269.47,ODEME,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,9,0,0,TEMIZ
+5128.08,FATURA,"Eskişehir, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+4137.36,ODEME,"Ankara, TR",Elektrik Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+209232.46,TRANSFER,"İzmir, TR",Global Trade,Paycell kayıtlı cihaz,,13,1,1,PARA_AKLAMA
+248456.04,TRANSFER,"Bursa, TR",Offshore Services,Web güvenilir tarayıcı,TR,10,0,1,PARA_AKLAMA
+101266.38,TRANSFER,"Amsterdam, NL",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,20,0,1,PARA_AKLAMA
+4217.31,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+12547.61,ODEME,"Tbilisi, GE",Elektrik Fatura,Unknown Android,TR,1,0,1,SUPHELI_DAVRANIS
+36693.78,CEKIM,"Ankara, TR",Aile Transferi,Yeni web oturumu,TR,10,0,0,SUPHELI_DAVRANIS
+50105.16,FATURA,"London, UK",New Recipient Ltd,Unknown Android,TR,23,1,1,CALINTI_KART
+27023.75,TRANSFER,"Berlin, DE",Kira Ödemesi,Unknown Android,,9,1,0,HESAP_ELE_GECIRME
+3180.61,ODEME,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+33460.7,TRANSFER,"Dubai, AE",Restoran,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+223967.26,TRANSFER,"Paris, FR",Global Trade,Web güvenilir tarayıcı,,15,1,1,PARA_AKLAMA
+18716.56,ODEME,"Bursa, TR",Kripto Exchange,Yeni web oturumu,,18,1,1,HESAP_ELE_GECIRME
+1691.61,ODEME,"İzmir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+59819.02,CEKIM,"Eskişehir, TR",Aile Transferi,Yeni cihaz,TR,4,1,0,CALINTI_KART
+33095.19,ODEME,"Eskişehir, TR",Kripto Exchange,Paycell kayıtlı cihaz,,2,1,0,CALINTI_KART
+2276.88,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+23512.55,ODEME,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,18,0,0,SUPHELI_DAVRANIS
+176125.9,TRANSFER,"İzmir, TR",Offshore Services,Yeni cihaz,TR,16,1,1,PARA_AKLAMA
+3935.03,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+2660.13,FATURA,"Ankara, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+1570.38,ODEME,"İzmir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+7461.16,TRANSFER,"Amsterdam, NL",E-Ticaret,Yeni web oturumu,TR,13,0,1,SUPHELI_DAVRANIS
+1234.23,ODEME,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+3143.46,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+36187.21,TRANSFER,"Eskişehir, TR",Telekom Fatura,Yeni web oturumu,TR,3,1,0,SUPHELI_DAVRANIS
+3426.14,ODEME,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+49625.17,TRANSFER,"Eskişehir, TR",Ulaşım,Yeni cihaz,TR,11,1,1,HESAP_ELE_GECIRME
+4134.01,FATURA,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+124312.01,TRANSFER,"Manisa, TR",Global Trade,Paycell kayıtlı cihaz,,23,0,1,PARA_AKLAMA
+46228.01,ODEME,"Manisa, TR",Kira Ödemesi,Bilinmeyen iPhone,TR,20,0,0,CALINTI_KART
+62558.95,TRANSFER,"Tbilisi, GE",Kira Ödemesi,Yeni cihaz,,18,1,0,HESAP_ELE_GECIRME
+180658.6,TRANSFER,"Ankara, TR",Kripto Exchange,Web güvenilir tarayıcı,,12,0,1,PARA_AKLAMA
+35081.25,ODEME,"Paris, FR",Restoran,Bilinmeyen iPhone,,5,0,0,HESAP_ELE_GECIRME
+2686.19,ODEME,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+3881.56,ODEME,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,20,0,0,TEMIZ
+288.5,FATURA,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,18,0,0,TEMIZ
+146908.89,TRANSFER,"London, UK",Yeni Alıcı,iPhone 13 bilinen cihaz,,21,1,1,PARA_AKLAMA
+2422.15,ODEME,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+63500.55,TRANSFER,"Amsterdam, NL",E-Ticaret,Unknown Android,,16,1,1,HESAP_ELE_GECIRME
+32508.78,TRANSFER,"Dubai, AE",Kira Ödemesi,Paycell kayıtlı cihaz,TR,12,0,0,SUPHELI_DAVRANIS
+20495.61,CEKIM,"Eskişehir, TR",Offshore Services,Android bilinen cihaz,TR,17,0,0,SUPHELI_DAVRANIS
+60624.71,CEKIM,"Tbilisi, GE",Kripto Exchange,Bilinmeyen iPhone,TR,10,0,1,CALINTI_KART
+44500.47,TRANSFER,"İzmir, TR",Global Trade,Web güvenilir tarayıcı,,18,0,1,SUPHELI_DAVRANIS
+3861.63,FATURA,"İstanbul, TR",Ulaşım,Android bilinen cihaz,TR,20,0,0,TEMIZ
+1952.31,ODEME,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+4277.06,ODEME,"Eskişehir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+1045.28,ODEME,"İzmir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+103875.9,TRANSFER,"Amsterdam, NL",Offshore Services,Bilinmeyen iPhone,,13,0,1,PARA_AKLAMA
+4482.76,ODEME,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+21732.27,ODEME,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,4,1,1,SUPHELI_DAVRANIS
+31371.07,ODEME,"Amsterdam, NL",Sigorta Fatura,Yeni cihaz,,17,0,0,SUPHELI_DAVRANIS
+123.15,FATURA,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+3168.84,FATURA,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+1240.45,FATURA,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+150106.58,TRANSFER,"İzmir, TR",Global Trade,Bilinmeyen iPhone,TR,2,0,0,PARA_AKLAMA
+19958.95,TRANSFER,"Eskişehir, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,19,0,1,SUPHELI_DAVRANIS
+5720.37,FATURA,"Eskişehir, TR",E-Ticaret,Android bilinen cihaz,TR,20,0,0,TEMIZ
+18895.18,ODEME,"Bursa, TR",Ulaşım,Yeni cihaz,TR,0,0,1,CALINTI_KART
+1937.07,FATURA,"Ankara, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+180619.69,TRANSFER,"London, UK",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,9,0,0,PARA_AKLAMA
+1757.22,ODEME,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+14097.72,CEKIM,"Dubai, AE",Offshore Services,Paycell kayıtlı cihaz,TR,2,1,0,CALINTI_KART
+83955.42,TRANSFER,"İstanbul, TR",E-Ticaret,Bilinmeyen iPhone,TR,0,1,1,HESAP_ELE_GECIRME
+7385.43,TRANSFER,"Manisa, TR",Ulaşım,Android bilinen cihaz,TR,18,0,0,TEMIZ
+2795.44,ODEME,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+698.74,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+64376.35,FATURA,"İstanbul, TR",Kira Ödemesi,Web güvenilir tarayıcı,TR,8,1,0,CALINTI_KART
+37834.66,TRANSFER,"London, UK",Ulaşım,Bilinmeyen iPhone,TR,13,1,1,HESAP_ELE_GECIRME
+493.3,ODEME,"Ankara, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+2799.13,ODEME,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+90432.67,ODEME,"İstanbul, TR",E-Ticaret,Yeni web oturumu,,15,1,1,HESAP_ELE_GECIRME
+58409.9,ODEME,"İstanbul, TR",Aile Transferi,Yeni web oturumu,,0,1,1,CALINTI_KART
+3235.76,FATURA,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+3840.05,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+5395.38,TRANSFER,"Eskişehir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+25454.32,CEKIM,"Tbilisi, GE",Aile Transferi,Yeni web oturumu,,16,0,0,SUPHELI_DAVRANIS
+810.35,FATURA,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+2754.16,FATURA,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+44661.8,TRANSFER,"Dubai, AE",Restoran,Yeni web oturumu,,13,1,0,HESAP_ELE_GECIRME
+61197.66,TRANSFER,"Tbilisi, GE",New Recipient Ltd,Yeni web oturumu,,5,1,0,HESAP_ELE_GECIRME
+3135.1,ODEME,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+163393.59,TRANSFER,"Bursa, TR",New Recipient Ltd,Paycell kayıtlı cihaz,,8,0,1,PARA_AKLAMA
+8207.64,ODEME,"İstanbul, TR",New Recipient Ltd,Yeni web oturumu,TR,23,1,0,HESAP_ELE_GECIRME
+42268.94,TRANSFER,"Ankara, TR",New Recipient Ltd,Unknown Android,,11,0,1,PARA_AKLAMA
+67043.82,TRANSFER,"Bursa, TR",Kira Ödemesi,Bilinmeyen iPhone,,13,0,1,HESAP_ELE_GECIRME
+71417.64,TRANSFER,"Bursa, TR",Yeni Alıcı,Yeni web oturumu,,17,1,0,HESAP_ELE_GECIRME
+29268.49,FATURA,"Tbilisi, GE",Kira Ödemesi,Unknown Android,,0,1,0,CALINTI_KART
+11072.59,CEKIM,"Eskişehir, TR",Aile Transferi,Unknown Android,TR,8,1,1,SUPHELI_DAVRANIS
+7927.61,TRANSFER,"Manisa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+1017.13,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+1595.08,FATURA,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+90428.36,TRANSFER,"Dubai, AE",Global Trade,Yeni cihaz,,18,1,1,HESAP_ELE_GECIRME
+115375.89,ODEME,"Amsterdam, NL",Kripto Exchange,Yeni web oturumu,TR,23,1,0,CALINTI_KART
+43991.23,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Yeni web oturumu,,10,0,0,HESAP_ELE_GECIRME
+2834.26,FATURA,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+67997.35,FATURA,"Ankara, TR",E-Ticaret,Yeni web oturumu,TR,1,0,0,CALINTI_KART
+55896.53,TRANSFER,"Bursa, TR",Kira Ödemesi,Bilinmeyen iPhone,,0,1,1,HESAP_ELE_GECIRME
+6132.22,FATURA,"Manisa, TR",Ulaşım,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+3097.45,FATURA,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+183662.71,TRANSFER,"Dubai, AE",Kripto Exchange,Paycell kayıtlı cihaz,,12,0,1,PARA_AKLAMA
+4116.76,FATURA,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+221.52,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+201821.86,TRANSFER,"İstanbul, TR",Yeni Alıcı,Unknown Android,TR,23,1,1,PARA_AKLAMA
+2567.96,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+916.47,FATURA,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+15146.78,TRANSFER,"London, UK",Kira Ödemesi,Paycell kayıtlı cihaz,TR,17,0,0,SUPHELI_DAVRANIS
+2566.04,ODEME,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+3338.28,ODEME,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,13,0,0,TEMIZ
+106262.16,FATURA,"Paris, FR",Offshore Services,Unknown Android,,2,0,1,CALINTI_KART
+68094.53,ODEME,"Manisa, TR",Kira Ödemesi,iPhone 13 bilinen cihaz,,21,1,0,CALINTI_KART
+4081.65,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+1032.06,FATURA,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,16,0,0,TEMIZ
+3115.12,FATURA,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,10,0,0,TEMIZ
+114230.08,CEKIM,"Bursa, TR",Global Trade,Bilinmeyen iPhone,TR,1,1,1,CALINTI_KART
+1647.99,ODEME,"Bursa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,13,0,0,TEMIZ
+4359.09,FATURA,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,14,0,0,TEMIZ
+2952.15,FATURA,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+1610.69,ODEME,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+1061.91,FATURA,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,10,0,0,TEMIZ
+48250.08,ODEME,"Bursa, TR",Global Trade,Paycell kayıtlı cihaz,,4,1,0,CALINTI_KART
+400.22,TRANSFER,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,8,0,0,TEMIZ
+18303.41,TRANSFER,"London, UK",Ulaşım,Yeni cihaz,,21,1,1,HESAP_ELE_GECIRME
+136070.76,TRANSFER,"Bursa, TR",Kripto Exchange,Paycell kayıtlı cihaz,,21,0,1,PARA_AKLAMA
+49994.05,TRANSFER,"İzmir, TR",E-Ticaret,Yeni cihaz,TR,0,1,1,HESAP_ELE_GECIRME
+3090.7,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+3954.17,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+108973.29,ODEME,"Manisa, TR",Kripto Exchange,Yeni web oturumu,,14,1,0,CALINTI_KART
+75639.11,ODEME,"Tbilisi, GE",Ulaşım,Yeni cihaz,TR,23,1,0,HESAP_ELE_GECIRME
+29060.53,TRANSFER,"Berlin, DE",Global Trade,Yeni cihaz,,0,1,1,HESAP_ELE_GECIRME
+1860.49,FATURA,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+130301.35,TRANSFER,"Paris, FR",Yeni Alıcı,Bilinmeyen iPhone,,10,0,1,PARA_AKLAMA
+1404.21,ODEME,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,18,0,0,TEMIZ
+20897.15,CEKIM,"Tbilisi, GE",E-Ticaret,Bilinmeyen iPhone,,17,1,0,CALINTI_KART
+4341.81,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+2262.07,ODEME,"Ankara, TR",Ulaşım,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+33752.63,CEKIM,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,11,0,0,SUPHELI_DAVRANIS
+904.54,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,18,0,0,TEMIZ
+2060.31,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+103.61,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+1589.25,ODEME,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+72177.01,ODEME,"Dubai, AE",Kira Ödemesi,Yeni web oturumu,TR,4,0,0,CALINTI_KART
+217958.15,TRANSFER,"Manisa, TR",Yeni Alıcı,Bilinmeyen iPhone,,20,0,1,PARA_AKLAMA
+73517.98,ODEME,"Paris, FR",Kira Ödemesi,Unknown Android,,2,1,1,CALINTI_KART
+52279.98,TRANSFER,"İstanbul, TR",New Recipient Ltd,Yeni cihaz,TR,13,1,0,HESAP_ELE_GECIRME
+46843.1,ODEME,"Dubai, AE",New Recipient Ltd,Unknown Android,,11,1,1,HESAP_ELE_GECIRME
+3931.8,FATURA,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+511.37,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+250548.45,TRANSFER,"İzmir, TR",New Recipient Ltd,Web güvenilir tarayıcı,TR,16,1,1,PARA_AKLAMA
+56053.2,TRANSFER,"London, UK",E-Ticaret,Yeni cihaz,,5,1,1,HESAP_ELE_GECIRME
+21041.42,FATURA,"Amsterdam, NL",Aile Transferi,Bilinmeyen iPhone,,4,0,1,CALINTI_KART
+16251.11,TRANSFER,"Berlin, DE",New Recipient Ltd,Unknown Android,TR,11,1,0,SUPHELI_DAVRANIS
+1823.65,ODEME,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,18,0,0,TEMIZ
+14914.1,ODEME,"Tbilisi, GE",Ulaşım,Paycell kayıtlı cihaz,TR,11,1,0,SUPHELI_DAVRANIS
+68648.31,TRANSFER,"İstanbul, TR",Yeni Alıcı,Web güvenilir tarayıcı,,16,0,1,PARA_AKLAMA
+1417.69,FATURA,"İzmir, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,13,0,0,TEMIZ
+70217.79,ODEME,"London, UK",Kira Ödemesi,Unknown Android,,16,1,0,CALINTI_KART
+35670.03,TRANSFER,"Tbilisi, GE",E-Ticaret,Yeni cihaz,TR,5,0,0,HESAP_ELE_GECIRME
+4181.05,ODEME,"Manisa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+2943.79,ODEME,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+1656.53,FATURA,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+6195.59,TRANSFER,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,0,0,0,TEMIZ
+46533.09,TRANSFER,"London, UK",Restoran,Yeni cihaz,TR,9,1,0,HESAP_ELE_GECIRME
+1139.63,ODEME,"Bursa, TR",Telekom Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+5651.94,ODEME,"Bursa, TR",E-Ticaret,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+19287.37,TRANSFER,"Tbilisi, GE",Ulaşım,Bilinmeyen iPhone,,12,1,1,HESAP_ELE_GECIRME
+86103.9,TRANSFER,"Paris, FR",Offshore Services,Android bilinen cihaz,TR,23,0,1,PARA_AKLAMA
+2424.22,FATURA,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,3,0,0,TEMIZ
+2700.62,FATURA,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,16,0,0,TEMIZ
+1150.79,FATURA,"Manisa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+1104.64,FATURA,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+1878.62,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+1250.08,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,0,0,0,TEMIZ
+253186.15,TRANSFER,"Amsterdam, NL",Offshore Services,Paycell kayıtlı cihaz,,1,1,1,PARA_AKLAMA
+22389.48,TRANSFER,"Manisa, TR",Offshore Services,iPhone 13 bilinen cihaz,TR,10,1,0,SUPHELI_DAVRANIS
+4014.79,FATURA,"İzmir, TR",Kira Ödemesi,iPhone 13 bilinen cihaz,TR,23,0,0,TEMIZ
+1138.58,FATURA,"İstanbul, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+60692.87,ODEME,"İstanbul, TR",Aile Transferi,iPhone 13 bilinen cihaz,TR,11,1,1,CALINTI_KART
+64335.92,TRANSFER,"London, UK",Aile Transferi,Yeni cihaz,TR,0,1,1,HESAP_ELE_GECIRME
+43784.56,CEKIM,"Tbilisi, GE",Offshore Services,Web güvenilir tarayıcı,TR,1,0,0,SUPHELI_DAVRANIS
+4364.49,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+52344.51,TRANSFER,"Berlin, DE",Aile Transferi,Yeni web oturumu,,1,1,1,HESAP_ELE_GECIRME
+1154.36,FATURA,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+77699.56,TRANSFER,"Paris, FR",Offshore Services,Yeni web oturumu,,21,0,1,PARA_AKLAMA
+1355.18,ODEME,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,5,0,0,TEMIZ
+64420.24,CEKIM,"Eskişehir, TR",Global Trade,Android bilinen cihaz,TR,4,0,1,CALINTI_KART
+188725.44,TRANSFER,"İstanbul, TR",New Recipient Ltd,Paycell kayıtlı cihaz,,4,0,1,PARA_AKLAMA
+42574.18,ODEME,"Ankara, TR",Restoran,Android bilinen cihaz,TR,4,0,1,SUPHELI_DAVRANIS
+25106.48,CEKIM,"Tbilisi, GE",New Recipient Ltd,Yeni cihaz,TR,5,1,0,SUPHELI_DAVRANIS
+30983.04,FATURA,"Ankara, TR",Offshore Services,iPhone 13 bilinen cihaz,,14,0,0,CALINTI_KART
+5257.34,TRANSFER,"Ankara, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,1,0,1,TEMIZ
+89081.84,FATURA,"Dubai, AE",Restoran,Unknown Android,,5,1,0,CALINTI_KART
+2083.19,FATURA,"Bursa, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+39943.26,ODEME,"Eskişehir, TR",Ulaşım,Bilinmeyen iPhone,,16,0,1,HESAP_ELE_GECIRME
+3447.08,ODEME,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,11,0,0,TEMIZ
+2491.82,FATURA,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+6007.63,ODEME,"Eskişehir, TR",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,12,1,0,SUPHELI_DAVRANIS
+1441.05,FATURA,"İzmir, TR",Sigorta Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+652.99,ODEME,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+3419.29,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+67662.01,TRANSFER,"İzmir, TR",Global Trade,Bilinmeyen iPhone,TR,23,1,0,HESAP_ELE_GECIRME
+4188.55,FATURA,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+121059.57,TRANSFER,"Amsterdam, NL",Offshore Services,Android bilinen cihaz,TR,10,1,1,PARA_AKLAMA
+2024.68,FATURA,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+75345.88,TRANSFER,"Amsterdam, NL",E-Ticaret,Yeni cihaz,,3,1,0,HESAP_ELE_GECIRME
+637.2,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+27885.54,CEKIM,"Paris, FR",Restoran,Paycell kayıtlı cihaz,TR,13,0,0,SUPHELI_DAVRANIS
+1881.64,ODEME,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+2615.29,ODEME,"Eskişehir, TR",E-Ticaret,Android bilinen cihaz,TR,21,0,0,TEMIZ
+17351.19,TRANSFER,"Ankara, TR",Global Trade,Unknown Android,,21,1,1,HESAP_ELE_GECIRME
+19387.58,ODEME,"Eskişehir, TR",Offshore Services,Bilinmeyen iPhone,TR,4,1,0,SUPHELI_DAVRANIS
+2485.39,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+51465.52,ODEME,"Paris, FR",Yeni Alıcı,Yeni web oturumu,TR,8,1,1,HESAP_ELE_GECIRME
+4110.96,ODEME,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+4409.78,FATURA,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+867.35,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+31053.33,ODEME,"Berlin, DE",Global Trade,Yeni web oturumu,,2,1,0,HESAP_ELE_GECIRME
+147781.58,TRANSFER,"Manisa, TR",Offshore Services,Yeni cihaz,,11,1,0,PARA_AKLAMA
+427.0,ODEME,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+4368.45,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,10,0,0,TEMIZ
+28660.2,CEKIM,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,16,0,0,SUPHELI_DAVRANIS
+3473.27,FATURA,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+42995.46,ODEME,"İzmir, TR",Global Trade,Web güvenilir tarayıcı,,14,0,1,SUPHELI_DAVRANIS
+3703.88,FATURA,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,9,0,0,TEMIZ
+11130.29,ODEME,"London, UK",New Recipient Ltd,Yeni cihaz,TR,17,1,0,SUPHELI_DAVRANIS
+3107.55,ODEME,"İstanbul, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+76394.71,TRANSFER,"London, UK",Kripto Exchange,Android bilinen cihaz,TR,8,0,0,PARA_AKLAMA
+23474.99,TRANSFER,"İstanbul, TR",Kripto Exchange,Unknown Android,,21,1,0,HESAP_ELE_GECIRME
+82743.29,TRANSFER,"Amsterdam, NL",Ulaşım,Bilinmeyen iPhone,,5,1,1,HESAP_ELE_GECIRME
+3178.86,FATURA,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+83755.75,TRANSFER,"London, UK",Global Trade,Bilinmeyen iPhone,,8,1,1,HESAP_ELE_GECIRME
+84364.58,ODEME,"London, UK",New Recipient Ltd,Yeni cihaz,,15,1,1,HESAP_ELE_GECIRME
+540.31,FATURA,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+833.69,FATURA,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+4085.48,FATURA,"Manisa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+61334.66,TRANSFER,"London, UK",Restoran,Unknown Android,TR,23,1,1,HESAP_ELE_GECIRME
+3886.83,FATURA,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+89643.2,FATURA,"Berlin, DE",Kira Ödemesi,Android bilinen cihaz,TR,8,1,0,CALINTI_KART
+60.68,ODEME,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+5114.86,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,1,1,0,TEMIZ
+67709.24,TRANSFER,"Dubai, AE",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,10,1,1,PARA_AKLAMA
+183708.04,TRANSFER,"Eskişehir, TR",New Recipient Ltd,Paycell kayıtlı cihaz,,8,1,1,PARA_AKLAMA
+1726.96,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+21227.61,ODEME,"London, UK",Yeni Alıcı,Unknown Android,,5,0,0,CALINTI_KART
+6164.29,TRANSFER,"Manisa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+77614.97,CEKIM,"London, UK",Yeni Alıcı,Paycell kayıtlı cihaz,,4,1,1,CALINTI_KART
+20807.1,TRANSFER,"Tbilisi, GE",Kripto Exchange,Unknown Android,,14,1,1,HESAP_ELE_GECIRME
+37435.7,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,0,1,0,SUPHELI_DAVRANIS
+62.38,FATURA,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+3750.07,FATURA,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+1184.16,FATURA,"Manisa, TR",E-Ticaret,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+79829.73,ODEME,"Manisa, TR",Aile Transferi,Yeni cihaz,TR,20,1,0,HESAP_ELE_GECIRME
+8582.31,ODEME,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,SUPHELI_DAVRANIS
+122652.41,TRANSFER,"İzmir, TR",Offshore Services,Yeni web oturumu,TR,11,0,1,PARA_AKLAMA
+17802.52,CEKIM,"Eskişehir, TR",E-Ticaret,Android bilinen cihaz,TR,1,0,0,SUPHELI_DAVRANIS
+4120.74,TRANSFER,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+3470.73,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+21115.94,CEKIM,"İstanbul, TR",Aile Transferi,Yeni cihaz,,17,0,1,SUPHELI_DAVRANIS
+235066.82,TRANSFER,"Tbilisi, GE",Offshore Services,Web güvenilir tarayıcı,,1,1,1,PARA_AKLAMA
+2004.58,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+115308.53,ODEME,"Paris, FR",Yeni Alıcı,Unknown Android,,17,1,1,CALINTI_KART
+76492.07,ODEME,"Amsterdam, NL",E-Ticaret,Yeni cihaz,TR,3,1,0,CALINTI_KART
+40759.76,CEKIM,"Tbilisi, GE",Telekom Fatura,Bilinmeyen iPhone,TR,21,1,0,SUPHELI_DAVRANIS
+37562.69,ODEME,"Berlin, DE",New Recipient Ltd,Web güvenilir tarayıcı,TR,19,0,0,SUPHELI_DAVRANIS
+65971.97,TRANSFER,"Bursa, TR",Yeni Alıcı,Unknown Android,TR,12,1,1,HESAP_ELE_GECIRME
+192413.29,TRANSFER,"İzmir, TR",Yeni Alıcı,iPhone 13 bilinen cihaz,TR,15,0,1,PARA_AKLAMA
+2600.94,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+9525.01,ODEME,"London, UK",Ulaşım,Bilinmeyen iPhone,TR,1,0,1,HESAP_ELE_GECIRME
+3669.13,FATURA,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+73944.23,TRANSFER,"Manisa, TR",New Recipient Ltd,Yeni cihaz,,16,1,1,PARA_AKLAMA
+1846.87,FATURA,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+81768.54,ODEME,"Berlin, DE",New Recipient Ltd,iPhone 13 bilinen cihaz,,15,1,0,CALINTI_KART
+72517.28,CEKIM,"Paris, FR",Ulaşım,Yeni web oturumu,,19,0,1,CALINTI_KART
+9482.21,ODEME,"London, UK",Yeni Alıcı,Yeni web oturumu,,8,1,0,SUPHELI_DAVRANIS
+5988.89,ODEME,"Ankara, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+1847.94,ODEME,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,11,0,0,TEMIZ
+3800.46,ODEME,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+10896.42,ODEME,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,SUPHELI_DAVRANIS
+5471.59,ODEME,"Bursa, TR",Ulaşım,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+1621.45,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+3214.66,ODEME,"Bursa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+3182.3,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+3872.0,ODEME,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+4034.3,TRANSFER,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,13,0,1,TEMIZ
+44771.2,ODEME,"İzmir, TR",Kira Ödemesi,Yeni web oturumu,,12,1,0,HESAP_ELE_GECIRME
+1392.68,FATURA,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+7749.03,ODEME,"Eskişehir, TR",Global Trade,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+1289.54,ODEME,"Ankara, TR",Elektrik Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+24502.76,FATURA,"Berlin, DE",Ulaşım,Android bilinen cihaz,,21,1,0,CALINTI_KART
+43726.48,CEKIM,"İzmir, TR",Okul Ödemesi,Bilinmeyen iPhone,,14,1,0,SUPHELI_DAVRANIS
+976.48,FATURA,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+8048.4,TRANSFER,"Amsterdam, NL",Offshore Services,Yeni cihaz,TR,16,1,0,SUPHELI_DAVRANIS
+51382.93,ODEME,"London, UK",Aile Transferi,Bilinmeyen iPhone,,4,1,1,CALINTI_KART
+2881.1,ODEME,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+9832.79,CEKIM,"London, UK",Kripto Exchange,Bilinmeyen iPhone,,19,0,0,SUPHELI_DAVRANIS
+65994.64,CEKIM,"Amsterdam, NL",Aile Transferi,iPhone 13 bilinen cihaz,,5,1,1,CALINTI_KART
+897.1,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+85244.96,TRANSFER,"Manisa, TR",Kripto Exchange,Yeni cihaz,TR,14,1,0,HESAP_ELE_GECIRME
+4353.39,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+245640.96,TRANSFER,"İzmir, TR",Yeni Alıcı,Yeni web oturumu,TR,12,0,1,PARA_AKLAMA
+33604.24,TRANSFER,"Paris, FR",Offshore Services,Bilinmeyen iPhone,TR,11,1,1,HESAP_ELE_GECIRME
+677.39,ODEME,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+36637.08,ODEME,"Dubai, AE",Ulaşım,iPhone 13 bilinen cihaz,,5,1,1,CALINTI_KART
+711.93,ODEME,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+1982.0,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,5,0,0,TEMIZ
+219044.75,TRANSFER,"Eskişehir, TR",New Recipient Ltd,Yeni web oturumu,TR,8,0,0,PARA_AKLAMA
+9536.01,CEKIM,"Manisa, TR",Kira Ödemesi,Bilinmeyen iPhone,,11,1,1,SUPHELI_DAVRANIS
+38343.06,TRANSFER,"London, UK",Kripto Exchange,Yeni web oturumu,,15,1,1,HESAP_ELE_GECIRME
+13530.62,CEKIM,"London, UK",Restoran,Bilinmeyen iPhone,TR,18,1,0,SUPHELI_DAVRANIS
+101353.16,FATURA,"Ankara, TR",Aile Transferi,Yeni web oturumu,,0,1,0,CALINTI_KART
+152701.92,TRANSFER,"Eskişehir, TR",Kripto Exchange,Unknown Android,,1,0,1,PARA_AKLAMA
+2796.03,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+3699.6,FATURA,"Bursa, TR",Sigorta Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+509.77,ODEME,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,11,0,0,TEMIZ
+42211.45,TRANSFER,"İzmir, TR",Kripto Exchange,Unknown Android,TR,11,1,1,HESAP_ELE_GECIRME
+45244.17,ODEME,"London, UK",E-Ticaret,Unknown Android,,8,1,0,CALINTI_KART
+1714.43,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,1,0,0,TEMIZ
+243380.82,TRANSFER,"Eskişehir, TR",Offshore Services,Paycell kayıtlı cihaz,,5,1,1,PARA_AKLAMA
+814.36,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+43061.62,CEKIM,"Eskişehir, TR",Global Trade,Yeni web oturumu,TR,0,0,0,SUPHELI_DAVRANIS
+59940.73,TRANSFER,"London, UK",Yeni Alıcı,Yeni web oturumu,TR,1,1,0,HESAP_ELE_GECIRME
+141742.89,TRANSFER,"Tbilisi, GE",Global Trade,Web güvenilir tarayıcı,TR,13,0,0,PARA_AKLAMA
+501.24,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+351.39,FATURA,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+1489.18,FATURA,"İzmir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+1711.75,FATURA,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+16334.6,TRANSFER,"London, UK",Aile Transferi,Unknown Android,,2,0,1,HESAP_ELE_GECIRME
+21811.32,ODEME,"Amsterdam, NL",Offshore Services,Unknown Android,,2,1,0,CALINTI_KART
+30881.97,CEKIM,"İzmir, TR",New Recipient Ltd,Paycell kayıtlı cihaz,TR,15,0,1,SUPHELI_DAVRANIS
+24466.07,TRANSFER,"Eskişehir, TR",Aile Transferi,Yeni web oturumu,,2,0,1,SUPHELI_DAVRANIS
+4260.02,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+2286.33,ODEME,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+38030.36,TRANSFER,"Berlin, DE",Restoran,Android bilinen cihaz,TR,5,1,1,SUPHELI_DAVRANIS
+35973.32,TRANSFER,"Ankara, TR",Global Trade,Bilinmeyen iPhone,,3,1,0,HESAP_ELE_GECIRME
+6952.13,TRANSFER,"Berlin, DE",Market Harcama,Web güvenilir tarayıcı,,20,0,0,SUPHELI_DAVRANIS
+41.09,FATURA,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+1239.61,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+60081.88,ODEME,"Ankara, TR",Restoran,Yeni web oturumu,,2,1,1,HESAP_ELE_GECIRME
+48723.71,ODEME,"Berlin, DE",E-Ticaret,Android bilinen cihaz,,19,0,0,CALINTI_KART
+115399.17,CEKIM,"İstanbul, TR",Global Trade,Yeni web oturumu,,0,1,1,CALINTI_KART
+2386.64,FATURA,"Bursa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+4256.06,FATURA,"İstanbul, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+4306.34,FATURA,"İstanbul, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+68862.07,TRANSFER,"Tbilisi, GE",Global Trade,Android bilinen cihaz,TR,19,0,1,PARA_AKLAMA
+7414.73,FATURA,"Eskişehir, TR",Aile Transferi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+3146.5,FATURA,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+3559.08,FATURA,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+1304.77,FATURA,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+38733.94,CEKIM,"Dubai, AE",Market Harcama,Web güvenilir tarayıcı,TR,2,0,0,SUPHELI_DAVRANIS
+951.02,FATURA,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+761.0,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+2080.15,ODEME,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+46599.78,ODEME,"Eskişehir, TR",Offshore Services,Bilinmeyen iPhone,TR,3,1,1,HESAP_ELE_GECIRME
+69483.0,ODEME,"Dubai, AE",Restoran,Yeni cihaz,TR,11,1,1,CALINTI_KART
+42490.94,TRANSFER,"Bursa, TR",Aile Transferi,Android bilinen cihaz,TR,18,0,0,SUPHELI_DAVRANIS
+2224.93,FATURA,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,13,0,0,TEMIZ
+124450.55,TRANSFER,"Bursa, TR",Offshore Services,iPhone 13 bilinen cihaz,TR,15,0,1,PARA_AKLAMA
+2018.44,ODEME,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,14,0,0,TEMIZ
+1884.38,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+93931.18,TRANSFER,"Ankara, TR",Ulaşım,Bilinmeyen iPhone,TR,2,1,1,HESAP_ELE_GECIRME
+33699.63,ODEME,"Bursa, TR",E-Ticaret,Yeni web oturumu,TR,21,0,0,SUPHELI_DAVRANIS
+2532.19,ODEME,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+3759.9,ODEME,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+31146.65,ODEME,"İstanbul, TR",Market Harcama,Yeni cihaz,TR,17,0,0,SUPHELI_DAVRANIS
+3912.16,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+3809.18,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+65486.91,TRANSFER,"Paris, FR",Offshore Services,Web güvenilir tarayıcı,TR,5,0,1,PARA_AKLAMA
+73512.7,TRANSFER,"Eskişehir, TR",Offshore Services,Yeni web oturumu,,18,1,1,HESAP_ELE_GECIRME
+86021.35,ODEME,"Dubai, AE",Global Trade,iPhone 13 bilinen cihaz,TR,23,1,1,CALINTI_KART
+492.3,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+76510.69,ODEME,"Amsterdam, NL",Kira Ödemesi,iPhone 13 bilinen cihaz,,2,1,0,CALINTI_KART
+257205.89,TRANSFER,"İzmir, TR",Kripto Exchange,Yeni cihaz,,1,0,1,PARA_AKLAMA
+23844.85,TRANSFER,"Amsterdam, NL",Kira Ödemesi,Yeni cihaz,TR,20,1,1,HESAP_ELE_GECIRME
+42378.36,TRANSFER,"Eskişehir, TR",Global Trade,Web güvenilir tarayıcı,TR,8,0,1,PARA_AKLAMA
+952.12,FATURA,"İstanbul, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+202894.55,TRANSFER,"Dubai, AE",Offshore Services,Android bilinen cihaz,TR,23,0,1,PARA_AKLAMA
+83824.57,TRANSFER,"Paris, FR",Kripto Exchange,Yeni cihaz,,1,0,0,PARA_AKLAMA
+3152.16,FATURA,"Bursa, TR",Elektrik Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+2331.13,ODEME,"Ankara, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+3438.55,FATURA,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+20518.79,ODEME,"Tbilisi, GE",Ulaşım,Bilinmeyen iPhone,TR,23,1,0,CALINTI_KART
+85317.43,ODEME,"İzmir, TR",Offshore Services,Yeni cihaz,,9,1,1,HESAP_ELE_GECIRME
+567.31,ODEME,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+8953.36,TRANSFER,"Dubai, AE",Kira Ödemesi,Yeni cihaz,TR,3,1,0,HESAP_ELE_GECIRME
+165931.69,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Paycell kayıtlı cihaz,,10,0,1,PARA_AKLAMA
+35702.61,FATURA,"Berlin, DE",Aile Transferi,Yeni cihaz,,0,0,0,CALINTI_KART
+716.97,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+35935.31,TRANSFER,"Bursa, TR",Ulaşım,Bilinmeyen iPhone,TR,2,0,0,SUPHELI_DAVRANIS
+6501.96,ODEME,"Ankara, TR",Kira Ödemesi,Paycell kayıtlı cihaz,TR,14,0,1,TEMIZ
+2979.27,ODEME,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+196037.72,TRANSFER,"Ankara, TR",New Recipient Ltd,Bilinmeyen iPhone,TR,16,1,1,PARA_AKLAMA
+1721.87,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+12575.83,ODEME,"Tbilisi, GE",New Recipient Ltd,Yeni web oturumu,,2,1,1,CALINTI_KART
+1082.59,ODEME,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+110958.71,TRANSFER,"Paris, FR",Global Trade,Paycell kayıtlı cihaz,,12,1,1,PARA_AKLAMA
+2714.29,TRANSFER,"Bursa, TR",Aile Transferi,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+25372.52,CEKIM,"Manisa, TR",E-Ticaret,Yeni cihaz,TR,15,0,0,SUPHELI_DAVRANIS
+15973.63,CEKIM,"Amsterdam, NL",Ulaşım,Paycell kayıtlı cihaz,,9,1,0,CALINTI_KART
+29082.72,TRANSFER,"İstanbul, TR",New Recipient Ltd,Bilinmeyen iPhone,TR,9,0,1,SUPHELI_DAVRANIS
+37360.94,TRANSFER,"Dubai, AE",Yeni Alıcı,Unknown Android,TR,17,0,0,SUPHELI_DAVRANIS
+53375.75,TRANSFER,"Eskişehir, TR",Offshore Services,Bilinmeyen iPhone,TR,19,0,1,HESAP_ELE_GECIRME
+3646.89,ODEME,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+15374.58,CEKIM,"Dubai, AE",Market Harcama,Yeni cihaz,,21,0,1,SUPHELI_DAVRANIS
+1876.54,ODEME,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+542.04,FATURA,"Ankara, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+94198.97,ODEME,"Ankara, TR",Yeni Alıcı,Unknown Android,TR,23,1,1,HESAP_ELE_GECIRME
+19190.64,TRANSFER,"Bursa, TR",Global Trade,Yeni cihaz,,4,1,1,HESAP_ELE_GECIRME
+43248.45,TRANSFER,"Dubai, AE",Elektrik Fatura,Android bilinen cihaz,TR,21,1,1,SUPHELI_DAVRANIS
+90129.05,ODEME,"Dubai, AE",Yeni Alıcı,Yeni cihaz,TR,23,1,0,CALINTI_KART
+3633.08,FATURA,"İstanbul, TR",Okul Ödemesi,Android bilinen cihaz,TR,10,0,0,TEMIZ
+1260.85,ODEME,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,13,0,0,TEMIZ
+539.37,FATURA,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,20,0,0,TEMIZ
+112909.38,ODEME,"Paris, FR",Ulaşım,Yeni cihaz,,8,1,0,CALINTI_KART
+2502.93,ODEME,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+1769.52,ODEME,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+15182.96,ODEME,"İzmir, TR",Sigorta Fatura,Bilinmeyen iPhone,TR,20,0,0,SUPHELI_DAVRANIS
+96658.22,TRANSFER,"London, UK",Yeni Alıcı,Yeni web oturumu,,21,1,1,PARA_AKLAMA
+27009.25,TRANSFER,"Dubai, AE",Restoran,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+2897.51,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+1149.48,FATURA,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+58292.61,CEKIM,"Tbilisi, GE",New Recipient Ltd,Web güvenilir tarayıcı,TR,1,1,1,CALINTI_KART
+222802.79,TRANSFER,"Ankara, TR",Global Trade,Unknown Android,,11,1,0,PARA_AKLAMA
+7580.03,TRANSFER,"Paris, FR",Offshore Services,Yeni cihaz,,4,1,0,HESAP_ELE_GECIRME
+132910.72,TRANSFER,"Bursa, TR",Yeni Alıcı,Android bilinen cihaz,TR,20,1,1,PARA_AKLAMA
+1960.79,FATURA,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+1859.06,FATURA,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+1685.43,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,1,0,0,TEMIZ
+231074.78,TRANSFER,"Bursa, TR",Kripto Exchange,Bilinmeyen iPhone,,0,0,1,PARA_AKLAMA
+112244.77,FATURA,"Eskişehir, TR",New Recipient Ltd,Yeni cihaz,TR,3,1,0,CALINTI_KART
+118452.77,TRANSFER,"Eskişehir, TR",Global Trade,Yeni web oturumu,TR,13,0,1,PARA_AKLAMA
+2403.34,FATURA,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+4381.1,ODEME,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+59389.7,ODEME,"London, UK",Offshore Services,Yeni web oturumu,,10,1,0,HESAP_ELE_GECIRME
+1999.55,FATURA,"İstanbul, TR",Elektrik Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+3187.12,ODEME,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+27873.33,TRANSFER,"Berlin, DE",Kira Ödemesi,Web güvenilir tarayıcı,TR,23,1,0,SUPHELI_DAVRANIS
+35247.53,TRANSFER,"London, UK",Sigorta Fatura,Paycell kayıtlı cihaz,TR,16,0,1,SUPHELI_DAVRANIS
+1134.09,ODEME,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,5,0,0,TEMIZ
+579.69,ODEME,"Eskişehir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+3194.91,ODEME,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+4280.75,ODEME,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+76743.33,ODEME,"Amsterdam, NL",Kripto Exchange,Bilinmeyen iPhone,TR,1,0,0,HESAP_ELE_GECIRME
+7250.11,FATURA,"Bursa, TR",Kira Ödemesi,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+3320.75,ODEME,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+222211.9,TRANSFER,"Bursa, TR",Yeni Alıcı,Bilinmeyen iPhone,TR,9,0,1,PARA_AKLAMA
+1973.28,ODEME,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+3099.05,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+6820.08,ODEME,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+4130.75,FATURA,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+2573.26,ODEME,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+60635.49,TRANSFER,"İstanbul, TR",Kripto Exchange,Yeni cihaz,TR,12,1,1,PARA_AKLAMA
+2044.02,ODEME,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+117995.95,ODEME,"Ankara, TR",Kripto Exchange,Yeni cihaz,,5,1,0,CALINTI_KART
+230475.62,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Web güvenilir tarayıcı,,18,0,1,PARA_AKLAMA
+21572.57,ODEME,"Amsterdam, NL",Restoran,Android bilinen cihaz,,1,1,0,CALINTI_KART
+887.43,ODEME,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+72373.74,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Bilinmeyen iPhone,TR,11,1,1,PARA_AKLAMA
+262.37,FATURA,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+72599.39,ODEME,"London, UK",Offshore Services,Bilinmeyen iPhone,TR,0,1,1,CALINTI_KART
+8476.91,CEKIM,"Amsterdam, NL",Sigorta Fatura,Bilinmeyen iPhone,TR,18,1,0,SUPHELI_DAVRANIS
+39681.56,TRANSFER,"Berlin, DE",Yeni Alıcı,Android bilinen cihaz,TR,18,1,1,PARA_AKLAMA
+2968.32,FATURA,"İzmir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+1643.54,ODEME,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+4122.66,FATURA,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,3,0,0,TEMIZ
+2521.25,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+4028.75,FATURA,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+1035.59,ODEME,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+37592.76,CEKIM,"Eskişehir, TR",New Recipient Ltd,Yeni cihaz,,3,0,0,CALINTI_KART
+117149.22,ODEME,"Ankara, TR",Yeni Alıcı,Yeni cihaz,,10,1,0,CALINTI_KART
+2260.32,FATURA,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+1995.62,ODEME,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+12679.21,TRANSFER,"Manisa, TR",Telekom Fatura,Yeni web oturumu,TR,10,0,0,SUPHELI_DAVRANIS
+651.14,ODEME,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+96893.33,ODEME,"Bursa, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,23,1,1,CALINTI_KART
+2982.69,FATURA,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+76514.51,TRANSFER,"Bursa, TR",Kira Ödemesi,Yeni web oturumu,,2,1,1,HESAP_ELE_GECIRME
+4144.81,FATURA,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,17,0,0,TEMIZ
+2946.35,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,9,0,0,TEMIZ
+2866.48,TRANSFER,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+749.52,FATURA,"Eskişehir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+1922.56,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+248.13,FATURA,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+4423.87,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+32009.97,CEKIM,"London, UK",Elektrik Fatura,Web güvenilir tarayıcı,,11,1,0,SUPHELI_DAVRANIS
+13509.66,TRANSFER,"Berlin, DE",Kira Ödemesi,Web güvenilir tarayıcı,,9,1,0,SUPHELI_DAVRANIS
+994.01,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+3928.55,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+1896.56,FATURA,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+3180.7,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+2531.05,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+100157.88,TRANSFER,"Ankara, TR",Offshore Services,Web güvenilir tarayıcı,TR,20,1,1,PARA_AKLAMA
+129895.32,TRANSFER,"İzmir, TR",Offshore Services,Paycell kayıtlı cihaz,TR,9,0,1,PARA_AKLAMA
+71969.15,FATURA,"Bursa, TR",Offshore Services,Android bilinen cihaz,,3,0,0,CALINTI_KART
+3284.91,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+239.59,FATURA,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+5368.87,TRANSFER,"İzmir, TR",Restoran,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+164792.51,TRANSFER,"Dubai, AE",New Recipient Ltd,Paycell kayıtlı cihaz,TR,5,0,1,PARA_AKLAMA
+6739.97,ODEME,"Bursa, TR",Okul Ödemesi,Bilinmeyen iPhone,TR,13,1,1,SUPHELI_DAVRANIS
+82301.64,TRANSFER,"Berlin, DE",Kira Ödemesi,Yeni cihaz,,2,1,0,HESAP_ELE_GECIRME
+1309.1,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+187686.93,TRANSFER,"Paris, FR",Kripto Exchange,iPhone 13 bilinen cihaz,TR,1,0,1,PARA_AKLAMA
+49745.23,ODEME,"Berlin, DE",New Recipient Ltd,Bilinmeyen iPhone,,0,1,1,CALINTI_KART
+327.27,FATURA,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+1134.8,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+5417.04,FATURA,"İstanbul, TR",Aile Transferi,Android bilinen cihaz,TR,16,0,0,TEMIZ
+221.6,ODEME,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,3,0,0,TEMIZ
+1155.22,FATURA,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,16,0,0,TEMIZ
+755.72,FATURA,"Eskişehir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+658.54,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,20,0,0,TEMIZ
+3080.58,ODEME,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+1560.38,ODEME,"Eskişehir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+62472.78,TRANSFER,"Ankara, TR",Global Trade,Unknown Android,TR,19,1,1,HESAP_ELE_GECIRME
+53258.48,TRANSFER,"Manisa, TR",Global Trade,Paycell kayıtlı cihaz,,21,0,1,PARA_AKLAMA
+122018.98,TRANSFER,"Manisa, TR",Global Trade,Web güvenilir tarayıcı,,11,0,1,PARA_AKLAMA
+3201.57,FATURA,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+2239.86,ODEME,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+66.86,FATURA,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+900.18,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+202844.02,TRANSFER,"Dubai, AE",Kripto Exchange,Yeni web oturumu,TR,19,0,1,PARA_AKLAMA
+188153.08,TRANSFER,"Ankara, TR",Yeni Alıcı,Yeni cihaz,,21,0,1,PARA_AKLAMA
+65575.96,ODEME,"Dubai, AE",Global Trade,Unknown Android,TR,16,1,1,HESAP_ELE_GECIRME
+400.28,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+13678.2,TRANSFER,"Eskişehir, TR",Kira Ödemesi,Android bilinen cihaz,TR,8,0,0,SUPHELI_DAVRANIS
+1153.08,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+3580.71,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+23411.79,ODEME,"İstanbul, TR",Aile Transferi,iPhone 13 bilinen cihaz,TR,19,1,1,SUPHELI_DAVRANIS
+87558.65,ODEME,"Dubai, AE",Kira Ödemesi,Yeni cihaz,TR,0,1,1,HESAP_ELE_GECIRME
+11816.38,ODEME,"Dubai, AE",Ulaşım,Yeni cihaz,,14,1,1,HESAP_ELE_GECIRME
+4221.32,FATURA,"Bursa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+58105.17,TRANSFER,"Ankara, TR",New Recipient Ltd,Unknown Android,,4,1,1,PARA_AKLAMA
+2020.25,FATURA,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+22998.08,CEKIM,"Manisa, TR",Ulaşım,Web güvenilir tarayıcı,TR,13,1,0,SUPHELI_DAVRANIS
+2971.53,FATURA,"Ankara, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+44083.92,CEKIM,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,19,0,0,SUPHELI_DAVRANIS
+3839.22,FATURA,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+3946.81,FATURA,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+33405.83,CEKIM,"Tbilisi, GE",Global Trade,Paycell kayıtlı cihaz,TR,0,1,1,CALINTI_KART
+5761.62,TRANSFER,"London, UK",Yeni Alıcı,Yeni web oturumu,TR,1,1,1,HESAP_ELE_GECIRME
+93949.74,TRANSFER,"Dubai, AE",Kripto Exchange,iPhone 13 bilinen cihaz,TR,0,1,1,PARA_AKLAMA
+3550.8,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+2985.96,FATURA,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+890.86,ODEME,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+25498.57,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+21726.58,FATURA,"Amsterdam, NL",Offshore Services,iPhone 13 bilinen cihaz,TR,5,0,1,CALINTI_KART
+50738.1,TRANSFER,"Paris, FR",Restoran,Bilinmeyen iPhone,,12,1,1,HESAP_ELE_GECIRME
+36834.35,CEKIM,"Ankara, TR",Restoran,Paycell kayıtlı cihaz,,11,1,1,SUPHELI_DAVRANIS
+40659.65,CEKIM,"İzmir, TR",Sigorta Fatura,Unknown Android,TR,23,1,0,SUPHELI_DAVRANIS
+2642.39,ODEME,"Eskişehir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+132313.77,TRANSFER,"London, UK",Offshore Services,iPhone 13 bilinen cihaz,TR,5,1,0,PARA_AKLAMA
+30095.64,TRANSFER,"Tbilisi, GE",Kripto Exchange,Yeni web oturumu,,0,1,1,HESAP_ELE_GECIRME
+45047.76,ODEME,"Tbilisi, GE",Ulaşım,Unknown Android,,19,1,1,CALINTI_KART
+73847.0,ODEME,"Bursa, TR",Kira Ödemesi,Yeni cihaz,,20,0,0,HESAP_ELE_GECIRME
+3264.69,FATURA,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+418.44,FATURA,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,21,0,0,TEMIZ
+27779.43,TRANSFER,"İzmir, TR",New Recipient Ltd,Web güvenilir tarayıcı,TR,15,0,0,SUPHELI_DAVRANIS
+45730.0,FATURA,"London, UK",Yeni Alıcı,Yeni cihaz,,1,1,0,CALINTI_KART
+2847.23,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+114227.93,ODEME,"Berlin, DE",Offshore Services,Bilinmeyen iPhone,,1,1,0,CALINTI_KART
+5867.59,ODEME,"Ankara, TR",Market Harcama,Android bilinen cihaz,TR,3,0,0,TEMIZ
+63680.43,TRANSFER,"Paris, FR",Restoran,Yeni cihaz,TR,14,1,0,HESAP_ELE_GECIRME
+1903.21,FATURA,"Ankara, TR",Okul Ödemesi,Android bilinen cihaz,TR,11,0,0,TEMIZ
+3686.91,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+2084.24,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+1137.14,ODEME,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+1320.53,ODEME,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+1888.21,FATURA,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+76274.97,TRANSFER,"Bursa, TR",Global Trade,Android bilinen cihaz,TR,12,0,1,PARA_AKLAMA
+198470.99,TRANSFER,"Bursa, TR",Yeni Alıcı,Yeni cihaz,,0,0,1,PARA_AKLAMA
+771.01,FATURA,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,5,0,0,TEMIZ
+3382.57,ODEME,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,8,0,0,TEMIZ
+91386.29,TRANSFER,"İstanbul, TR",Offshore Services,Bilinmeyen iPhone,TR,4,0,1,PARA_AKLAMA
+133487.82,TRANSFER,"Paris, FR",Kripto Exchange,iPhone 13 bilinen cihaz,,0,0,1,PARA_AKLAMA
+6498.78,TRANSFER,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+154767.23,TRANSFER,"Amsterdam, NL",New Recipient Ltd,Yeni cihaz,TR,8,0,1,PARA_AKLAMA
+935.76,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+158.25,FATURA,"Manisa, TR",Telekom Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+780.87,ODEME,"Eskişehir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+959.79,FATURA,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+19906.48,ODEME,"Ankara, TR",Kripto Exchange,Unknown Android,TR,1,1,0,SUPHELI_DAVRANIS
+1682.5,FATURA,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+489.6,FATURA,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+2851.85,ODEME,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+1454.72,FATURA,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,4,0,0,TEMIZ
+2316.73,FATURA,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+588.91,FATURA,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,8,0,0,TEMIZ
+2261.81,FATURA,"İstanbul, TR",Okul Ödemesi,Android bilinen cihaz,TR,11,0,0,TEMIZ
+42012.96,CEKIM,"Berlin, DE",Telekom Fatura,Unknown Android,TR,20,0,0,SUPHELI_DAVRANIS
+117476.34,ODEME,"İstanbul, TR",Global Trade,Unknown Android,,18,0,0,CALINTI_KART
+85831.28,CEKIM,"London, UK",Yeni Alıcı,Bilinmeyen iPhone,,3,1,1,CALINTI_KART
+61361.76,TRANSFER,"İstanbul, TR",Kripto Exchange,Unknown Android,,11,1,1,HESAP_ELE_GECIRME
+69699.0,ODEME,"Berlin, DE",Yeni Alıcı,Bilinmeyen iPhone,TR,2,1,0,HESAP_ELE_GECIRME
+30157.61,FATURA,"Paris, FR",Kripto Exchange,Bilinmeyen iPhone,,5,1,1,CALINTI_KART
+114797.72,FATURA,"London, UK",Kripto Exchange,Web güvenilir tarayıcı,,5,1,0,CALINTI_KART
+41907.82,ODEME,"Dubai, AE",Offshore Services,Unknown Android,,1,1,0,CALINTI_KART
+34484.38,TRANSFER,"Berlin, DE",Kripto Exchange,Yeni web oturumu,,13,1,1,SUPHELI_DAVRANIS
+353.06,FATURA,"Ankara, TR",Okul Ödemesi,Android bilinen cihaz,TR,14,0,0,TEMIZ
+250346.8,TRANSFER,"Manisa, TR",Offshore Services,Paycell kayıtlı cihaz,,8,0,0,PARA_AKLAMA
+1117.11,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+693.0,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,23,0,0,TEMIZ
+6058.77,ODEME,"Bursa, TR",Ulaşım,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+3124.05,FATURA,"Eskişehir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+40179.62,CEKIM,"İstanbul, TR",Kira Ödemesi,Unknown Android,,1,0,1,SUPHELI_DAVRANIS
+18015.91,ODEME,"Berlin, DE",Aile Transferi,Android bilinen cihaz,TR,16,1,1,SUPHELI_DAVRANIS
+822.63,FATURA,"Manisa, TR",Telekom Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+90260.46,ODEME,"İstanbul, TR",Offshore Services,Unknown Android,TR,23,1,0,HESAP_ELE_GECIRME
+2002.86,FATURA,"Ankara, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+14470.71,TRANSFER,"Dubai, AE",Yeni Alıcı,Bilinmeyen iPhone,,8,1,0,HESAP_ELE_GECIRME
+4965.4,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+88755.81,ODEME,"Eskişehir, TR",Kira Ödemesi,Yeni web oturumu,TR,13,1,0,HESAP_ELE_GECIRME
+82321.31,FATURA,"Paris, FR",Global Trade,iPhone 13 bilinen cihaz,,19,0,0,CALINTI_KART
+1075.3,TRANSFER,"İzmir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+874.13,FATURA,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+90278.97,FATURA,"London, UK",Kripto Exchange,iPhone 13 bilinen cihaz,TR,15,0,0,CALINTI_KART
+3313.55,ODEME,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+3234.91,FATURA,"İstanbul, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+4442.94,ODEME,"İstanbul, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+25162.95,TRANSFER,"Tbilisi, GE",Kripto Exchange,Yeni cihaz,TR,10,0,1,HESAP_ELE_GECIRME
+1286.8,FATURA,"İzmir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+2231.6,FATURA,"İzmir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+239787.6,TRANSFER,"Manisa, TR",Yeni Alıcı,Bilinmeyen iPhone,,0,1,1,PARA_AKLAMA
+45776.76,CEKIM,"Ankara, TR",New Recipient Ltd,Yeni web oturumu,,0,1,0,CALINTI_KART
+77717.98,TRANSFER,"London, UK",Offshore Services,Unknown Android,TR,11,1,1,PARA_AKLAMA
+1445.61,ODEME,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+3005.79,FATURA,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+4485.93,FATURA,"Eskişehir, TR",Okul Ödemesi,Android bilinen cihaz,TR,19,0,0,TEMIZ
+297.6,ODEME,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+3500.01,ODEME,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+240284.68,TRANSFER,"Amsterdam, NL",New Recipient Ltd,Paycell kayıtlı cihaz,,20,0,1,PARA_AKLAMA
+89259.89,ODEME,"İstanbul, TR",Yeni Alıcı,Unknown Android,TR,21,0,0,CALINTI_KART
+2077.88,FATURA,"Eskişehir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+971.61,FATURA,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+9975.97,ODEME,"Amsterdam, NL",Kripto Exchange,Web güvenilir tarayıcı,,3,1,1,SUPHELI_DAVRANIS
+2937.69,FATURA,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+89192.47,TRANSFER,"Manisa, TR",New Recipient Ltd,Bilinmeyen iPhone,,18,0,1,PARA_AKLAMA
+2938.64,ODEME,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,0,0,0,TEMIZ
+4176.23,TRANSFER,"Eskişehir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+18137.24,CEKIM,"Tbilisi, GE",Kripto Exchange,Unknown Android,TR,23,0,1,CALINTI_KART
+123.17,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+3221.89,FATURA,"Ankara, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+58.77,ODEME,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+80922.06,ODEME,"Amsterdam, NL",Kira Ödemesi,Web güvenilir tarayıcı,,3,0,0,CALINTI_KART
+241.13,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+85698.92,ODEME,"Dubai, AE",Restoran,Yeni cihaz,TR,2,0,1,CALINTI_KART
+2500.0,FATURA,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,14,0,0,TEMIZ
+51730.92,TRANSFER,"London, UK",Kripto Exchange,iPhone 13 bilinen cihaz,,19,1,1,PARA_AKLAMA
+176652.85,TRANSFER,"Tbilisi, GE",Kripto Exchange,Unknown Android,TR,23,0,1,PARA_AKLAMA
+381.15,FATURA,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+7731.76,ODEME,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,3,0,0,TEMIZ
+3529.91,FATURA,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+2396.81,FATURA,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+73418.17,TRANSFER,"Bursa, TR",Kripto Exchange,Paycell kayıtlı cihaz,TR,0,0,1,PARA_AKLAMA
+63495.79,TRANSFER,"Tbilisi, GE",New Recipient Ltd,Yeni cihaz,,13,1,1,HESAP_ELE_GECIRME
+59000.68,TRANSFER,"London, UK",Aile Transferi,Bilinmeyen iPhone,,3,1,0,HESAP_ELE_GECIRME
+111428.85,CEKIM,"Amsterdam, NL",Ulaşım,Yeni web oturumu,,9,1,0,CALINTI_KART
+18190.41,TRANSFER,"Paris, FR",Restoran,Bilinmeyen iPhone,,3,1,0,HESAP_ELE_GECIRME
+22848.19,FATURA,"Tbilisi, GE",Yeni Alıcı,Bilinmeyen iPhone,TR,23,0,0,CALINTI_KART
+3382.27,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+3972.82,FATURA,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+50258.97,TRANSFER,"London, UK",Offshore Services,Yeni web oturumu,,5,1,1,HESAP_ELE_GECIRME
+561.27,ODEME,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+1792.52,ODEME,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+291.72,FATURA,"Eskişehir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+8079.87,CEKIM,"Amsterdam, NL",Kira Ödemesi,Unknown Android,TR,1,1,0,CALINTI_KART
+6548.37,ODEME,"İstanbul, TR",E-Ticaret,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+520.32,ODEME,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,19,0,0,TEMIZ
+22924.45,TRANSFER,"Tbilisi, GE",Restoran,Android bilinen cihaz,TR,3,0,1,SUPHELI_DAVRANIS
+42111.47,TRANSFER,"Bursa, TR",Offshore Services,Paycell kayıtlı cihaz,,19,1,1,PARA_AKLAMA
+210575.94,TRANSFER,"Tbilisi, GE",Yeni Alıcı,iPhone 13 bilinen cihaz,,2,0,1,PARA_AKLAMA
+88213.61,TRANSFER,"İzmir, TR",Yeni Alıcı,Yeni cihaz,TR,3,1,1,PARA_AKLAMA
+76981.48,CEKIM,"Amsterdam, NL",Ulaşım,Android bilinen cihaz,,3,1,0,CALINTI_KART
+2277.92,FATURA,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+21650.04,TRANSFER,"Bursa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,9,0,1,SUPHELI_DAVRANIS
+26473.88,CEKIM,"Dubai, AE",Restoran,Paycell kayıtlı cihaz,TR,16,0,1,SUPHELI_DAVRANIS
+13125.06,ODEME,"Paris, FR",Kira Ödemesi,Unknown Android,TR,0,1,1,HESAP_ELE_GECIRME
+1308.94,ODEME,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+1393.95,FATURA,"Manisa, TR",Elektrik Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+3352.19,FATURA,"Eskişehir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+1749.78,FATURA,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+896.42,ODEME,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+257670.04,TRANSFER,"Tbilisi, GE",Kripto Exchange,Android bilinen cihaz,TR,20,0,0,PARA_AKLAMA
+92711.61,ODEME,"Tbilisi, GE",Kripto Exchange,Bilinmeyen iPhone,TR,4,1,1,HESAP_ELE_GECIRME
+16691.8,ODEME,"Eskişehir, TR",Aile Transferi,iPhone 13 bilinen cihaz,,19,0,0,SUPHELI_DAVRANIS
+26766.32,CEKIM,"İstanbul, TR",E-Ticaret,Bilinmeyen iPhone,,20,1,0,SUPHELI_DAVRANIS
+22037.06,TRANSFER,"Berlin, DE",Ulaşım,Yeni cihaz,,15,1,0,HESAP_ELE_GECIRME
+16094.55,ODEME,"Eskişehir, TR",Telekom Fatura,Yeni cihaz,TR,0,0,1,SUPHELI_DAVRANIS
+4241.24,ODEME,"İstanbul, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+94037.34,TRANSFER,"Amsterdam, NL",Aile Transferi,Yeni web oturumu,TR,16,1,1,HESAP_ELE_GECIRME
+1351.71,FATURA,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+4373.22,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+38142.25,TRANSFER,"Tbilisi, GE",Ulaşım,Unknown Android,,2,1,1,HESAP_ELE_GECIRME
+1800.74,ODEME,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+11619.58,TRANSFER,"Berlin, DE",Yeni Alıcı,Bilinmeyen iPhone,,2,1,1,HESAP_ELE_GECIRME
+12931.64,TRANSFER,"Dubai, AE",New Recipient Ltd,Paycell kayıtlı cihaz,TR,1,0,0,SUPHELI_DAVRANIS
+125563.47,TRANSFER,"İstanbul, TR",Global Trade,Bilinmeyen iPhone,TR,0,0,1,PARA_AKLAMA
+2137.22,FATURA,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,8,0,1,TEMIZ
+1545.91,FATURA,"Ankara, TR",Telekom Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+3676.05,ODEME,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,16,0,0,TEMIZ
+2836.72,FATURA,"Ankara, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+3769.9,FATURA,"Ankara, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+68159.71,TRANSFER,"İstanbul, TR",Yeni Alıcı,Yeni cihaz,TR,11,1,0,PARA_AKLAMA
+2784.09,FATURA,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+1530.08,FATURA,"Manisa, TR",Okul Ödemesi,Android bilinen cihaz,TR,18,0,0,TEMIZ
+30743.87,ODEME,"Amsterdam, NL",New Recipient Ltd,Bilinmeyen iPhone,,20,1,0,HESAP_ELE_GECIRME
+3882.55,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+3542.46,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+11642.04,TRANSFER,"İzmir, TR",E-Ticaret,Yeni web oturumu,TR,15,0,0,SUPHELI_DAVRANIS
+1523.92,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+52106.9,TRANSFER,"Berlin, DE",Kira Ödemesi,Yeni cihaz,,4,1,0,HESAP_ELE_GECIRME
+23178.73,TRANSFER,"Amsterdam, NL",Yeni Alıcı,Yeni cihaz,TR,10,0,1,HESAP_ELE_GECIRME
+3824.68,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,16,0,0,TEMIZ
+116829.71,FATURA,"Berlin, DE",Aile Transferi,iPhone 13 bilinen cihaz,,14,1,0,CALINTI_KART
+276.48,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+39948.6,ODEME,"İzmir, TR",Global Trade,Web güvenilir tarayıcı,TR,4,0,0,SUPHELI_DAVRANIS
+93609.49,FATURA,"Manisa, TR",Yeni Alıcı,Yeni web oturumu,,15,0,0,CALINTI_KART
+731.04,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+1926.47,ODEME,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+112288.15,ODEME,"Eskişehir, TR",Kripto Exchange,Android bilinen cihaz,,0,1,1,CALINTI_KART
+71631.61,TRANSFER,"Ankara, TR",E-Ticaret,Bilinmeyen iPhone,TR,21,1,1,HESAP_ELE_GECIRME
+1929.15,ODEME,"Ankara, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+160.24,ODEME,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+6428.1,TRANSFER,"Bursa, TR",Yeni Alıcı,Paycell kayıtlı cihaz,TR,2,1,0,SUPHELI_DAVRANIS
+8385.67,ODEME,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,2,1,0,TEMIZ
+1812.68,FATURA,"İzmir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+1514.34,FATURA,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,23,0,0,TEMIZ
+120975.14,TRANSFER,"Ankara, TR",Offshore Services,Paycell kayıtlı cihaz,TR,19,1,1,PARA_AKLAMA
+663.95,FATURA,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+19221.81,TRANSFER,"London, UK",Okul Ödemesi,Yeni web oturumu,TR,18,1,1,SUPHELI_DAVRANIS
+29805.1,ODEME,"İzmir, TR",New Recipient Ltd,Bilinmeyen iPhone,TR,23,0,0,SUPHELI_DAVRANIS
+3524.15,FATURA,"Bursa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+25665.65,ODEME,"Paris, FR",Kira Ödemesi,Bilinmeyen iPhone,TR,2,0,0,CALINTI_KART
+242936.17,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Web güvenilir tarayıcı,TR,18,1,1,PARA_AKLAMA
+225088.02,TRANSFER,"İzmir, TR",Global Trade,Bilinmeyen iPhone,TR,18,1,0,PARA_AKLAMA
+6727.35,TRANSFER,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+81552.29,TRANSFER,"London, UK",Kripto Exchange,Yeni web oturumu,,21,1,1,HESAP_ELE_GECIRME
+34539.35,TRANSFER,"Amsterdam, NL",Restoran,Yeni web oturumu,TR,17,0,0,SUPHELI_DAVRANIS
+46812.19,ODEME,"Dubai, AE",Offshore Services,Bilinmeyen iPhone,TR,4,1,1,HESAP_ELE_GECIRME
+120564.09,TRANSFER,"İzmir, TR",Yeni Alıcı,Unknown Android,TR,20,0,1,PARA_AKLAMA
+408.24,FATURA,"İzmir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+136569.71,TRANSFER,"Berlin, DE",Offshore Services,iPhone 13 bilinen cihaz,TR,13,0,1,PARA_AKLAMA
+13745.61,TRANSFER,"Berlin, DE",Offshore Services,Web güvenilir tarayıcı,,19,0,0,SUPHELI_DAVRANIS
+4025.72,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+89385.15,TRANSFER,"Manisa, TR",Aile Transferi,Yeni cihaz,TR,10,1,1,HESAP_ELE_GECIRME
+3044.17,ODEME,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+10902.97,TRANSFER,"Dubai, AE",New Recipient Ltd,Android bilinen cihaz,TR,11,0,0,SUPHELI_DAVRANIS
+26186.37,FATURA,"Berlin, DE",Restoran,iPhone 13 bilinen cihaz,,2,0,0,CALINTI_KART
+3157.45,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+68527.54,ODEME,"Berlin, DE",Offshore Services,Unknown Android,,3,1,0,CALINTI_KART
+1988.41,ODEME,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+38652.15,ODEME,"Dubai, AE",Aile Transferi,Yeni web oturumu,TR,17,0,1,SUPHELI_DAVRANIS
+2630.21,FATURA,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+137291.72,TRANSFER,"Berlin, DE",Yeni Alıcı,Yeni web oturumu,,14,0,1,PARA_AKLAMA
+1802.29,ODEME,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+3778.83,ODEME,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+257.18,ODEME,"Eskişehir, TR",Ulaşım,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+117017.66,CEKIM,"London, UK",Aile Transferi,Paycell kayıtlı cihaz,TR,19,1,0,CALINTI_KART
+1988.0,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+123202.74,TRANSFER,"İzmir, TR",New Recipient Ltd,Web güvenilir tarayıcı,TR,3,1,1,PARA_AKLAMA
+2794.81,FATURA,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,5,0,0,TEMIZ
+2060.8,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,11,0,0,TEMIZ
+17579.98,CEKIM,"Bursa, TR",Telekom Fatura,Yeni web oturumu,,12,1,1,SUPHELI_DAVRANIS
+5128.96,TRANSFER,"Ankara, TR",E-Ticaret,Yeni cihaz,TR,1,1,1,HESAP_ELE_GECIRME
+3778.08,ODEME,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+43409.47,ODEME,"Bursa, TR",Elektrik Fatura,Yeni web oturumu,TR,15,0,1,SUPHELI_DAVRANIS
+1547.5,TRANSFER,"Manisa, TR",Ulaşım,iPhone 13 bilinen cihaz,TR,2,0,0,TEMIZ
+76575.56,ODEME,"Tbilisi, GE",Ulaşım,Android bilinen cihaz,,4,1,1,CALINTI_KART
+547.53,FATURA,"Ankara, TR",Market Harcama,Android bilinen cihaz,TR,19,0,0,TEMIZ
+600.18,ODEME,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+31425.06,TRANSFER,"Tbilisi, GE",Market Harcama,Bilinmeyen iPhone,TR,11,1,1,SUPHELI_DAVRANIS
+3238.17,ODEME,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+43196.72,TRANSFER,"Amsterdam, NL",Sigorta Fatura,Bilinmeyen iPhone,TR,21,1,1,SUPHELI_DAVRANIS
+50592.66,CEKIM,"Paris, FR",Kira Ödemesi,Yeni cihaz,,3,1,0,CALINTI_KART
+180147.04,TRANSFER,"İzmir, TR",Yeni Alıcı,Android bilinen cihaz,,10,1,1,PARA_AKLAMA
+63439.82,ODEME,"Paris, FR",Kripto Exchange,Yeni cihaz,TR,2,1,1,HESAP_ELE_GECIRME
+32583.63,TRANSFER,"Bursa, TR",New Recipient Ltd,Unknown Android,,2,1,0,HESAP_ELE_GECIRME
+3032.56,FATURA,"Manisa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+256.73,ODEME,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+136876.65,TRANSFER,"Eskişehir, TR",Yeni Alıcı,iPhone 13 bilinen cihaz,TR,21,0,1,PARA_AKLAMA
+45483.01,TRANSFER,"Bursa, TR",Global Trade,Yeni cihaz,TR,3,1,0,HESAP_ELE_GECIRME
+88866.04,ODEME,"Paris, FR",Kripto Exchange,Yeni web oturumu,,2,1,0,CALINTI_KART
+39098.22,ODEME,"Manisa, TR",New Recipient Ltd,Android bilinen cihaz,TR,0,1,0,SUPHELI_DAVRANIS
+228812.47,TRANSFER,"İstanbul, TR",Kripto Exchange,Web güvenilir tarayıcı,,8,0,0,PARA_AKLAMA
+26891.27,TRANSFER,"Paris, FR",Kripto Exchange,Yeni web oturumu,TR,20,1,0,HESAP_ELE_GECIRME
+2640.12,FATURA,"İstanbul, TR",Market Harcama,Android bilinen cihaz,TR,21,0,0,TEMIZ
+252313.16,TRANSFER,"London, UK",Global Trade,Android bilinen cihaz,,12,1,1,PARA_AKLAMA
+32905.93,ODEME,"Manisa, TR",Kira Ödemesi,Unknown Android,,11,1,1,CALINTI_KART
+25289.62,ODEME,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,15,1,1,SUPHELI_DAVRANIS
+2390.93,ODEME,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,9,0,0,TEMIZ
+1011.87,ODEME,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,11,0,0,TEMIZ
+50443.84,TRANSFER,"Tbilisi, GE",Offshore Services,Yeni cihaz,TR,19,1,1,PARA_AKLAMA
+1226.07,ODEME,"Manisa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+88277.35,TRANSFER,"Berlin, DE",Offshore Services,Bilinmeyen iPhone,,8,1,1,HESAP_ELE_GECIRME
+13027.62,FATURA,"Bursa, TR",Restoran,Bilinmeyen iPhone,TR,4,1,0,CALINTI_KART
+188261.12,TRANSFER,"Ankara, TR",Kripto Exchange,iPhone 13 bilinen cihaz,,4,1,1,PARA_AKLAMA
+30188.61,CEKIM,"Amsterdam, NL",Kripto Exchange,Yeni web oturumu,TR,19,1,1,SUPHELI_DAVRANIS
+95894.36,ODEME,"Manisa, TR",New Recipient Ltd,Yeni cihaz,TR,5,1,0,CALINTI_KART
+3106.63,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+91.86,ODEME,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+797.29,FATURA,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+2145.02,FATURA,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+3406.04,FATURA,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+113925.74,TRANSFER,"Manisa, TR",Yeni Alıcı,Paycell kayıtlı cihaz,TR,19,1,1,PARA_AKLAMA
+3897.8,FATURA,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+695.38,ODEME,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+28525.78,CEKIM,"Amsterdam, NL",Global Trade,Paycell kayıtlı cihaz,,3,0,0,SUPHELI_DAVRANIS
+232357.41,TRANSFER,"Bursa, TR",New Recipient Ltd,Web güvenilir tarayıcı,,14,0,1,PARA_AKLAMA
+2622.54,FATURA,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+3573.63,ODEME,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+3075.32,FATURA,"İzmir, TR",Sigorta Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+8944.72,ODEME,"Amsterdam, NL",Yeni Alıcı,Yeni web oturumu,,3,1,1,HESAP_ELE_GECIRME
+63743.3,TRANSFER,"Berlin, DE",Aile Transferi,Yeni web oturumu,,20,1,0,HESAP_ELE_GECIRME
+195469.35,TRANSFER,"Tbilisi, GE",Kripto Exchange,iPhone 13 bilinen cihaz,TR,2,1,1,PARA_AKLAMA
+121904.19,TRANSFER,"Amsterdam, NL",Offshore Services,Yeni web oturumu,TR,13,0,1,PARA_AKLAMA
+1151.34,ODEME,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+2840.44,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+57213.9,ODEME,"Tbilisi, GE",Global Trade,Bilinmeyen iPhone,,15,1,0,CALINTI_KART
+43342.18,TRANSFER,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,11,0,1,SUPHELI_DAVRANIS
+4053.11,ODEME,"Ankara, TR",Okul Ödemesi,Android bilinen cihaz,TR,8,0,0,TEMIZ
+3441.77,FATURA,"Bursa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+512.97,FATURA,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+6303.1,TRANSFER,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+3051.91,FATURA,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+84874.65,ODEME,"Berlin, DE",New Recipient Ltd,iPhone 13 bilinen cihaz,TR,0,0,0,CALINTI_KART
+1066.13,ODEME,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,16,0,0,TEMIZ
+2973.68,FATURA,"Bursa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+91267.33,CEKIM,"Tbilisi, GE",Yeni Alıcı,Bilinmeyen iPhone,TR,17,1,0,CALINTI_KART
+3150.02,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+2554.19,FATURA,"Eskişehir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+225.35,ODEME,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+47746.61,CEKIM,"Tbilisi, GE",Yeni Alıcı,Yeni cihaz,TR,5,1,1,CALINTI_KART
+87958.01,CEKIM,"Tbilisi, GE",Ulaşım,iPhone 13 bilinen cihaz,,14,0,0,CALINTI_KART
+3198.45,FATURA,"Manisa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+73745.86,ODEME,"London, UK",Kira Ödemesi,Unknown Android,TR,15,0,0,CALINTI_KART
+92989.79,CEKIM,"Berlin, DE",Kripto Exchange,Paycell kayıtlı cihaz,,2,1,0,CALINTI_KART
+9705.12,ODEME,"Ankara, TR",Offshore Services,Yeni web oturumu,TR,10,0,1,HESAP_ELE_GECIRME
+29970.12,ODEME,"Tbilisi, GE",Ulaşım,Unknown Android,,23,1,0,CALINTI_KART
+3020.56,FATURA,"Ankara, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+55283.14,TRANSFER,"Tbilisi, GE",Restoran,Bilinmeyen iPhone,TR,23,1,1,HESAP_ELE_GECIRME
+2529.58,FATURA,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+15472.61,ODEME,"Dubai, AE",Ulaşım,Bilinmeyen iPhone,TR,13,1,0,CALINTI_KART
+3732.68,ODEME,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+368.88,FATURA,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+157836.86,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Yeni web oturumu,,3,1,1,PARA_AKLAMA
+93532.79,CEKIM,"Tbilisi, GE",Global Trade,iPhone 13 bilinen cihaz,TR,4,0,0,CALINTI_KART
+192.89,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+1242.82,FATURA,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+46903.99,FATURA,"Berlin, DE",Aile Transferi,iPhone 13 bilinen cihaz,,16,1,1,CALINTI_KART
+115.79,ODEME,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+2488.72,FATURA,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+293.62,FATURA,"Ankara, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+3641.54,FATURA,"Eskişehir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+217839.93,TRANSFER,"Berlin, DE",Yeni Alıcı,iPhone 13 bilinen cihaz,TR,11,0,1,PARA_AKLAMA
+39599.32,TRANSFER,"Amsterdam, NL",Kripto Exchange,Yeni web oturumu,,5,1,1,HESAP_ELE_GECIRME
+1018.58,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+1229.54,FATURA,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+86868.94,FATURA,"Berlin, DE",E-Ticaret,Android bilinen cihaz,TR,0,1,0,CALINTI_KART
+23470.64,CEKIM,"Manisa, TR",Offshore Services,iPhone 13 bilinen cihaz,,2,1,1,CALINTI_KART
+301.65,FATURA,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+134904.44,TRANSFER,"London, UK",Kripto Exchange,Yeni cihaz,,23,1,1,PARA_AKLAMA
+29740.83,TRANSFER,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,,21,0,0,SUPHELI_DAVRANIS
+4181.05,FATURA,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+17209.32,CEKIM,"Berlin, DE",Kripto Exchange,Yeni cihaz,TR,19,0,1,SUPHELI_DAVRANIS
+1288.33,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+19163.76,TRANSFER,"Ankara, TR",New Recipient Ltd,Yeni cihaz,TR,20,0,0,SUPHELI_DAVRANIS
+6481.23,TRANSFER,"London, UK",Elektrik Fatura,Unknown Android,,15,0,0,SUPHELI_DAVRANIS
+4347.68,ODEME,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+42614.54,TRANSFER,"London, UK",Yeni Alıcı,Unknown Android,,12,0,1,SUPHELI_DAVRANIS
+39893.16,ODEME,"Bursa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,8,1,0,SUPHELI_DAVRANIS
+2297.5,ODEME,"Eskişehir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+8594.78,TRANSFER,"İzmir, TR",Global Trade,Yeni web oturumu,,1,1,1,HESAP_ELE_GECIRME
+2316.77,FATURA,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+2901.03,ODEME,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+1857.33,FATURA,"İzmir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+48933.97,ODEME,"Eskişehir, TR",Aile Transferi,Unknown Android,,23,0,0,CALINTI_KART
+68581.3,TRANSFER,"Dubai, AE",Global Trade,Unknown Android,TR,9,0,0,HESAP_ELE_GECIRME
+258271.87,TRANSFER,"Eskişehir, TR",New Recipient Ltd,Yeni cihaz,,8,0,1,PARA_AKLAMA
+66037.8,ODEME,"Dubai, AE",Ulaşım,Web güvenilir tarayıcı,TR,13,1,1,CALINTI_KART
+92460.51,TRANSFER,"Tbilisi, GE",Kira Ödemesi,Yeni web oturumu,TR,9,1,1,HESAP_ELE_GECIRME
+75587.09,FATURA,"İstanbul, TR",New Recipient Ltd,Android bilinen cihaz,,3,1,0,CALINTI_KART
+3588.5,ODEME,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+93458.79,TRANSFER,"Berlin, DE",Offshore Services,Bilinmeyen iPhone,TR,2,1,0,HESAP_ELE_GECIRME
+46227.14,TRANSFER,"Amsterdam, NL",Kira Ödemesi,Yeni cihaz,,10,1,1,HESAP_ELE_GECIRME
+1920.83,FATURA,"Bursa, TR",Sigorta Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+3717.36,ODEME,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+7828.93,ODEME,"Bursa, TR",E-Ticaret,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+88917.09,ODEME,"Amsterdam, NL",New Recipient Ltd,Bilinmeyen iPhone,,4,1,1,CALINTI_KART
+1072.06,ODEME,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+831.63,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+232906.34,TRANSFER,"Paris, FR",Offshore Services,Web güvenilir tarayıcı,TR,10,1,0,PARA_AKLAMA
+118740.63,ODEME,"Manisa, TR",Ulaşım,Unknown Android,,1,1,0,CALINTI_KART
+250967.76,TRANSFER,"İstanbul, TR",Global Trade,iPhone 13 bilinen cihaz,TR,4,0,1,PARA_AKLAMA
+2061.44,FATURA,"Manisa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+3895.0,ODEME,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+213497.06,TRANSFER,"İzmir, TR",Kripto Exchange,Web güvenilir tarayıcı,TR,18,0,1,PARA_AKLAMA
+4163.92,ODEME,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+81877.17,ODEME,"Manisa, TR",Aile Transferi,Bilinmeyen iPhone,,1,1,1,CALINTI_KART
+3310.35,ODEME,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+69542.09,TRANSFER,"Amsterdam, NL",E-Ticaret,Unknown Android,,5,1,1,HESAP_ELE_GECIRME
+2882.4,ODEME,"Eskişehir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+32051.06,TRANSFER,"Dubai, AE",Kripto Exchange,Unknown Android,TR,11,1,0,SUPHELI_DAVRANIS
+72456.42,ODEME,"London, UK",Aile Transferi,Unknown Android,,3,0,1,HESAP_ELE_GECIRME
+113205.18,TRANSFER,"Berlin, DE",Yeni Alıcı,Bilinmeyen iPhone,,8,1,1,PARA_AKLAMA
+3530.33,FATURA,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+51530.07,FATURA,"Paris, FR",Aile Transferi,Unknown Android,TR,12,1,1,CALINTI_KART
+2428.3,FATURA,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+6148.67,ODEME,"Ankara, TR",Aile Transferi,Web güvenilir tarayıcı,TR,16,1,1,TEMIZ
+22362.63,TRANSFER,"Berlin, DE",Restoran,Bilinmeyen iPhone,,23,1,1,HESAP_ELE_GECIRME
+41032.37,TRANSFER,"Ankara, TR",Global Trade,Yeni cihaz,,16,1,1,HESAP_ELE_GECIRME
+1381.05,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+77795.62,ODEME,"İstanbul, TR",New Recipient Ltd,Yeni cihaz,TR,19,1,1,HESAP_ELE_GECIRME
+4356.24,TRANSFER,"İstanbul, TR",Kripto Exchange,Bilinmeyen iPhone,TR,12,1,1,HESAP_ELE_GECIRME
+1384.12,ODEME,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+141065.08,TRANSFER,"Amsterdam, NL",Kripto Exchange,Yeni web oturumu,TR,16,0,1,PARA_AKLAMA
+44733.0,CEKIM,"Amsterdam, NL",Global Trade,Android bilinen cihaz,TR,8,1,1,SUPHELI_DAVRANIS
+20423.04,CEKIM,"İstanbul, TR",Elektrik Fatura,Yeni cihaz,TR,9,1,1,SUPHELI_DAVRANIS
+82564.15,ODEME,"Ankara, TR",Offshore Services,Bilinmeyen iPhone,,19,1,0,HESAP_ELE_GECIRME
+14129.96,FATURA,"Paris, FR",Global Trade,iPhone 13 bilinen cihaz,TR,3,0,1,CALINTI_KART
+82075.44,TRANSFER,"Bursa, TR",New Recipient Ltd,Android bilinen cihaz,TR,16,0,1,PARA_AKLAMA
+4148.29,ODEME,"Manisa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+25735.48,ODEME,"London, UK",Kira Ödemesi,Bilinmeyen iPhone,,16,1,0,CALINTI_KART
+1818.35,ODEME,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+1474.45,ODEME,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,18,0,0,TEMIZ
+81003.91,TRANSFER,"Manisa, TR",Offshore Services,Web güvenilir tarayıcı,TR,2,0,1,PARA_AKLAMA
+39243.45,ODEME,"İzmir, TR",Yeni Alıcı,Bilinmeyen iPhone,TR,10,0,0,SUPHELI_DAVRANIS
+36260.55,TRANSFER,"İstanbul, TR",Global Trade,Web güvenilir tarayıcı,TR,17,1,1,PARA_AKLAMA
+160810.12,TRANSFER,"Tbilisi, GE",Global Trade,Yeni web oturumu,TR,14,0,1,PARA_AKLAMA
+1835.59,ODEME,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+1001.41,FATURA,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+167146.34,TRANSFER,"İzmir, TR",New Recipient Ltd,Yeni web oturumu,,17,0,1,PARA_AKLAMA
+26411.18,CEKIM,"Ankara, TR",New Recipient Ltd,Unknown Android,,0,0,1,CALINTI_KART
+25956.51,TRANSFER,"Amsterdam, NL",Elektrik Fatura,Bilinmeyen iPhone,TR,9,1,1,SUPHELI_DAVRANIS
+3188.38,ODEME,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+4300.68,FATURA,"İzmir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+33108.89,TRANSFER,"Dubai, AE",Kira Ödemesi,Yeni web oturumu,TR,23,1,0,SUPHELI_DAVRANIS
+185758.8,TRANSFER,"İstanbul, TR",New Recipient Ltd,Unknown Android,TR,5,0,1,PARA_AKLAMA
+905.18,FATURA,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+64064.25,ODEME,"Amsterdam, NL",Ulaşım,Bilinmeyen iPhone,TR,12,1,1,CALINTI_KART
+170.85,FATURA,"Bursa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+2926.3,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,5,0,0,TEMIZ
+3322.12,FATURA,"Ankara, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+33713.04,TRANSFER,"İstanbul, TR",Okul Ödemesi,Yeni cihaz,,4,0,1,SUPHELI_DAVRANIS
+4052.01,FATURA,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+3775.4,FATURA,"Ankara, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+24095.32,ODEME,"London, UK",Aile Transferi,Unknown Android,,5,0,0,CALINTI_KART
+2352.4,ODEME,"Ankara, TR",Aile Transferi,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+7805.96,FATURA,"Manisa, TR",Telekom Fatura,Android bilinen cihaz,TR,18,0,0,TEMIZ
+96232.88,CEKIM,"Bursa, TR",Kira Ödemesi,Android bilinen cihaz,TR,21,1,0,CALINTI_KART
+273.14,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3764.5,ODEME,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+2222.34,FATURA,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+38437.49,ODEME,"London, UK",Kripto Exchange,Web güvenilir tarayıcı,TR,5,0,0,SUPHELI_DAVRANIS
+32598.69,TRANSFER,"Bursa, TR",Global Trade,Yeni cihaz,TR,12,1,1,SUPHELI_DAVRANIS
+2343.54,FATURA,"İstanbul, TR",Okul Ödemesi,Android bilinen cihaz,TR,13,0,0,TEMIZ
+49381.81,FATURA,"Ankara, TR",Global Trade,Yeni web oturumu,,3,1,1,CALINTI_KART
+870.45,ODEME,"İzmir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+6885.06,ODEME,"Eskişehir, TR",Ulaşım,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+1543.63,FATURA,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+93356.96,ODEME,"Paris, FR",New Recipient Ltd,Yeni cihaz,TR,2,0,0,CALINTI_KART
+921.13,FATURA,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+1415.91,FATURA,"İzmir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+183186.94,TRANSFER,"Berlin, DE",Offshore Services,Android bilinen cihaz,TR,0,0,1,PARA_AKLAMA
+3498.09,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+189526.95,TRANSFER,"Bursa, TR",Yeni Alıcı,Unknown Android,,1,1,0,PARA_AKLAMA
+39789.29,ODEME,"Manisa, TR",Kira Ödemesi,Bilinmeyen iPhone,,5,1,1,HESAP_ELE_GECIRME
+2752.05,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+3391.27,FATURA,"Manisa, TR",Telekom Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+14238.06,TRANSFER,"İstanbul, TR",Global Trade,Yeni web oturumu,TR,12,1,0,SUPHELI_DAVRANIS
+1200.45,ODEME,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+3634.81,ODEME,"Manisa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+71198.85,TRANSFER,"Dubai, AE",Yeni Alıcı,Yeni cihaz,TR,14,0,1,PARA_AKLAMA
+3348.32,FATURA,"Eskişehir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+2423.88,ODEME,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+392.24,FATURA,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+3929.4,ODEME,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+62582.41,ODEME,"Dubai, AE",Global Trade,Yeni web oturumu,,8,1,1,CALINTI_KART
+113.22,ODEME,"İzmir, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+51876.71,ODEME,"Amsterdam, NL",Restoran,Yeni cihaz,TR,3,1,1,HESAP_ELE_GECIRME
+253666.87,TRANSFER,"İstanbul, TR",New Recipient Ltd,Yeni cihaz,TR,10,0,1,PARA_AKLAMA
+486.51,FATURA,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+30782.71,ODEME,"Tbilisi, GE",New Recipient Ltd,Yeni cihaz,,0,1,1,HESAP_ELE_GECIRME
+2783.57,FATURA,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+206161.79,TRANSFER,"Tbilisi, GE",Kripto Exchange,iPhone 13 bilinen cihaz,,18,1,1,PARA_AKLAMA
+14078.32,TRANSFER,"Dubai, AE",E-Ticaret,Yeni cihaz,TR,18,1,1,SUPHELI_DAVRANIS
+39066.41,TRANSFER,"Amsterdam, NL",New Recipient Ltd,Paycell kayıtlı cihaz,,13,0,1,PARA_AKLAMA
+54304.46,ODEME,"Paris, FR",E-Ticaret,Unknown Android,,11,1,1,HESAP_ELE_GECIRME
+51381.89,FATURA,"Dubai, AE",Kira Ödemesi,Yeni web oturumu,TR,16,1,1,CALINTI_KART
+32011.1,TRANSFER,"Berlin, DE",Ulaşım,Unknown Android,,14,0,1,HESAP_ELE_GECIRME
+117002.67,FATURA,"Bursa, TR",Yeni Alıcı,Yeni cihaz,TR,0,1,1,CALINTI_KART
+12205.58,CEKIM,"Amsterdam, NL",Yeni Alıcı,Yeni web oturumu,TR,4,1,0,SUPHELI_DAVRANIS
+3000.81,FATURA,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+2106.38,ODEME,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+3441.5,FATURA,"İstanbul, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+1866.96,FATURA,"Ankara, TR",Sigorta Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+394.46,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+2827.84,FATURA,"Ankara, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+182176.11,TRANSFER,"İstanbul, TR",Kripto Exchange,Android bilinen cihaz,TR,11,1,1,PARA_AKLAMA
+40883.38,ODEME,"London, UK",Offshore Services,Bilinmeyen iPhone,TR,11,0,0,SUPHELI_DAVRANIS
+531.32,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+6268.45,ODEME,"Dubai, AE",Elektrik Fatura,Yeni web oturumu,,21,1,0,SUPHELI_DAVRANIS
+43345.42,CEKIM,"Paris, FR",Kira Ödemesi,iPhone 13 bilinen cihaz,TR,8,1,1,SUPHELI_DAVRANIS
+78653.05,TRANSFER,"Tbilisi, GE",Restoran,Bilinmeyen iPhone,TR,1,1,0,HESAP_ELE_GECIRME
+3569.58,FATURA,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+3587.14,FATURA,"İzmir, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+3201.06,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3158.54,FATURA,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+150.82,ODEME,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+2865.34,ODEME,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+33108.22,ODEME,"London, UK",Ulaşım,Yeni web oturumu,TR,23,1,1,SUPHELI_DAVRANIS
+28785.16,TRANSFER,"Manisa, TR",Telekom Fatura,Yeni web oturumu,TR,13,0,0,SUPHELI_DAVRANIS
+2371.7,ODEME,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+8050.92,ODEME,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,12,0,0,TEMIZ
+10664.07,ODEME,"Manisa, TR",Offshore Services,Bilinmeyen iPhone,TR,8,0,0,SUPHELI_DAVRANIS
+2375.19,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+4285.81,FATURA,"Ankara, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+2369.97,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,19,0,0,TEMIZ
+44958.08,TRANSFER,"İzmir, TR",Restoran,Yeni web oturumu,TR,23,1,0,HESAP_ELE_GECIRME
+1386.83,FATURA,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+40383.99,ODEME,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,0,0,1,SUPHELI_DAVRANIS
+2706.38,ODEME,"Eskişehir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+69238.29,ODEME,"İstanbul, TR",Ulaşım,Bilinmeyen iPhone,,3,1,1,HESAP_ELE_GECIRME
+74719.67,TRANSFER,"Eskişehir, TR",Offshore Services,Yeni web oturumu,TR,13,1,1,PARA_AKLAMA
+18043.36,TRANSFER,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,1,SUPHELI_DAVRANIS
+3692.01,ODEME,"Ankara, TR",E-Ticaret,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+1070.0,ODEME,"Eskişehir, TR",Market Harcama,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+1374.77,FATURA,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,11,0,0,TEMIZ
+207439.41,TRANSFER,"İstanbul, TR",New Recipient Ltd,Yeni web oturumu,,18,0,1,PARA_AKLAMA
+1056.25,ODEME,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3737.52,ODEME,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+128852.82,TRANSFER,"Bursa, TR",Global Trade,Yeni web oturumu,,3,0,1,PARA_AKLAMA
+67799.18,TRANSFER,"İzmir, TR",New Recipient Ltd,Yeni web oturumu,TR,3,1,1,HESAP_ELE_GECIRME
+994.89,FATURA,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+32944.44,ODEME,"Eskişehir, TR",E-Ticaret,Yeni cihaz,,5,1,1,HESAP_ELE_GECIRME
+1709.46,FATURA,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+530.75,FATURA,"Manisa, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+41067.52,TRANSFER,"Eskişehir, TR",New Recipient Ltd,Unknown Android,,2,1,0,HESAP_ELE_GECIRME
+36830.9,ODEME,"İstanbul, TR",Kira Ödemesi,Web güvenilir tarayıcı,,23,1,0,CALINTI_KART
+2126.08,ODEME,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,19,0,0,TEMIZ
+2730.15,FATURA,"İstanbul, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+144430.44,TRANSFER,"Dubai, AE",Global Trade,Yeni web oturumu,TR,8,0,0,PARA_AKLAMA
+44295.38,FATURA,"Paris, FR",Kira Ödemesi,iPhone 13 bilinen cihaz,,16,1,0,CALINTI_KART
+2597.58,ODEME,"Eskişehir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+2114.42,FATURA,"İstanbul, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,17,0,0,TEMIZ
+19252.58,CEKIM,"Tbilisi, GE",Telekom Fatura,Yeni web oturumu,,12,1,0,SUPHELI_DAVRANIS
+39246.12,TRANSFER,"London, UK",Kripto Exchange,Android bilinen cihaz,,16,0,1,PARA_AKLAMA
+2599.87,ODEME,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+845.78,FATURA,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+344.28,ODEME,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+1075.25,FATURA,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,15,0,0,TEMIZ
+4267.88,FATURA,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+39724.39,TRANSFER,"Eskişehir, TR",Kripto Exchange,Yeni cihaz,,17,1,1,HESAP_ELE_GECIRME
+72607.78,TRANSFER,"Manisa, TR",Ulaşım,Yeni web oturumu,,1,1,1,HESAP_ELE_GECIRME
+25769.5,TRANSFER,"Eskişehir, TR",Yeni Alıcı,Android bilinen cihaz,,3,0,0,SUPHELI_DAVRANIS
+103967.97,ODEME,"Paris, FR",Kira Ödemesi,Yeni web oturumu,TR,18,1,0,CALINTI_KART
+4282.6,ODEME,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+76.41,FATURA,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+169146.01,TRANSFER,"Tbilisi, GE",Offshore Services,Paycell kayıtlı cihaz,,10,0,0,PARA_AKLAMA
+71260.93,TRANSFER,"Amsterdam, NL",Offshore Services,Yeni cihaz,,5,1,0,HESAP_ELE_GECIRME
+162.16,FATURA,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+16279.35,ODEME,"London, UK",Ulaşım,Unknown Android,TR,1,1,0,HESAP_ELE_GECIRME
+2158.95,ODEME,"Eskişehir, TR",Okul Ödemesi,Android bilinen cihaz,TR,20,0,0,TEMIZ
+79146.21,ODEME,"Paris, FR",E-Ticaret,Yeni web oturumu,,9,1,0,CALINTI_KART
+911.42,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+3237.6,ODEME,"Eskişehir, TR",Elektrik Fatura,Android bilinen cihaz,TR,10,0,0,TEMIZ
+199256.81,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Yeni web oturumu,,3,0,1,PARA_AKLAMA
+3833.59,FATURA,"Bursa, TR",Elektrik Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+187.32,FATURA,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,3,0,0,TEMIZ
+1570.52,FATURA,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+60160.76,TRANSFER,"Tbilisi, GE",New Recipient Ltd,Yeni web oturumu,TR,12,1,0,HESAP_ELE_GECIRME
+2072.45,FATURA,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+148.47,FATURA,"İstanbul, TR",Elektrik Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+13224.6,TRANSFER,"İstanbul, TR",Aile Transferi,Yeni web oturumu,,9,0,0,HESAP_ELE_GECIRME
+19800.34,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Yeni cihaz,TR,16,1,1,HESAP_ELE_GECIRME
+104241.7,ODEME,"İzmir, TR",Yeni Alıcı,Unknown Android,,1,1,0,CALINTI_KART
+23815.69,TRANSFER,"Dubai, AE",Kira Ödemesi,Unknown Android,TR,14,1,0,HESAP_ELE_GECIRME
+4025.57,ODEME,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,2,0,0,TEMIZ
+3018.16,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,14,0,0,TEMIZ
+2182.36,FATURA,"İstanbul, TR",Okul Ödemesi,Android bilinen cihaz,TR,14,0,0,TEMIZ
+168068.69,TRANSFER,"Paris, FR",Global Trade,Web güvenilir tarayıcı,TR,19,0,0,PARA_AKLAMA
+16969.85,ODEME,"Paris, FR",Aile Transferi,Yeni cihaz,,16,1,1,HESAP_ELE_GECIRME
+46342.06,TRANSFER,"Amsterdam, NL",Restoran,Bilinmeyen iPhone,TR,20,1,1,HESAP_ELE_GECIRME
+4446.24,ODEME,"İzmir, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+3122.27,ODEME,"İzmir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+2709.74,ODEME,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+3472.81,FATURA,"Manisa, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3769.06,ODEME,"Ankara, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+34808.72,FATURA,"London, UK",Ulaşım,Bilinmeyen iPhone,,14,1,0,CALINTI_KART
+64415.25,TRANSFER,"Eskişehir, TR",Kripto Exchange,Yeni cihaz,TR,13,1,0,HESAP_ELE_GECIRME
+170856.3,TRANSFER,"Manisa, TR",Global Trade,Paycell kayıtlı cihaz,,16,1,1,PARA_AKLAMA
+3358.69,ODEME,"Manisa, TR",Elektrik Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+78433.64,ODEME,"London, UK",Aile Transferi,Web güvenilir tarayıcı,,13,0,1,CALINTI_KART
+248.42,ODEME,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,20,0,0,TEMIZ
+2929.6,FATURA,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,21,0,0,TEMIZ
+3013.03,TRANSFER,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,9,0,1,TEMIZ
+2811.34,FATURA,"İstanbul, TR",Okul Ödemesi,Android bilinen cihaz,TR,19,0,0,TEMIZ
+1539.71,ODEME,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+77702.69,TRANSFER,"Dubai, AE",New Recipient Ltd,Android bilinen cihaz,TR,11,1,1,PARA_AKLAMA
+41673.19,CEKIM,"Amsterdam, NL",Okul Ödemesi,Yeni cihaz,TR,13,1,0,SUPHELI_DAVRANIS
+4303.87,ODEME,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+57285.31,ODEME,"Berlin, DE",Ulaşım,Unknown Android,,11,0,0,CALINTI_KART
+37649.49,ODEME,"Ankara, TR",Ulaşım,Paycell kayıtlı cihaz,,15,0,0,SUPHELI_DAVRANIS
+69512.94,CEKIM,"Dubai, AE",New Recipient Ltd,Bilinmeyen iPhone,,13,0,1,CALINTI_KART
+4053.74,FATURA,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+3874.65,FATURA,"İstanbul, TR",Sigorta Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+44434.66,CEKIM,"Berlin, DE",Yeni Alıcı,Unknown Android,TR,11,0,0,SUPHELI_DAVRANIS
+2508.94,FATURA,"Bursa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+48736.23,ODEME,"Berlin, DE",Global Trade,Bilinmeyen iPhone,,2,1,0,HESAP_ELE_GECIRME
+3035.1,TRANSFER,"İzmir, TR",Ulaşım,Web güvenilir tarayıcı,TR,19,1,0,TEMIZ
+3447.89,FATURA,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+65069.42,ODEME,"Dubai, AE",Kira Ödemesi,Unknown Android,,17,1,1,HESAP_ELE_GECIRME
+76079.37,ODEME,"Amsterdam, NL",New Recipient Ltd,Bilinmeyen iPhone,,11,0,0,CALINTI_KART
+3766.58,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+2597.92,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+102817.37,CEKIM,"Paris, FR",E-Ticaret,Yeni web oturumu,,3,1,1,CALINTI_KART
+180625.69,TRANSFER,"London, UK",Global Trade,iPhone 13 bilinen cihaz,,4,1,1,PARA_AKLAMA
+4337.47,FATURA,"Ankara, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,8,0,0,TEMIZ
+37201.49,CEKIM,"London, UK",Global Trade,Android bilinen cihaz,,4,0,0,SUPHELI_DAVRANIS
+467.95,FATURA,"İstanbul, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+86966.35,CEKIM,"London, UK",Aile Transferi,Yeni cihaz,,2,1,0,CALINTI_KART
+29014.15,ODEME,"İstanbul, TR",Offshore Services,Paycell kayıtlı cihaz,TR,13,0,0,SUPHELI_DAVRANIS
+158295.6,TRANSFER,"London, UK",Global Trade,Yeni cihaz,TR,11,0,1,PARA_AKLAMA
+220.7,FATURA,"Bursa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+1466.27,FATURA,"Eskişehir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+1465.21,ODEME,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+236.76,FATURA,"İzmir, TR",Restoran,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+39809.32,ODEME,"Amsterdam, NL",Restoran,Web güvenilir tarayıcı,,17,1,0,CALINTI_KART
+2420.61,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,16,0,0,TEMIZ
+7021.96,ODEME,"Manisa, TR",Restoran,Android bilinen cihaz,TR,18,0,0,TEMIZ
+57196.42,TRANSFER,"İstanbul, TR",Offshore Services,Android bilinen cihaz,TR,17,1,0,PARA_AKLAMA
+3113.12,ODEME,"Ankara, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,14,0,0,TEMIZ
+100489.37,ODEME,"Bursa, TR",Aile Transferi,Unknown Android,,3,1,0,CALINTI_KART
+108984.88,ODEME,"Tbilisi, GE",Ulaşım,Yeni cihaz,,2,0,1,CALINTI_KART
+95162.85,ODEME,"Tbilisi, GE",Kripto Exchange,Bilinmeyen iPhone,TR,9,1,1,CALINTI_KART
+2216.32,FATURA,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,12,0,0,TEMIZ
+114973.19,FATURA,"Paris, FR",Ulaşım,Web güvenilir tarayıcı,TR,23,0,1,CALINTI_KART
+9373.62,TRANSFER,"Bursa, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,1,1,1,SUPHELI_DAVRANIS
+5906.47,FATURA,"İstanbul, TR",Kira Ödemesi,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+2283.66,FATURA,"İstanbul, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+45901.59,ODEME,"İzmir, TR",Offshore Services,Yeni cihaz,,2,1,1,CALINTI_KART
+176123.07,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Paycell kayıtlı cihaz,TR,4,1,1,PARA_AKLAMA
+1452.88,FATURA,"Manisa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+77090.95,CEKIM,"İzmir, TR",Global Trade,Yeni cihaz,,0,1,0,CALINTI_KART
+73719.98,TRANSFER,"Manisa, TR",Global Trade,Yeni cihaz,TR,15,0,1,HESAP_ELE_GECIRME
+28987.1,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Bilinmeyen iPhone,,5,1,0,HESAP_ELE_GECIRME
+2430.27,ODEME,"İstanbul, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,10,0,0,TEMIZ
+251683.93,TRANSFER,"Paris, FR",Kripto Exchange,iPhone 13 bilinen cihaz,TR,0,0,1,PARA_AKLAMA
+1048.49,ODEME,"İstanbul, TR",Market Harcama,Android bilinen cihaz,TR,14,0,0,TEMIZ
+106907.45,FATURA,"Bursa, TR",Kripto Exchange,Yeni web oturumu,TR,5,1,1,CALINTI_KART
+2572.85,FATURA,"Manisa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+3571.63,ODEME,"Manisa, TR",Market Harcama,Android bilinen cihaz,TR,15,0,0,TEMIZ
+12995.82,TRANSFER,"Dubai, AE",Kira Ödemesi,Yeni cihaz,TR,1,1,0,HESAP_ELE_GECIRME
+132151.36,TRANSFER,"Ankara, TR",Kripto Exchange,Android bilinen cihaz,TR,17,0,1,PARA_AKLAMA
+3610.74,FATURA,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+4193.04,ODEME,"Eskişehir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+216.71,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3788.63,ODEME,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+1388.97,FATURA,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+239802.09,TRANSFER,"Dubai, AE",New Recipient Ltd,Yeni web oturumu,,9,0,1,PARA_AKLAMA
+3409.08,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+5859.95,ODEME,"Bursa, TR",Ulaşım,Android bilinen cihaz,TR,8,0,0,TEMIZ
+28104.54,TRANSFER,"İstanbul, TR",Sigorta Fatura,Unknown Android,TR,2,0,0,SUPHELI_DAVRANIS
+59968.66,TRANSFER,"Manisa, TR",Kripto Exchange,Yeni web oturumu,TR,20,1,1,PARA_AKLAMA
+106.24,FATURA,"Bursa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,11,0,0,TEMIZ
+50234.9,TRANSFER,"Ankara, TR",E-Ticaret,Yeni web oturumu,,1,1,1,HESAP_ELE_GECIRME
+259134.63,TRANSFER,"Paris, FR",Yeni Alıcı,Yeni web oturumu,,4,1,1,PARA_AKLAMA
+926.4,ODEME,"Bursa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,12,0,0,TEMIZ
+1533.61,FATURA,"Bursa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+2501.39,ODEME,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,18,0,0,TEMIZ
+5674.57,ODEME,"Eskişehir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+325.04,FATURA,"İstanbul, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,0,0,0,TEMIZ
+1558.17,FATURA,"Ankara, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+95939.81,ODEME,"Amsterdam, NL",E-Ticaret,Yeni cihaz,TR,9,1,0,CALINTI_KART
+24442.97,TRANSFER,"Bursa, TR",Aile Transferi,Unknown Android,,3,1,1,HESAP_ELE_GECIRME
+39907.14,ODEME,"Dubai, AE",Aile Transferi,Unknown Android,TR,17,0,0,CALINTI_KART
+373.36,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+29100.02,CEKIM,"Amsterdam, NL",Yeni Alıcı,Yeni cihaz,TR,2,0,0,SUPHELI_DAVRANIS
+182339.49,TRANSFER,"İzmir, TR",Offshore Services,Yeni cihaz,TR,19,1,1,PARA_AKLAMA
+22773.7,CEKIM,"Tbilisi, GE",Offshore Services,iPhone 13 bilinen cihaz,,13,0,0,SUPHELI_DAVRANIS
+3076.03,FATURA,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+3348.89,ODEME,"İzmir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+27290.76,CEKIM,"Bursa, TR",Restoran,Web güvenilir tarayıcı,TR,15,0,1,SUPHELI_DAVRANIS
+4255.38,ODEME,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+91937.11,FATURA,"İstanbul, TR",Global Trade,Unknown Android,,23,0,0,CALINTI_KART
+68983.7,TRANSFER,"İstanbul, TR",Global Trade,Paycell kayıtlı cihaz,TR,8,0,1,PARA_AKLAMA
+79339.59,TRANSFER,"Berlin, DE",E-Ticaret,Bilinmeyen iPhone,TR,10,1,1,HESAP_ELE_GECIRME
+19781.41,ODEME,"İstanbul, TR",Global Trade,Bilinmeyen iPhone,TR,4,0,0,SUPHELI_DAVRANIS
+92.9,ODEME,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+59900.18,TRANSFER,"Berlin, DE",Restoran,Yeni web oturumu,TR,5,1,1,HESAP_ELE_GECIRME
+116673.45,ODEME,"Paris, FR",Kripto Exchange,Yeni web oturumu,,13,1,0,CALINTI_KART
+142142.23,TRANSFER,"Paris, FR",New Recipient Ltd,Unknown Android,,20,0,0,PARA_AKLAMA
+2682.01,FATURA,"İstanbul, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,13,0,0,TEMIZ
+461.78,FATURA,"Eskişehir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+58439.18,TRANSFER,"London, UK",Kira Ödemesi,Unknown Android,,1,1,0,HESAP_ELE_GECIRME
+1032.18,FATURA,"İzmir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+38185.23,ODEME,"Paris, FR",New Recipient Ltd,Android bilinen cihaz,,17,1,1,CALINTI_KART
+7524.59,TRANSFER,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+17628.9,ODEME,"İzmir, TR",Ulaşım,iPhone 13 bilinen cihaz,TR,14,1,0,SUPHELI_DAVRANIS
+41482.46,ODEME,"Berlin, DE",Elektrik Fatura,Yeni web oturumu,TR,20,1,0,SUPHELI_DAVRANIS
+918.09,FATURA,"Bursa, TR",Market Harcama,Android bilinen cihaz,TR,13,0,0,TEMIZ
+588.28,ODEME,"Eskişehir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+2491.32,FATURA,"Bursa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+189.19,ODEME,"İzmir, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+3221.51,ODEME,"Ankara, TR",Elektrik Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+3222.36,FATURA,"İzmir, TR",Market Harcama,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+2233.81,FATURA,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+66901.97,TRANSFER,"İstanbul, TR",E-Ticaret,Unknown Android,TR,12,1,1,HESAP_ELE_GECIRME
+143.17,FATURA,"Manisa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+205668.74,TRANSFER,"İstanbul, TR",New Recipient Ltd,Paycell kayıtlı cihaz,,8,0,1,PARA_AKLAMA
+6085.29,ODEME,"Eskişehir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+3658.02,TRANSFER,"Paris, FR",Restoran,Unknown Android,TR,0,1,0,HESAP_ELE_GECIRME
+28890.38,TRANSFER,"London, UK",Offshore Services,Unknown Android,,1,1,1,HESAP_ELE_GECIRME
+1309.23,FATURA,"Bursa, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+6846.24,TRANSFER,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+17831.45,TRANSFER,"Ankara, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,12,1,1,SUPHELI_DAVRANIS
+6482.05,ODEME,"Manisa, TR",Restoran,Bilinmeyen iPhone,,13,0,1,SUPHELI_DAVRANIS
+35400.49,TRANSFER,"Berlin, DE",Yeni Alıcı,Yeni cihaz,,11,1,1,SUPHELI_DAVRANIS
+6010.56,ODEME,"London, UK",Aile Transferi,iPhone 13 bilinen cihaz,,12,0,0,SUPHELI_DAVRANIS
+251271.89,TRANSFER,"Paris, FR",Kripto Exchange,Bilinmeyen iPhone,,12,0,1,PARA_AKLAMA
+4046.9,ODEME,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,20,0,0,TEMIZ
+240777.36,TRANSFER,"Tbilisi, GE",Global Trade,Bilinmeyen iPhone,TR,5,1,0,PARA_AKLAMA
+2523.99,ODEME,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+17103.13,TRANSFER,"London, UK",Global Trade,Yeni cihaz,,14,1,1,HESAP_ELE_GECIRME
+2966.76,ODEME,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+5245.98,ODEME,"İstanbul, TR",Yeni Alıcı,Bilinmeyen iPhone,,8,1,0,HESAP_ELE_GECIRME
+4286.33,ODEME,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,17,0,0,TEMIZ
+3699.49,FATURA,"İstanbul, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+23890.77,ODEME,"Dubai, AE",Kripto Exchange,Yeni web oturumu,,5,0,0,CALINTI_KART
+1643.87,ODEME,"Ankara, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+111530.9,FATURA,"Dubai, AE",E-Ticaret,Web güvenilir tarayıcı,,18,1,1,CALINTI_KART
+3360.5,FATURA,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,14,0,0,TEMIZ
+40348.2,CEKIM,"Paris, FR",Aile Transferi,Android bilinen cihaz,TR,4,0,1,SUPHELI_DAVRANIS
+14844.51,CEKIM,"Manisa, TR",Offshore Services,Android bilinen cihaz,TR,13,0,1,SUPHELI_DAVRANIS
+182800.68,TRANSFER,"Dubai, AE",Offshore Services,Yeni cihaz,TR,10,0,0,PARA_AKLAMA
+13344.91,ODEME,"Paris, FR",Market Harcama,Android bilinen cihaz,TR,19,0,1,SUPHELI_DAVRANIS
+40363.03,TRANSFER,"Amsterdam, NL",Yeni Alıcı,Yeni cihaz,TR,1,1,0,HESAP_ELE_GECIRME
+51050.63,TRANSFER,"Amsterdam, NL",Yeni Alıcı,Bilinmeyen iPhone,TR,13,0,1,PARA_AKLAMA
+2667.97,ODEME,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+25499.8,TRANSFER,"Ankara, TR",Ulaşım,Bilinmeyen iPhone,,16,0,0,SUPHELI_DAVRANIS
+3967.04,FATURA,"Bursa, TR",Elektrik Fatura,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+72832.55,TRANSFER,"Dubai, AE",Kripto Exchange,Yeni cihaz,TR,18,0,1,HESAP_ELE_GECIRME
+1112.76,ODEME,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+81627.08,TRANSFER,"Ankara, TR",Global Trade,Unknown Android,,8,0,1,HESAP_ELE_GECIRME
+63983.17,FATURA,"Dubai, AE",Kripto Exchange,iPhone 13 bilinen cihaz,TR,4,1,0,CALINTI_KART
+101012.63,TRANSFER,"Paris, FR",New Recipient Ltd,iPhone 13 bilinen cihaz,,9,1,1,PARA_AKLAMA
+6601.64,TRANSFER,"İstanbul, TR",Kira Ödemesi,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+1056.29,ODEME,"Manisa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+4261.89,FATURA,"Ankara, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,19,0,0,TEMIZ
+131744.03,TRANSFER,"Manisa, TR",Offshore Services,Yeni cihaz,TR,3,0,1,PARA_AKLAMA
+8541.84,TRANSFER,"Dubai, AE",Global Trade,Bilinmeyen iPhone,TR,10,1,1,SUPHELI_DAVRANIS
+163344.64,TRANSFER,"Bursa, TR",New Recipient Ltd,Web güvenilir tarayıcı,TR,18,1,1,PARA_AKLAMA
+1071.99,FATURA,"İzmir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,0,0,0,TEMIZ
+149794.11,TRANSFER,"Dubai, AE",Offshore Services,Yeni cihaz,TR,13,0,0,PARA_AKLAMA
+877.4,ODEME,"Bursa, TR",Okul Ödemesi,Android bilinen cihaz,TR,14,0,0,TEMIZ
+2834.69,FATURA,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+4454.76,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+1650.09,FATURA,"İzmir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+83101.52,ODEME,"Tbilisi, GE",Aile Transferi,Bilinmeyen iPhone,TR,11,1,1,HESAP_ELE_GECIRME
+59570.41,TRANSFER,"Manisa, TR",Offshore Services,Unknown Android,,23,1,1,HESAP_ELE_GECIRME
+2542.93,FATURA,"İstanbul, TR",Elektrik Fatura,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+24115.78,TRANSFER,"Eskişehir, TR",Okul Ödemesi,Unknown Android,,15,0,1,SUPHELI_DAVRANIS
+3108.94,FATURA,"Eskişehir, TR",Sigorta Fatura,Android bilinen cihaz,TR,9,0,0,TEMIZ
+85285.21,ODEME,"Dubai, AE",Kira Ödemesi,Yeni web oturumu,,17,1,1,CALINTI_KART
+86334.6,TRANSFER,"İzmir, TR",New Recipient Ltd,Unknown Android,,14,1,1,HESAP_ELE_GECIRME
+82839.52,CEKIM,"İstanbul, TR",Ulaşım,Yeni web oturumu,,1,0,0,CALINTI_KART
+18954.24,TRANSFER,"İzmir, TR",Yeni Alıcı,Unknown Android,,13,1,1,HESAP_ELE_GECIRME
+1131.75,ODEME,"Manisa, TR",Market Harcama,Paycell kayıtlı cihaz,TR,10,0,0,TEMIZ
+26434.77,TRANSFER,"London, UK",Restoran,Bilinmeyen iPhone,TR,2,0,1,HESAP_ELE_GECIRME
+44643.3,CEKIM,"Eskişehir, TR",Yeni Alıcı,Yeni web oturumu,TR,3,0,0,SUPHELI_DAVRANIS
+1986.97,ODEME,"Ankara, TR",Telekom Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+37250.69,ODEME,"Ankara, TR",Okul Ödemesi,Android bilinen cihaz,TR,12,1,1,SUPHELI_DAVRANIS
+1924.87,FATURA,"Manisa, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,2,0,0,TEMIZ
+3247.89,ODEME,"Bursa, TR",Telekom Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+71694.42,ODEME,"İzmir, TR",Restoran,Yeni web oturumu,,23,1,0,CALINTI_KART
+38924.13,TRANSFER,"Dubai, AE",New Recipient Ltd,Yeni web oturumu,,1,0,1,PARA_AKLAMA
+59194.49,CEKIM,"İstanbul, TR",Ulaşım,Unknown Android,,23,1,0,CALINTI_KART
+22631.68,TRANSFER,"Bursa, TR",E-Ticaret,Bilinmeyen iPhone,TR,21,1,1,HESAP_ELE_GECIRME
+156784.54,TRANSFER,"Tbilisi, GE",Yeni Alıcı,Web güvenilir tarayıcı,TR,17,0,1,PARA_AKLAMA
+680.26,FATURA,"Eskişehir, TR",Okul Ödemesi,Android bilinen cihaz,TR,11,0,0,TEMIZ
+1612.33,ODEME,"İstanbul, TR",Market Harcama,Android bilinen cihaz,TR,15,0,0,TEMIZ
+43465.55,CEKIM,"London, UK",Restoran,Android bilinen cihaz,TR,14,0,1,SUPHELI_DAVRANIS
+4885.46,ODEME,"Bursa, TR",Kripto Exchange,Bilinmeyen iPhone,TR,2,1,1,HESAP_ELE_GECIRME
+1013.45,FATURA,"Manisa, TR",Sigorta Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+3431.57,FATURA,"Manisa, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,16,0,0,TEMIZ
+705.9,ODEME,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,3,0,0,TEMIZ
+33272.48,ODEME,"Amsterdam, NL",Restoran,iPhone 13 bilinen cihaz,,21,0,0,CALINTI_KART
+2481.55,ODEME,"İstanbul, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+29502.74,ODEME,"İstanbul, TR",Market Harcama,Android bilinen cihaz,TR,16,1,0,SUPHELI_DAVRANIS
+3264.13,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,13,0,0,TEMIZ
+3456.75,FATURA,"Ankara, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+1354.77,FATURA,"İstanbul, TR",Ulaşım,Web güvenilir tarayıcı,TR,12,0,0,TEMIZ
+33698.16,CEKIM,"Bursa, TR",E-Ticaret,iPhone 13 bilinen cihaz,TR,8,1,0,SUPHELI_DAVRANIS
+3402.76,FATURA,"Eskişehir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,16,0,0,TEMIZ
+35562.06,TRANSFER,"Manisa, TR",Kira Ödemesi,Yeni web oturumu,,4,1,1,HESAP_ELE_GECIRME
+7420.25,ODEME,"London, UK",Global Trade,Yeni cihaz,TR,14,1,1,SUPHELI_DAVRANIS
+105772.67,TRANSFER,"Amsterdam, NL",Kripto Exchange,Android bilinen cihaz,TR,20,0,1,PARA_AKLAMA
+1126.66,FATURA,"İstanbul, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+1694.05,FATURA,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+114119.11,ODEME,"Amsterdam, NL",Global Trade,Bilinmeyen iPhone,,9,1,1,CALINTI_KART
+2165.29,ODEME,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,16,0,0,TEMIZ
+12471.87,ODEME,"İzmir, TR",Telekom Fatura,Yeni cihaz,TR,18,0,1,SUPHELI_DAVRANIS
+21733.07,CEKIM,"Berlin, DE",Global Trade,Unknown Android,TR,4,0,0,SUPHELI_DAVRANIS
+72781.31,ODEME,"Ankara, TR",Restoran,Yeni cihaz,,23,1,1,HESAP_ELE_GECIRME
+3261.16,ODEME,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,14,0,0,TEMIZ
+97045.96,TRANSFER,"Amsterdam, NL",Offshore Services,Android bilinen cihaz,TR,14,0,0,PARA_AKLAMA
+131055.09,TRANSFER,"İstanbul, TR",Global Trade,Unknown Android,,3,0,1,PARA_AKLAMA
+774.42,FATURA,"Bursa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,20,0,0,TEMIZ
+237366.19,TRANSFER,"İzmir, TR",Yeni Alıcı,Yeni web oturumu,,21,0,1,PARA_AKLAMA
+108469.94,TRANSFER,"Tbilisi, GE",New Recipient Ltd,Web güvenilir tarayıcı,,11,1,1,PARA_AKLAMA
+24852.44,TRANSFER,"Paris, FR",Ulaşım,Bilinmeyen iPhone,,8,0,1,SUPHELI_DAVRANIS
+510.51,FATURA,"Eskişehir, TR",Telekom Fatura,Android bilinen cihaz,TR,11,0,0,TEMIZ
+139478.21,TRANSFER,"Amsterdam, NL",New Recipient Ltd,Paycell kayıtlı cihaz,,13,1,1,PARA_AKLAMA
+4270.02,FATURA,"Ankara, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,21,0,0,TEMIZ
+1884.51,FATURA,"İzmir, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,15,0,0,TEMIZ
+2231.16,ODEME,"Eskişehir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+2761.21,FATURA,"İzmir, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+729.93,TRANSFER,"Ankara, TR",Market Harcama,Paycell kayıtlı cihaz,TR,9,0,0,TEMIZ
+191911.29,TRANSFER,"Amsterdam, NL",Global Trade,iPhone 13 bilinen cihaz,TR,13,0,0,PARA_AKLAMA
+86248.24,ODEME,"Paris, FR",Global Trade,Yeni cihaz,,21,0,0,CALINTI_KART
+40985.19,TRANSFER,"İstanbul, TR",Ulaşım,Yeni cihaz,TR,21,0,1,SUPHELI_DAVRANIS
+24031.13,TRANSFER,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,2,1,0,SUPHELI_DAVRANIS
+3137.77,ODEME,"İzmir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,19,0,0,TEMIZ
+37770.88,TRANSFER,"Bursa, TR",Market Harcama,Yeni cihaz,TR,3,1,1,SUPHELI_DAVRANIS
+5009.74,FATURA,"İstanbul, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,5,1,0,TEMIZ
+2621.44,FATURA,"Bursa, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,18,0,0,TEMIZ
+3033.88,FATURA,"Eskişehir, TR",Market Harcama,Android bilinen cihaz,TR,18,0,0,TEMIZ
+42613.13,TRANSFER,"Berlin, DE",Offshore Services,iPhone 13 bilinen cihaz,,14,1,1,PARA_AKLAMA
+1809.79,FATURA,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,TR,19,0,0,TEMIZ
+1920.79,ODEME,"Eskişehir, TR",Telekom Fatura,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+43217.29,TRANSFER,"İstanbul, TR",Offshore Services,Unknown Android,TR,11,0,0,SUPHELI_DAVRANIS
+938.07,FATURA,"Bursa, TR",Elektrik Fatura,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+34552.6,TRANSFER,"Amsterdam, NL",Kripto Exchange,Bilinmeyen iPhone,,11,1,1,HESAP_ELE_GECIRME
+3323.68,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+172804.35,TRANSFER,"Bursa, TR",Global Trade,Web güvenilir tarayıcı,TR,8,1,1,PARA_AKLAMA
+167597.06,TRANSFER,"Ankara, TR",Yeni Alıcı,Bilinmeyen iPhone,,17,0,0,PARA_AKLAMA
+1030.25,ODEME,"İzmir, TR",Elektrik Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+26381.06,ODEME,"Berlin, DE",Global Trade,Unknown Android,,14,1,1,HESAP_ELE_GECIRME
+6834.8,TRANSFER,"Eskişehir, TR",Kira Ödemesi,iPhone 13 bilinen cihaz,TR,19,0,0,TEMIZ
+2715.09,FATURA,"Bursa, TR",Sigorta Fatura,Android bilinen cihaz,TR,16,0,0,TEMIZ
+552.37,FATURA,"Bursa, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+21423.65,TRANSFER,"Paris, FR",Yeni Alıcı,Bilinmeyen iPhone,TR,5,1,1,HESAP_ELE_GECIRME
+40385.62,ODEME,"London, UK",Restoran,Web güvenilir tarayıcı,TR,12,0,0,CALINTI_KART
+30921.88,ODEME,"İzmir, TR",Okul Ödemesi,Android bilinen cihaz,,1,1,0,SUPHELI_DAVRANIS
+1240.78,FATURA,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+2421.95,FATURA,"Ankara, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,13,0,0,TEMIZ
+212525.01,TRANSFER,"London, UK",Kripto Exchange,Web güvenilir tarayıcı,,17,0,1,PARA_AKLAMA
+571.96,FATURA,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,20,0,1,TEMIZ
+3574.25,ODEME,"Ankara, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,11,0,0,TEMIZ
+2193.48,FATURA,"Manisa, TR",Elektrik Fatura,Android bilinen cihaz,TR,20,0,0,TEMIZ
+3476.8,ODEME,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,8,0,0,TEMIZ
+51.62,ODEME,"Ankara, TR",Market Harcama,Web güvenilir tarayıcı,TR,21,0,0,TEMIZ
+6290.07,TRANSFER,"Berlin, DE",Kira Ödemesi,Web güvenilir tarayıcı,,16,0,0,SUPHELI_DAVRANIS
+2506.76,FATURA,"Manisa, TR",Market Harcama,iPhone 13 bilinen cihaz,TR,8,0,0,TEMIZ
+2884.03,FATURA,"İzmir, TR",Sigorta Fatura,Paycell kayıtlı cihaz,TR,21,0,0,TEMIZ
+4227.85,FATURA,"İstanbul, TR",Market Harcama,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+19257.71,TRANSFER,"İstanbul, TR",Yeni Alıcı,Unknown Android,TR,12,1,1,SUPHELI_DAVRANIS
+860.03,FATURA,"İstanbul, TR",Sigorta Fatura,iPhone 13 bilinen cihaz,TR,9,0,0,TEMIZ
+117146.9,ODEME,"Amsterdam, NL",E-Ticaret,Yeni cihaz,TR,23,0,0,CALINTI_KART
+41605.96,ODEME,"Tbilisi, GE",Yeni Alıcı,Yeni cihaz,,9,0,0,SUPHELI_DAVRANIS
+7812.97,ODEME,"Ankara, TR",Aile Transferi,Web güvenilir tarayıcı,TR,10,1,0,TEMIZ
+28943.87,ODEME,"Berlin, DE",Aile Transferi,Bilinmeyen iPhone,,9,1,0,SUPHELI_DAVRANIS
+3580.69,FATURA,"İzmir, TR",Telekom Fatura,Android bilinen cihaz,TR,17,0,0,TEMIZ
+498.8,FATURA,"Bursa, TR",Telekom Fatura,Android bilinen cihaz,TR,21,0,0,TEMIZ
+229360.69,TRANSFER,"Bursa, TR",Global Trade,Yeni web oturumu,,21,1,1,PARA_AKLAMA
+14179.31,CEKIM,"London, UK",Restoran,Web güvenilir tarayıcı,TR,4,1,0,CALINTI_KART
+2787.16,FATURA,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+7663.42,ODEME,"Berlin, DE",Ulaşım,Unknown Android,,18,1,0,CALINTI_KART
+15003.37,ODEME,"Tbilisi, GE",Aile Transferi,Android bilinen cihaz,TR,1,1,1,SUPHELI_DAVRANIS
+6109.89,ODEME,"Tbilisi, GE",Kira Ödemesi,iPhone 13 bilinen cihaz,TR,15,1,0,SUPHELI_DAVRANIS
+211759.43,TRANSFER,"İzmir, TR",Yeni Alıcı,Web güvenilir tarayıcı,TR,5,1,1,PARA_AKLAMA
+13332.03,CEKIM,"Dubai, AE",Restoran,Bilinmeyen iPhone,TR,0,1,0,SUPHELI_DAVRANIS
+3523.92,FATURA,"Manisa, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,9,0,0,TEMIZ
+84080.21,TRANSFER,"Berlin, DE",Kira Ödemesi,Yeni cihaz,,9,1,1,HESAP_ELE_GECIRME
+2041.32,FATURA,"İzmir, TR",Okul Ödemesi,Paycell kayıtlı cihaz,TR,15,0,0,TEMIZ
+84627.27,TRANSFER,"Ankara, TR",Kripto Exchange,Bilinmeyen iPhone,TR,16,0,1,PARA_AKLAMA
+27626.17,ODEME,"Tbilisi, GE",Kripto Exchange,Yeni web oturumu,,12,1,1,HESAP_ELE_GECIRME
+3985.67,FATURA,"İzmir, TR",Market Harcama,Android bilinen cihaz,TR,18,0,0,TEMIZ
+3856.37,FATURA,"Eskişehir, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,8,0,0,TEMIZ
+122.38,FATURA,"Eskişehir, TR",Okul Ödemesi,Web güvenilir tarayıcı,TR,1,0,0,TEMIZ
+3306.14,FATURA,"Bursa, TR",Market Harcama,Web güvenilir tarayıcı,TR,18,0,0,TEMIZ
+3794.13,FATURA,"Eskişehir, TR",Sigorta Fatura,Web güvenilir tarayıcı,TR,15,0,0,TEMIZ
+77769.66,CEKIM,"Paris, FR",Global Trade,Unknown Android,,3,0,1,CALINTI_KART
+52160.36,TRANSFER,"İstanbul, TR",Kripto Exchange,iPhone 13 bilinen cihaz,TR,19,1,1,PARA_AKLAMA
+2005.32,FATURA,"İstanbul, TR",Telekom Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+26594.0,TRANSFER,"Paris, FR",Ulaşım,Bilinmeyen iPhone,,1,1,1,HESAP_ELE_GECIRME
+15762.35,CEKIM,"Paris, FR",Telekom Fatura,Paycell kayıtlı cihaz,TR,16,1,0,SUPHELI_DAVRANIS
+198949.53,TRANSFER,"Bursa, TR",Kripto Exchange,Yeni web oturumu,TR,11,0,1,PARA_AKLAMA
+1593.1,ODEME,"Bursa, TR",Sigorta Fatura,Android bilinen cihaz,TR,0,0,0,TEMIZ
+44247.49,CEKIM,"Ankara, TR",Elektrik Fatura,Yeni cihaz,TR,11,0,0,SUPHELI_DAVRANIS
+968.5,FATURA,"İzmir, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,11,0,0,TEMIZ
+175.61,FATURA,"Manisa, TR",Telekom Fatura,Web güvenilir tarayıcı,TR,20,0,0,TEMIZ
+3101.38,FATURA,"Manisa, TR",Elektrik Fatura,Android bilinen cihaz,TR,8,0,0,TEMIZ
+191.85,FATURA,"Manisa, TR",Okul Ödemesi,iPhone 13 bilinen cihaz,TR,10,0,0,TEMIZ
+14259.62,ODEME,"Amsterdam, NL",Kira Ödemesi,Yeni web oturumu,TR,12,0,0,SUPHELI_DAVRANIS
+2405.32,FATURA,"Eskişehir, TR",Market Harcama,Paycell kayıtlı cihaz,TR,17,0,0,TEMIZ
+2567.97,ODEME,"Bursa, TR",Telekom Fatura,Paycell kayıtlı cihaz,TR,12,0,0,TEMIZ
+171413.3,TRANSFER,"Ankara, TR",Kripto Exchange,Paycell kayıtlı cihaz,,9,0,1,PARA_AKLAMA

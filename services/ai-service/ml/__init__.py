@@ -1,0 +1,1 @@
+"""FraudCell AI model package."""

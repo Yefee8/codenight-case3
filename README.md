@@ -1,6 +1,6 @@
 # FraudCell
 
-FraudCell; Next.js BFF, Nginx API Gateway, dört FastAPI mikroservisi, servis başına bağımsız PostgreSQL veritabanı ve RabbitMQ event akışından oluşan demo-ready fraud inceleme sistemidir.
+FraudCell; Next.js BFF, Nginx API Gateway, dört FastAPI mikroservisi, servis başına bağımsız PostgreSQL veritabanı, AI Service içinde eğitilmiş scikit-learn modeli ve RabbitMQ event akışından oluşan demo-ready fraud inceleme sistemidir.
 
 ## Tek Komut
 
@@ -55,7 +55,7 @@ Her mikroservisin kendi PostgreSQL konteyneri ve SQLAlchemy modeli vardır:
 | AI | `ai-db` / `ai` |
 | Gamification | `gamification-db` / `gamification` |
 
-Transaction servisi AI kapalıyken de `prediction_status=UNAVAILABLE`, `fraud_type=BELIRSIZ`, `recommended_decision=INCELEME` ile manuel inceleme kuyruğu üretir. Analist `BLOKLANDI` kararı verdiğinde `transaction.blocked` event'i RabbitMQ'ya basılır; Gamification bunu dinleyip analiste +10 puan yazar ve `/api/v1/game/notifications/stream` SSE akışıyla UI leaderboard/profil cache'ini yeniler.
+AI Service `services/ai-service/data/fraud_transactions.csv` dataset'iyle eğitilmiş `RandomForestClassifier` artifact'ini startup'ta load eder; eğitim süreci [AI_MODEL.md](services/ai-service/AI_MODEL.md) içinde dokümante edilmiştir. Transaction servisi AI kapalıyken de `prediction_status=UNAVAILABLE`, `fraud_type=BELIRSIZ`, `recommended_decision=INCELEME` ile manuel inceleme kuyruğu üretir. Analist `BLOKLANDI` kararı verdiğinde `transaction.blocked` event'i RabbitMQ'ya basılır; Gamification bunu dinleyip analiste +10 puan yazar ve `/api/v1/game/notifications/stream` SSE akışıyla UI leaderboard/profil cache'ini yeniler.
 
 ## Zorunlu Demo Akışı
 
@@ -94,3 +94,19 @@ docker compose down -v
 ```
 
 Bu komut PostgreSQL ve RabbitMQ volume'larını siler.
+
+## AI Modeli
+
+```bash
+cd services/ai-service
+python ml/generate_dataset.py
+python ml/train_model.py
+```
+
+Container ortamıyla tekrar üretmek:
+
+```bash
+docker compose build ai-service
+docker compose run --rm --no-deps -v "$PWD/services/ai-service:/app" ai-service python ml/train_model.py
+docker compose build ai-service
+```

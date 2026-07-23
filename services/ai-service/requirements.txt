@@ -1,4 +1,5 @@
 fastapi==0.115.12
 SQLAlchemy==2.0.41
 psycopg[binary]==3.2.9
+scikit-learn==1.5.2
 uvicorn==0.34.3
