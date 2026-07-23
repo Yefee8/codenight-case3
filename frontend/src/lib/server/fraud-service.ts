@@ -3,9 +3,11 @@ import { getAccessToken } from "@/lib/server/auth";
 import type {
   AnalystPerformance,
   DecisionRequest,
+  FeedbackRequest,
   FraudType,
   GamificationProfile,
   LeaderboardEntry,
+  RiskOverrideRequest,
   RiskLevel,
   SessionUser,
   SupervisorMetrics,
@@ -95,6 +97,20 @@ export function assignCase(id: string, analystId: string) {
   return gateway<TransactionCase>(`/api/v1/cases/${encodeURIComponent(id)}/assignment`, {
     method: "PATCH",
     body: JSON.stringify({ analyst_id: analystId }),
+  });
+}
+
+export function overrideRiskLevel(id: string, body: RiskOverrideRequest) {
+  return gateway<TransactionCase>(`/api/v1/cases/${encodeURIComponent(id)}/risk-level`, {
+    method: "PATCH",
+    body: JSON.stringify(body),
+  });
+}
+
+export function submitCaseFeedback(id: string, body: FeedbackRequest) {
+  return gateway<TransactionCase>(`/api/v1/cases/${encodeURIComponent(id)}/feedback`, {
+    method: "POST",
+    body: JSON.stringify(body),
   });
 }
 

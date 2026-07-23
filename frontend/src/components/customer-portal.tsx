@@ -1,21 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { LockKeyhole, ShieldCheck, WalletCards } from "lucide-react";
+import { LockKeyhole, ShieldCheck, Star, WalletCards } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeading } from "@/components/page-heading";
 import { RiskBadge, StatusBadge } from "@/components/case-badges";
 import { Button, Card, CardContent, CardHeader, CardTitle, Input, Label, Select } from "@/components/ui/primitives";
-import { useSimulateTransaction } from "@/hooks/use-fraudcell";
+import { useGetCases, useSimulateTransaction, useSubmitCaseFeedback } from "@/hooks/use-fraudcell";
+import { formatReasonCodes } from "@/lib/domain-labels";
 import { money } from "@/lib/utils";
-import type { TransactionSimulationRequest, TransactionSimulationResult, TransactionType } from "@/types/domain";
+import type { TransactionCase, TransactionSimulationRequest, TransactionSimulationResult, TransactionType } from "@/types/domain";
 
 const initialForm: TransactionSimulationRequest = { amount: 0, type: "TRANSFER", receiver: "", device: "iPhone 15 Pro · iOS 18", location: "İstanbul, TR" };
+const terminalStatuses = new Set(["ONAYLANDI", "BLOKLANDI", "KAPANDI"]);
 
-export function CustomerPortal() {
+export function CustomerPortal({ initialCases }: { initialCases: TransactionCase[] }) {
   const [form, setForm] = useState(initialForm);
   const [result, setResult] = useState<TransactionSimulationResult | null>(null);
+  const [ratings, setRatings] = useState<Record<string, number>>({});
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const cases = useGetCases(initialCases);
   const simulate = useSimulateTransaction();
+  const feedback = useSubmitCaseFeedback();
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -27,8 +33,20 @@ export function CustomerPortal() {
     }
   }
 
+  async function submitFeedback(caseId: string) {
+    const rating = ratings[caseId];
+    if (!rating) return;
+    try {
+      await feedback.mutateAsync({ id: caseId, rating, note: notes[caseId] });
+      toast.success("Değerlendirmeniz kaydedildi");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Değerlendirme kaydedilemedi");
+    }
+  }
+
   const score = result?.case.ai_analysis.risk_score;
   const aiUnavailable = result?.case.ai_analysis.prediction_status === "UNAVAILABLE";
+  const feedbackCases = cases.data?.filter((item) => terminalStatuses.has(item.status)) ?? [];
 
   return (
     <>
@@ -54,6 +72,7 @@ export function CustomerPortal() {
             {result ? <>
               <div className="mb-5 flex items-start justify-between"><div><p className="text-xs text-muted-foreground">Son analiz</p><strong className="font-mono text-sm">{result.case.case_id}</strong></div><div className="flex gap-2"><RiskBadge risk={result.case.risk_level} /><StatusBadge status={result.case.status} /></div></div>
               <div className="mb-5 grid grid-cols-2 gap-3"><Result label="Risk skoru" value={score === null || score === undefined ? "—" : `%${Math.round(score * 100)}`} /><Result label="AI önerisi" value={result.case.ai_analysis.recommended_decision} /><Result label="Tutar" value={money.format(result.case.transaction_details.amount)} /><Result label="İnceleme" value={result.requires_verification ? "Gerekli" : "Düşük risk"} /></div>
+              <div className="mb-3"><Result label="AI nedeni" value={formatReasonCodes(result.case.ai_analysis.reason)} /></div>
               <div className={`rounded-xl p-3 text-sm ${aiUnavailable ? "bg-amber-500/10 text-amber-700 dark:text-amber-400" : "bg-brand-soft text-brand"}`}>
                 {aiUnavailable ? "AI servisine ulaşılamadı; vaka güvenli şekilde manuel inceleme kuyruğuna alındı." : result.requires_verification ? "Vaka analist incelemesi için oluşturuldu." : "Risk değerlendirmesi tamamlandı ve vaka kaydedildi."}
               </div>
@@ -61,6 +80,21 @@ export function CustomerPortal() {
           </CardContent>
         </Card>
       </div>
+      <Card className="mx-auto mt-5 max-w-5xl">
+        <CardHeader><CardTitle>Süreç değerlendirmesi</CardTitle><p className="mt-1 text-xs text-muted-foreground">Tamamlanan vakalar için 1-5 arası yıldız verin.</p></CardHeader>
+        <CardContent className="space-y-3">
+          {feedbackCases.length === 0 ? <p className="rounded-xl bg-muted p-6 text-center text-sm text-muted-foreground">Değerlendirilecek tamamlanmış vaka yok.</p> : feedbackCases.map((item) => (
+            <div key={item.case_id} className="grid gap-3 rounded-xl border border-border p-3 md:grid-cols-[1fr_170px_1fr_auto] md:items-center">
+              <div className="min-w-0"><strong className="font-mono text-xs">{item.case_id}</strong><p className="truncate text-xs text-muted-foreground">{item.transaction_details.receiver} · {money.format(item.transaction_details.amount)}</p></div>
+              <div className="flex gap-1" aria-label={`${item.case_id} yıldız`}>
+                {[1, 2, 3, 4, 5].map((value) => <button key={value} type="button" className="rounded-full p-1 text-amber-500 disabled:opacity-60" disabled={Boolean(item.customer_feedback)} onClick={() => setRatings((current) => ({ ...current, [item.case_id]: value }))} aria-label={`${value} yıldız`}><Star size={18} fill={(item.customer_feedback?.rating ?? ratings[item.case_id] ?? 0) >= value ? "currentColor" : "none"} /></button>)}
+              </div>
+              <Input placeholder="Kısa not" disabled={Boolean(item.customer_feedback)} value={item.customer_feedback?.note ?? notes[item.case_id] ?? ""} onChange={(event) => setNotes((current) => ({ ...current, [item.case_id]: event.target.value }))} />
+              {item.customer_feedback ? <span className="text-xs font-semibold text-emerald-600">Kaydedildi</span> : <Button size="sm" disabled={!ratings[item.case_id]} loading={feedback.isPending && feedback.variables?.id === item.case_id} onClick={() => submitFeedback(item.case_id)}>Gönder</Button>}
+            </div>
+          ))}
+        </CardContent>
+      </Card>
     </>
   );
 }

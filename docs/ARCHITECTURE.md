@@ -80,11 +80,12 @@ Servisler arasında foreign key veya doğrudan DB bağlantısı yoktur. Dış ki
 2. BFF `customer_id` değerini güvenilir session'dan ekler.
 3. Transaction, AI `/internal/v1/score` endpointini 1.5 saniye timeout ile çağırır.
 4. AI skor ve öneri döner; Transaction işlem ve `YENI` vakayı kendi PostgreSQL DB'sinde saklar.
-5. Supervisor vakayı analiste atar: `YENI → ATANDI`.
+5. Supervisor vakayı analiste atar ve gerekirse AI'ın önerdiği operasyonel risk seviyesini gerekçeyle override eder.
 6. Analyst incelemeyi başlatır: `ATANDI → INCELENIYOR`.
 7. Analyst notla `ONAYLANDI` veya `BLOKLANDI` kararı verir.
 8. `BLOKLANDI` kararında Transaction kalıcı mesajı `transaction.blocked` routing key'iyle yayınlar.
 9. Gamification consumer event ID'yi ledger primary key'iyle deduplicate eder ve puanı günceller.
+10. Customer tamamlanan kendi vakasına 1-5 yıldız feedback verebilir; duplicate feedback `409` döner.
 
 AI erişilemiyorsa işlem yine `201` döner:
 
@@ -110,6 +111,7 @@ YENI → ATANDI → INCELENIYOR → ONAYLANDI → KAPANDI
 - `BLOKLANDI` kararı için boş olmayan analist notu zorunludur.
 - `BLOKLANDI → KAPANDI` geçişi yoktur.
 - AI `BLOK` önerisi nihai insan kararı değildir; vaka `YENI`, hold `TEMPORARY_BLOCKED` olur.
+- Supervisor risk override ham AI skorunu değiştirmez; `risk_override` metadata'sı ve gerekirse kısalan SLA deadline saklanır.
 
 ## Frontend veri akışı
 

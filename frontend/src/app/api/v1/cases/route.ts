@@ -4,7 +4,7 @@ import { backendApiError } from "@/lib/server/backend";
 import { listCasesFor } from "@/lib/server/fraud-service";
 
 export async function GET() {
-  const user = await authorizeApi(["ANALYST", "SUPERVISOR", "ADMIN"]);
+  const user = await authorizeApi(["CUSTOMER", "ANALYST", "SUPERVISOR", "ADMIN"]);
   if (user instanceof Response) return user;
   try {
     return apiSuccess(await listCasesFor(user));

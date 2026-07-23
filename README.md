@@ -75,14 +75,15 @@ node security-idor-test.mjs
 node security-unauthorized-test.mjs
 node security-token-manipulation-test.mjs
 node security-bruteforce-test.mjs
+node security-input-hardening-test.mjs
 ```
 
 Uygulanan kontroller:
 
-- SQL Injection: ORM sorguları SQLAlchemy `select()` ve bind parametreleriyle çalışır.
+- SQL Injection: ORM sorguları SQLAlchemy `select()` ve bind parametreleriyle çalışır; SQLi login denemesi scriptte vardır.
 - IDOR: Backend transaction/case owner kontrolü yapar; müşteri başka kullanıcı kaydında HTTP 403 alır.
-- Yetkisiz erişim: Supervisor/Analyst endpointleri FastAPI dependency ile rol kontrolü yapar.
-- Token manipülasyonu: Refresh token tek kullanımlık DB kaydıdır; logout ve refresh rotation eski tokenı revoke eder.
+- Yetkisiz erişim: Supervisor/Analyst endpointleri FastAPI dependency ve PostgreSQL RLS ile rol kontrolü yapar.
+- Token manipülasyonu: Access JWT imza/expiry kontrol edilir; refresh token tek kullanımlık DB kaydıdır, logout ve refresh rotation eski tokenı revoke eder.
 - XSS: Next.js BFF ve Pydantic validator'lar `<script>` etiketlerini temizler.
 - Brute force: Identity login `slowapi` rate limit kullanır; 5 hatalı denemede hesap 15 dk DB'de kilitlenir.
 

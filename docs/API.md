@@ -12,7 +12,7 @@ Browser için BFF kullanılmalıdır. Gateway endpointleri frontend containerın
 
 ## Yanıt zarfı
 
-BFF ve Transaction public endpointleri şu zarfı kullanır:
+BFF ve public backend endpointleri şu zarfı kullanır:
 
 ```json
 {
@@ -26,11 +26,9 @@ BFF ve Transaction public endpointleri şu zarfı kullanır:
 {
   "success": false,
   "data": null,
-  "error": { "code": 422, "message": "Geçersiz istek" }
+  "error": "Geçersiz istek"
 }
 ```
-
-Identity ve Gamification servislerinin doğrudan gateway yanıtları ham JSON'dur. Next.js `backendRequest()` her iki biçimi normalize eder.
 
 ## Next.js BFF endpointleri (`:3000`)
 
@@ -85,11 +83,13 @@ BFF Identity'den refresh kaydını revoke etmesini ister ve üç auth cookie'sin
 
 | Method | Path | Roller | Açıklama |
 |---|---|---|---|
-| `GET` | `/api/v1/cases` | Analyst, Supervisor, Admin | Analyst için yalnız atanmış vakalar |
-| `GET` | `/api/v1/cases/{id}` | Analyst, Supervisor, Admin | Vaka detayı; analyst sahipliği kontrol edilir |
+| `GET` | `/api/v1/cases` | Customer, Analyst, Supervisor, Admin | Customer kendi vakaları; Analyst atanmış vakalar |
+| `GET` | `/api/v1/cases/{id}` | Customer, Analyst, Supervisor, Admin | Vaka detayı; sahiplik/atama kontrol edilir |
 | `PATCH` | `/api/v1/cases/{id}/assignment` | Supervisor | `{ "analyst_id": "usr_analyst_1" }` |
+| `PATCH` | `/api/v1/cases/{id}/risk-level` | Supervisor | `{ "risk_level": "KRITIK", "reason": "Manuel risk artışı" }` |
 | `POST` | `/api/v1/cases/{id}/actions/start-review` | Analyst | `ATANDI → INCELENIYOR` |
-| `PATCH` | `/api/v1/cases/{id}/decision` | Analyst | Aşağıdaki karar body’si |
+| `PATCH` | `/api/v1/cases/{id}/decision` | Analyst, Supervisor | Aşağıdaki karar body’si |
+| `POST` | `/api/v1/cases/{id}/feedback` | Customer | `{ "rating": 1..5, "note": "opsiyonel" }` |
 
 Karar body’si:
 
@@ -97,7 +97,7 @@ Karar body’si:
 { "decision": "BLOKLANDI", "note": "Müşteri işlemi reddetti" }
 ```
 
-BFF güvenilir session'dan `analyst_id` ve `analyst_name` ekler. UI'dan gönderilen analist kimliği kullanılmaz.
+BFF güvenilir session'dan `analyst_id` ve `analyst_name` ekler. UI'dan gönderilen analist kimliği kullanılmaz. Supervisor risk override ham AI skorunu değiştirmez; sadece operasyonel `risk_level`, gerekçe ve audit metadata'sı güncellenir.
 
 ### Gamification ve dashboard
 
@@ -163,6 +163,8 @@ curl -X POST http://localhost:8080/api/v1/auth/login \
 | `POST` | `/api/v1/cases/{id}/actions/request-customer-verification` | Müşteri doğrulaması ister |
 | `POST` | `/api/v1/cases/{id}/customer-verification` | `{ "answer": "BEN_YAPTIM|BEN_YAPMADIM" }` |
 | `POST/PATCH` | `/api/v1/cases/{id}/decision` | İnsan final kararı ve Rabbit eventi |
+| `PATCH` | `/api/v1/cases/{id}/risk-level` | Supervisor risk override |
+| `POST` | `/api/v1/cases/{id}/feedback` | Customer 1-5 yıldız feedback |
 | `POST` | `/api/v1/cases/{id}/actions/close` | Yalnız `ONAYLANDI → KAPANDI` |
 
 Transaction create body:
@@ -181,7 +183,7 @@ Transaction create body:
 
 ### AI Service
 
-`POST /internal/v1/score` yalnız Compose ağı içinde Transaction tarafından çağrılır; Nginx bunu public yayınlamaz.
+`POST /internal/v1/score` Compose ağı içinde Transaction tarafından çağrılır. Jüri/BFF entegrasyonu için aynı skor sözleşmesi `POST /api/v1/ai/score` üzerinden de standart zarfla yayınlanır.
 
 ```json
 {

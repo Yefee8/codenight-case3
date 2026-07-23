@@ -51,6 +51,14 @@ const assigned = await call(supervisor, `/api/v1/cases/${caseId}/assignment`, {
 assert.equal(assigned.response.status, 200);
 assert.equal(assigned.body.data.status, "ATANDI");
 
+const riskOverride = await call(supervisor, `/api/v1/cases/${caseId}/risk-level`, {
+  method: "PATCH",
+  body: JSON.stringify({ risk_level: "YUKSEK", reason: "Supervisor manuel risk kontrolü" }),
+});
+assert.equal(riskOverride.response.status, 200);
+assert.equal(riskOverride.body.data.risk_level, "YUKSEK");
+assert.equal(riskOverride.body.data.risk_override.reason, "Supervisor manuel risk kontrolü");
+
 const analyst = await login("analyst");
 const before = await call(analyst, "/api/v1/game/profile/usr_analyst_1");
 assert.equal(before.response.status, 200);
@@ -79,4 +87,11 @@ assert.ok(points >= expectedPoints, "RabbitMQ decision points were not consumed"
 const leaderboard = await call(analyst, "/api/v1/game/leaderboard");
 assert.equal(leaderboard.response.status, 200);
 assert.ok(leaderboard.body.data.some((entry) => entry.analyst.user_id === "usr_analyst_1"));
+
+const feedback = await call(customer, `/api/v1/cases/${caseId}/feedback`, {
+  method: "POST",
+  body: JSON.stringify({ rating: 5, note: "Süreç anlaşılırdı" }),
+});
+assert.equal(feedback.response.status, 200);
+assert.equal(feedback.body.data.customer_feedback.rating, 5);
 console.log(`Workflow passed: ${caseId}, analyst points ${before.body.data.total_points} → ${points}`);

@@ -50,8 +50,10 @@ def test_fallback_state_machine_and_decision_event(monkeypatch):
     monkeypatch.setattr(main, "publish_decision", lambda event: not events.append(event))
     client = TestClient(main.app)
     customer = token("usr_customer_1", "CUSTOMER")
+    other_customer = token("usr_customer_2", "CUSTOMER")
     supervisor = token("usr_supervisor_1", "SUPERVISOR")
     analyst = token("usr_analyst_1", "ANALYST")
+    admin = token("usr_admin_1", "ADMIN")
 
     created = client.post(
         "/api/v1/transactions/simulate",
@@ -70,6 +72,23 @@ def test_fallback_state_machine_and_decision_event(monkeypatch):
     assert case["ai_analysis"]["fraud_type"] == "BELIRSIZ"
 
     case_id = case["case_id"]
+    assert client.get(f"/api/v1/cases/{case_id}", headers=other_customer).status_code == 403
+    assert client.patch(
+        f"/api/v1/cases/{case_id}/assignment", headers=admin, json={"analyst_id": "usr_analyst_1"}
+    ).status_code == 403
+    assert client.patch(
+        f"/api/v1/cases/{case_id}/risk-level",
+        headers=customer,
+        json={"risk_level": "KRITIK", "reason": "denied"},
+    ).status_code == 403
+    overridden = client.patch(
+        f"/api/v1/cases/{case_id}/risk-level",
+        headers=supervisor,
+        json={"risk_level": "KRITIK", "reason": "<script>alert(1)</script>Manuel risk artışı"},
+    )
+    assert overridden.status_code == 200
+    assert overridden.json()["data"]["risk_level"] == "KRITIK"
+    assert overridden.json()["data"]["risk_override"]["reason"] == "alert(1)Manuel risk artışı"
     assert client.patch(
         f"/api/v1/cases/{case_id}/decision",
         headers=customer,
@@ -90,3 +109,17 @@ def test_fallback_state_machine_and_decision_event(monkeypatch):
     assert decided.status_code == 200
     assert events[0]["event_type"] == "transaction.blocked"
     assert events[0]["analyst_id"] == "usr_analyst_1"
+    feedback = client.post(
+        f"/api/v1/cases/{case_id}/feedback",
+        headers=customer,
+        json={"rating": 5, "note": "<script>x()</script>İyi yönetildi"},
+    )
+    assert feedback.status_code == 200
+    assert feedback.json()["data"]["customer_feedback"]["rating"] == 5
+    assert feedback.json()["data"]["customer_feedback"]["note"] == "x()İyi yönetildi"
+    assert client.post(
+        f"/api/v1/cases/{case_id}/feedback", headers=customer, json={"rating": 4}
+    ).status_code == 409
+    assert client.post(
+        f"/api/v1/cases/{case_id}/feedback", headers=other_customer, json={"rating": 5}
+    ).status_code == 403

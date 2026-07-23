@@ -63,6 +63,11 @@ export interface TransactionCase {
   };
   status: CaseStatus;
   risk_level: RiskLevel;
+  risk_override: {
+    reason: string;
+    overridden_by: string;
+    overridden_at: string;
+  } | null;
   assigned_analyst_id: string | null;
   sla_deadline: string;
   hold_status: string | null;
@@ -70,6 +75,11 @@ export interface TransactionCase {
   version: number;
   created_at: string;
   decided_at: string | null;
+  customer_feedback: {
+    rating: number;
+    note: string | null;
+    created_at: string;
+  } | null;
 }
 
 export interface GamificationProfile {
@@ -93,6 +103,16 @@ export interface DecisionRequest {
 
 export interface AssignmentRequest {
   analyst_id: string;
+}
+
+export interface RiskOverrideRequest {
+  risk_level: RiskLevel;
+  reason: string;
+}
+
+export interface FeedbackRequest {
+  rating: number;
+  note?: string;
 }
 
 export interface AnalystPerformance {

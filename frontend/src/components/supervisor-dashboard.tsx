@@ -1,19 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Activity, Bot, ClockAlert, Gauge, Send } from "lucide-react";
+import { Activity, Bot, ClockAlert, Gauge, Save, Send } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { toast } from "sonner";
 import { PageHeading } from "@/components/page-heading";
 import { RiskBadge, StatusBadge } from "@/components/case-badges";
-import { Button, Card, CardContent, CardHeader, CardTitle, Select, Skeleton } from "@/components/ui/primitives";
+import { Button, Card, CardContent, CardHeader, CardTitle, Input, Select, Skeleton } from "@/components/ui/primitives";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useAssignCase, useGetAnalystPerformance, useGetCases, useGetSupervisorMetrics } from "@/hooks/use-fraudcell";
+import { useAssignCase, useGetAnalystPerformance, useGetCases, useGetSupervisorMetrics, useOverrideRiskLevel } from "@/hooks/use-fraudcell";
 import { fraudLabels } from "@/lib/domain-labels";
 import { money } from "@/lib/utils";
-import type { AnalystPerformance, FraudType, SupervisorMetrics, TransactionCase } from "@/types/domain";
+import type { AnalystPerformance, FraudType, RiskLevel, SupervisorMetrics, TransactionCase } from "@/types/domain";
 
 const chartColors = ["#2f7dfa", "#22cddb", "#f97316", "#eab308", "#22c55e", "#94a3b8"];
+const riskLevels: RiskLevel[] = ["DUSUK", "ORTA", "YUKSEK", "KRITIK"];
 
 /** Hydrates live controls from SSR data, then lets TanStack Query own revalidation. */
 export function SupervisorDashboard({ initialMetrics, initialPerformance, initialCases, canAssign }: { initialMetrics: SupervisorMetrics; initialPerformance: AnalystPerformance[]; initialCases: TransactionCase[]; canAssign: boolean }) {
@@ -21,7 +22,10 @@ export function SupervisorDashboard({ initialMetrics, initialPerformance, initia
   const performance = useGetAnalystPerformance(initialPerformance);
   const cases = useGetCases(initialCases);
   const assign = useAssignCase();
+  const overrideRisk = useOverrideRiskLevel();
   const [selections, setSelections] = useState<Record<string, string>>({});
+  const [riskSelections, setRiskSelections] = useState<Record<string, RiskLevel>>({});
+  const [riskReasons, setRiskReasons] = useState<Record<string, string>>({});
   const unassigned = cases.data?.filter((item) => item.status === "YENI" && item.assigned_analyst_id === null) ?? [];
   const hasCases = Boolean(cases.data?.length);
   const distribution = Object.entries(metrics.data?.fraud_distribution ?? {}).map(([key, value]) => ({ name: fraudLabels[key as FraudType | "BELIRSIZ"], value }));
@@ -34,6 +38,18 @@ export function SupervisorDashboard({ initialMetrics, initialPerformance, initia
       toast.success("Vaka analiste atandı");
     } catch (error) {
       toast.error(error instanceof Error ? error.message : "Atama tamamlanamadı");
+    }
+  }
+
+  async function saveRisk(id: string) {
+    const risk_level = riskSelections[id];
+    const reason = riskReasons[id]?.trim();
+    if (!risk_level || !reason) return;
+    try {
+      await overrideRisk.mutateAsync({ id, risk_level, reason });
+      toast.success("Risk seviyesi güncellendi");
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : "Risk güncellenemedi");
     }
   }
 
@@ -74,6 +90,17 @@ export function SupervisorDashboard({ initialMetrics, initialPerformance, initia
                 <Button size="icon" aria-label="Vakayı ata" loading={assign.isPending && assign.variables?.id === item.case_id} disabled={!selections[item.case_id] || assign.isPending} onClick={() => assignCase(item.case_id)}><Send size={16} /></Button>
               </div>
             ))}
+            {canAssign && cases.data?.length ? <div className="border-t border-border pt-3">
+              <p className="mb-2 text-xs font-medium text-muted-foreground">AI risk düzeltme</p>
+              <div className="space-y-2">{cases.data.map((item) => (
+                <div key={`risk-${item.case_id}`} className="grid gap-2 rounded-xl bg-muted p-3 lg:grid-cols-[1fr_120px_1fr_auto] lg:items-center">
+                  <div className="min-w-0"><strong className="font-mono text-xs">{item.case_id}</strong><p className="truncate text-xs text-muted-foreground">Mevcut risk: {item.risk_level}{item.risk_override ? ` · ${item.risk_override.reason}` : ""}</p></div>
+                  <Select aria-label={`${item.case_id} risk seviyesi`} value={riskSelections[item.case_id] ?? item.risk_level} onChange={(event) => setRiskSelections((current) => ({ ...current, [item.case_id]: event.target.value as RiskLevel }))}>{riskLevels.map((risk) => <option key={risk} value={risk}>{risk}</option>)}</Select>
+                  <Input placeholder="Gerekçe" value={riskReasons[item.case_id] ?? ""} onChange={(event) => setRiskReasons((current) => ({ ...current, [item.case_id]: event.target.value }))} />
+                  <Button size="icon" variant="outline" aria-label="Riski kaydet" loading={overrideRisk.isPending && overrideRisk.variables?.id === item.case_id} disabled={!riskReasons[item.case_id]?.trim()} onClick={() => saveRisk(item.case_id)}><Save size={15} /></Button>
+                </div>
+              ))}</div>
+            </div> : null}
           </CardContent>
         </Card>
       </div>

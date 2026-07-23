@@ -111,7 +111,7 @@ pnpm check:workflow
 pnpm check:pwa
 ```
 
-`check:auth`, `check:workflow` ve `check:pwa` çalışan Compose stack'i bekler. `check:workflow`; müşteri işlemi, Admin salt-okunur kontrolü, Supervisor ataması, Analyst kararı, RabbitMQ puanı ve leaderboard zincirini gerçek BFF üzerinden doğrular.
+`check:auth`, `check:workflow` ve `check:pwa` çalışan Compose stack'i bekler. `check:workflow`; müşteri işlemi, Admin salt-okunur kontrolü, Supervisor ataması/risk override, Analyst kararı, RabbitMQ puanı, müşteri yıldız feedback'i ve leaderboard zincirini gerçek BFF üzerinden doğrular.
 
 ## Durdurma ve veri sıfırlama
 

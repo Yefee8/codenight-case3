@@ -6,10 +6,12 @@ import type {
   ApiResponse,
   AssignmentRequest,
   DecisionRequest,
+  FeedbackRequest,
   GamificationProfile,
   LeaderboardEntry,
   LoginRequest,
   LoginResult,
+  RiskOverrideRequest,
   SupervisorMetrics,
   TransactionCase,
   TransactionSimulationRequest,
@@ -93,6 +95,31 @@ export function useAssignCase() {
         queryClient.invalidateQueries({ queryKey: ["supervisor-metrics"] }),
         queryClient.invalidateQueries({ queryKey: ["analyst-performance"] }),
       ]);
+    },
+  });
+}
+
+export function useOverrideRiskLevel() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...body }: RiskOverrideRequest & { id: string }) => request<TransactionCase>(`/api/v1/cases/${id}/risk-level`, { method: "PATCH", body: JSON.stringify(body) }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(["cases", data.case_id], data);
+      void Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["cases"] }),
+        queryClient.invalidateQueries({ queryKey: ["supervisor-metrics"] }),
+      ]);
+    },
+  });
+}
+
+export function useSubmitCaseFeedback() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, ...body }: FeedbackRequest & { id: string }) => request<TransactionCase>(`/api/v1/cases/${id}/feedback`, { method: "POST", body: JSON.stringify(body) }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(["cases", data.case_id], data);
+      void queryClient.invalidateQueries({ queryKey: ["cases"] });
     },
   });
 }

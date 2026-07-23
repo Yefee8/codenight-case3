@@ -12,7 +12,7 @@ function isDecision(value: unknown): value is DecisionRequest {
 }
 
 export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
-  const user = await authorizeApi(["ANALYST"]);
+  const user = await authorizeApi(["ANALYST", "SUPERVISOR"]);
   if (user instanceof Response) return user;
   let body: unknown;
   try {

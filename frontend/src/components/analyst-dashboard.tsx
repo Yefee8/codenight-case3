@@ -9,7 +9,7 @@ import { Badge, Button, Card, CardContent, CardHeader, CardTitle, Skeleton, Text
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useApproveTransaction, useGetCase, useGetCases, useGetGameProfile, useStartReview } from "@/hooks/use-fraudcell";
 import { dateTime, money } from "@/lib/utils";
-import { fraudLabels } from "@/lib/domain-labels";
+import { formatReasonCodes, fraudLabels } from "@/lib/domain-labels";
 import type { AnalystDecision, GamificationProfile, TransactionCase } from "@/types/domain";
 
 /** Interactive analyst controls hydrate server-rendered cases without a blank client fetch. */
@@ -104,7 +104,7 @@ function CaseDetail({ item, loading, note, setNote, pending, starting, start, de
     <CardHeader><div className="flex items-center justify-between"><CardTitle>Vaka detayı</CardTitle><RiskBadge risk={item.risk_level} /></div><p className="font-mono text-xs text-muted-foreground">{item.case_id}</p></CardHeader>
     <CardContent className="space-y-5">
       <div className="flex items-center justify-between rounded-xl bg-muted p-4"><div><p className="text-xs text-muted-foreground">AI risk skoru</p><p className="text-3xl font-semibold">{score === null ? "—" : `%${Math.round(score * 100)}`}</p></div><Sparkles className="text-accent" /><div className="text-right"><p className="text-xs text-muted-foreground">Öneri</p><strong>{item.ai_analysis.recommended_decision}</strong></div></div>
-      <dl className="grid grid-cols-2 gap-3 text-sm"><Info label="Tutar" value={money.format(item.transaction_details.amount)} /><Info label="İşlem" value={item.transaction_details.type} /><Info label="Alıcı" value={item.transaction_details.receiver} /><Info label="Fraud tipi" value={fraudLabels[item.ai_analysis.fraud_type]} /><Info label="Cihaz" value={item.transaction_details.device} /><Info label="Konum" value={item.transaction_details.location} icon={<MapPin size={12} />} /><Info label="AI nedeni" value={item.ai_analysis.reason} /></dl>
+      <dl className="grid grid-cols-2 gap-3 text-sm"><Info label="Tutar" value={money.format(item.transaction_details.amount)} /><Info label="İşlem" value={item.transaction_details.type} /><Info label="Alıcı" value={item.transaction_details.receiver} /><Info label="Fraud tipi" value={fraudLabels[item.ai_analysis.fraud_type]} /><Info label="Cihaz" value={item.transaction_details.device} /><Info label="Konum" value={item.transaction_details.location} icon={<MapPin size={12} />} /><Info label="AI nedeni" value={formatReasonCodes(item.ai_analysis.reason)} /></dl>
       {item.status === "ATANDI" ? <Button className="w-full" loading={starting} onClick={start}>İncelemeyi başlat</Button> : item.status === "INCELENIYOR" ? <>
         <div><label htmlFor="analyst-note" className="mb-1.5 block text-xs font-medium">Analist notu <span className="text-red-500">*</span></label><Textarea id="analyst-note" value={note} onChange={(event) => setNote(event.target.value)} placeholder="Karar gerekçenizi yazın…" /></div>
         <div className="grid grid-cols-2 gap-3"><Button variant="outline" loading={pending === "ONAYLANDI"} disabled={!note.trim() || Boolean(pending)} onClick={() => decide("ONAYLANDI")}>Onayla</Button><Button variant="danger" loading={pending === "BLOKLANDI"} disabled={!note.trim() || Boolean(pending)} onClick={() => decide("BLOKLANDI")}>Blokla</Button></div>

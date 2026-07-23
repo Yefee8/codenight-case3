@@ -34,13 +34,14 @@ Bu belge yalnız çalışan kodda bulunan kontrolleri ve bilinen sınırları li
 - Mutation body'leri BFF'de runtime kontrolünden geçer.
 - `customer_id`, `analyst_id` ve `analyst_name` browser body’sinden değil imzalı session'dan eklenir.
 - Analyst yalnız kendisine atanmış case'i BFF üzerinden okuyabilir/karara götürebilir.
-- Customer işlem oluşturma; Supervisor atama; Analyst inceleme/karar; Supervisor/Admin metrik ve Analyst/Supervisor/Admin read allowlist'leri vardır. Admin case ekranı salt okunurdur.
+- Customer işlem/feedback; Supervisor atama/risk override; Analyst inceleme/karar; Supervisor/Admin metrik ve Analyst/Supervisor/Admin read allowlist'leri vardır. Admin case ekranı salt okunurdur.
 - Backend hataları normalize edilir; bağlantı/parse detayları browser'a sızdırılmaz.
 - Backend fetch çağrıları 5 saniye timeout ve `cache: no-store` kullanır.
 
 ### Veri ve mesajlaşma
 
 - SQLAlchemy bind parametreleri kullanır; raw kullanıcı girdili SQL yoktur.
+- Transaction PostgreSQL `transactions` ve `risk_cases` tablolarında `ENABLE/FORCE ROW LEVEL SECURITY` aktiftir; her istek `app.user_id` ve `app.role` session değişkenlerini set eder.
 - Pydantic request modelleri amount, string uzunluğu ve enum kontrolleri yapar; AI skor isteğinde NaN/Infinity ayrıca reddedilir.
 - Her mikroservisin PostgreSQL database'i ayrı container ve volume'dadır; çapraz DB bağlantısı yoktur.
 - State geçişleri tek `ALLOWED_TRANSITIONS` haritasından doğrulanır.
@@ -109,4 +110,11 @@ curl -i -X POST http://localhost:3000/api/v1/auth/login \
 
 # Illegal state transition backend tarafından 422
 curl -i -X POST http://localhost:8080/api/v1/cases/CASE_ID/actions/start-review
+
+# Yerleşik güvenlik scriptleri
+node security-idor-test.mjs
+node security-unauthorized-test.mjs
+node security-token-manipulation-test.mjs
+node security-bruteforce-test.mjs
+node security-input-hardening-test.mjs
 ```
