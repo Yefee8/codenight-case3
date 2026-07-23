@@ -1,53 +1,84 @@
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { analysts } from "@/lib/mock-data";
 import { decodeSession, encodeSession } from "@/lib/server/session-token";
-import type { Role, SessionUser, User } from "@/types/domain";
+import type { Role, SessionUser } from "@/types/domain";
 
-const COOKIE_NAME = "fraudcell_session";
-const SESSION_SECONDS = 8 * 60 * 60;
-interface DemoAccount {
-  user: User;
-  otp: string;
+const SESSION_COOKIE = "fraudcell_session";
+const ACCESS_COOKIE = "fraudcell_access";
+const REFRESH_COOKIE = "fraudcell_refresh";
+const SESSION_SECONDS = 7 * 24 * 60 * 60;
+const secureCookies = process.env.COOKIE_SECURE === "true";
+const roles: Role[] = ["CUSTOMER", "ANALYST", "SUPERVISOR", "ADMIN"];
+
+export interface IdentityTokens {
+  access_token: string;
+  refresh_token: string;
+  expires_in: number;
+  user: SessionUser;
 }
 
-const accounts: DemoAccount[] = [
-  { user: { user_id: "usr_customer_1", full_name: "Deniz Yılmaz", role: "CUSTOMER", gsm: "05320000001" }, otp: "1234" },
-  { user: analysts[0], otp: "2468" },
-  { user: { user_id: "usr_supervisor_1", full_name: "Ozan Acar", role: "SUPERVISOR", gsm: "05320000003" }, otp: "8642" },
-];
-
-function normalizeGsm(value: string) {
-  return value.replace(/\D/g, "").replace(/^90/, "0");
+/** Rejects malformed upstream auth responses before they become trusted cookies. */
+export function isIdentityTokens(value: unknown): value is IdentityTokens {
+  if (!value || typeof value !== "object") return false;
+  const tokens = value as Partial<IdentityTokens>;
+  const user = tokens.user as Partial<SessionUser> | undefined;
+  return typeof tokens.access_token === "string" && typeof tokens.refresh_token === "string" &&
+    typeof tokens.expires_in === "number" && Number.isFinite(tokens.expires_in) && tokens.expires_in > 0 &&
+    typeof user?.user_id === "string" && typeof user.full_name === "string" && roles.includes(user.role as Role);
 }
 
-export function authenticate(gsm: string, otp: string): SessionUser | null {
-  const normalized = normalizeGsm(gsm);
-  const account = accounts.find((item) => normalizeGsm(item.user.gsm) === normalized && item.otp === otp);
-  return account ? { user_id: account.user.user_id, full_name: account.user.full_name, role: account.user.role } : null;
-}
-
-export async function createSession(user: SessionUser) {
-  const token = encodeSession({ user_id: user.user_id, expires_at: Date.now() + SESSION_SECONDS * 1000 });
-  (await cookies()).set(COOKIE_NAME, token, {
+/** Keeps backend tokens server-only while exposing only a signed minimal identity to SSR. */
+export async function createSession(tokens: IdentityTokens) {
+  const store = await cookies();
+  const session = encodeSession({
+    user_id: tokens.user.user_id,
+    full_name: tokens.user.full_name,
+    role: tokens.user.role,
+    expires_at: Date.now() + SESSION_SECONDS * 1000,
+  });
+  store.set(SESSION_COOKIE, session, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: secureCookies,
     sameSite: "lax",
     maxAge: SESSION_SECONDS,
     path: "/",
   });
+  store.set(ACCESS_COOKIE, tokens.access_token, {
+    httpOnly: true,
+    secure: secureCookies,
+    sameSite: "lax",
+    maxAge: tokens.expires_in,
+    path: "/",
+  });
+  store.set(REFRESH_COOKIE, tokens.refresh_token, {
+    httpOnly: true,
+    secure: secureCookies,
+    sameSite: "strict",
+    maxAge: SESSION_SECONDS,
+    path: "/api/v1/auth",
+  });
 }
 
 export async function deleteSession() {
-  (await cookies()).delete(COOKIE_NAME);
+  const store = await cookies();
+  store.set(SESSION_COOKIE, "", { httpOnly: true, secure: secureCookies, sameSite: "lax", maxAge: 0, path: "/" });
+  store.set(ACCESS_COOKIE, "", { httpOnly: true, secure: secureCookies, sameSite: "lax", maxAge: 0, path: "/" });
+  store.set(REFRESH_COOKIE, "", { httpOnly: true, secure: secureCookies, sameSite: "strict", maxAge: 0, path: "/api/v1/auth" });
+}
+
+export async function getAccessToken() {
+  return (await cookies()).get(ACCESS_COOKIE)?.value ?? null;
+}
+
+export async function getRefreshToken() {
+  return (await cookies()).get(REFRESH_COOKIE)?.value ?? null;
 }
 
 async function readSession(): Promise<SessionUser | null> {
-  const payload = decodeSession((await cookies()).get(COOKIE_NAME)?.value);
+  const payload = decodeSession((await cookies()).get(SESSION_COOKIE)?.value);
   if (!payload) return null;
-  const user = accounts.find((item) => item.user.user_id === payload.user_id)?.user;
-  return user ? { user_id: user.user_id, full_name: user.full_name, role: user.role } : null;
+  return { user_id: payload.user_id, full_name: payload.full_name, role: payload.role };
 }
 
 // React cache deduplicates the header/page cookie check within one server render.

@@ -1,6 +1,8 @@
 import { apiError, apiSuccess } from "@/lib/api-response";
-import { mockCases } from "@/lib/mock-data";
 import { authorizeApi } from "@/lib/server/api-auth";
+import { backendApiError } from "@/lib/server/backend";
+import { decideCase, findCaseFor } from "@/lib/server/fraud-service";
+import { stripScriptTags } from "@/lib/server/sanitize";
 import type { DecisionRequest } from "@/types/domain";
 
 function isDecision(value: unknown): value is DecisionRequest {
@@ -10,7 +12,7 @@ function isDecision(value: unknown): value is DecisionRequest {
 }
 
 export async function PATCH(request: Request, context: { params: Promise<{ id: string }> }) {
-  const user = await authorizeApi(["ANALYST", "ADMIN"]);
+  const user = await authorizeApi(["ANALYST"]);
   if (user instanceof Response) return user;
   let body: unknown;
   try {
@@ -21,10 +23,12 @@ export async function PATCH(request: Request, context: { params: Promise<{ id: s
   if (!isDecision(body)) return apiError(422, "Karar ve analist notu zorunludur");
 
   const { id } = await context.params;
-  const found = mockCases.find((item) => item.case_id === id);
-  if (!found) return apiError(404, "Vaka bulunamadı");
-  if (user.role === "ANALYST" && found.assigned_analyst_id !== user.user_id) return apiError(403, "Yalnızca size atanmış vakalarda karar verebilirsiniz");
-
-  found.status = body.decision;
-  return apiSuccess(found);
+  try {
+    const found = await findCaseFor(id, user);
+    if (!found) return apiError(404, "Vaka bulunamadı");
+    if (found.status !== "INCELENIYOR") return apiError(422, "Karar vermeden önce incelemeyi başlatın");
+    return apiSuccess(await decideCase(id, { ...body, note: stripScriptTags(body.note) }, user));
+  } catch (error) {
+    return backendApiError(error);
+  }
 }

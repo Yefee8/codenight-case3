@@ -1,9 +1,10 @@
 import type { FraudType } from "@/types/domain";
 
-export const fraudLabels: Record<FraudType, string> = {
+export const fraudLabels: Record<FraudType | "BELIRSIZ", string> = {
   CALINTI_KART: "Çalıntı Kart",
   HESAP_ELE_GECIRME: "Hesap Ele Geçirme",
   PARA_AKLAMA: "Para Aklama",
   SUPHELI_DAVRANIS: "Şüpheli Davranış",
   TEMIZ: "Temiz",
+  BELIRSIZ: "Belirsiz",
 };

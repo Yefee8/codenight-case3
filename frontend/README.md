@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FraudCell Frontend
 
-## Getting Started
+Next.js 16 App Router arayüzü, mikroservislere doğrudan değil aynı origin üzerindeki Route Handler BFF katmanı üzerinden erişir.
 
-First, run the development server:
+## Docker ile çalıştırma
+
+Proje kökünde:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker compose up
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Arayüz `http://localhost:3000`, backend gateway `http://localhost:8080` adresinde açılır. Compose içinde frontend gateway'e `http://gateway` üzerinden bağlanır.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Yerel geliştirme
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Backend çalışırken:
 
-## Learn More
+```bash
+pnpm install --frozen-lockfile
+GATEWAY_URL=http://localhost:8080 AUTH_SECRET=local-only-secret COOKIE_SECURE=false pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Ardından `http://localhost:3000` adresini açın.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Ortam değişkenleri
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Değişken | Amaç | Docker varsayılanı |
+|---|---|---|
+| `GATEWAY_URL` | BFF'nin backend gateway adresi | `http://gateway` |
+| `AUTH_SECRET` | Frontend oturum imzası | Yalnız demo için sabit değer |
+| `COOKIE_SECURE` | Oturum cookie'sini yalnız HTTPS ile gönderir | Yerel HTTP demosu için `false` |
 
-## Deploy on Vercel
+Gerçek HTTPS ortamında güçlü ve rastgele bir `AUTH_SECRET` verin, `COOKIE_SECURE=true` kullanın. Bu değişkenler sunucu tarafındadır; `NEXT_PUBLIC_` ile tarayıcı paketine eklenmez.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Kontroller
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm lint
+pnpm build
+pnpm check:auth
+pnpm check:workflow
+pnpm check:pwa
+```
+
+`check:*` komutları çalışan Compose stack'ine karşı auth, tam karar/RabbitMQ akışı ve PWA dosyalarını doğrular.
+
+Production image, Next.js'in `standalone` çıktısını çalıştırır ve root olmayan `nextjs` kullanıcısını kullanır.

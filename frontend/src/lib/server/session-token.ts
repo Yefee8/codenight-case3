@@ -1,9 +1,13 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
+import type { Role } from "@/types/domain";
 
-const secret = process.env.AUTH_SECRET ?? "fraudcell-mock-session-secret-change-before-production";
+const secret = process.env.AUTH_SECRET ?? "fraudcell-demo-session-secret-change-before-production";
+const roles: Role[] = ["CUSTOMER", "ANALYST", "SUPERVISOR", "ADMIN"];
 
 export interface SessionPayload {
   user_id: string;
+  full_name: string;
+  role: Role;
   expires_at: number;
 }
 
@@ -20,14 +24,18 @@ export function encodeSession(payload: SessionPayload) {
 /** Verifies signature and expiry before pages or APIs trust the cookie. */
 export function decodeSession(token?: string): SessionPayload | null {
   if (!token) return null;
-  const [body, supplied] = token.split(".");
-  if (!body || !supplied) return null;
-  const expectedBuffer = Buffer.from(signature(body));
-  const suppliedBuffer = Buffer.from(supplied);
+  const parts = token.split(".");
+  if (parts.length !== 2) return null;
+  const [body, supplied] = parts;
+  const expectedBuffer = Buffer.from(signature(body), "base64url");
+  const suppliedBuffer = Buffer.from(supplied, "base64url");
   if (expectedBuffer.length !== suppliedBuffer.length || !timingSafeEqual(expectedBuffer, suppliedBuffer)) return null;
   try {
     const payload = JSON.parse(Buffer.from(body, "base64url").toString()) as SessionPayload;
-    return payload.expires_at > Date.now() && typeof payload.user_id === "string" ? payload : null;
+    return typeof payload.user_id === "string" && typeof payload.full_name === "string" &&
+      roles.includes(payload.role) && Number.isFinite(payload.expires_at) && payload.expires_at > Date.now()
+      ? payload
+      : null;
   } catch {
     return null;
   }

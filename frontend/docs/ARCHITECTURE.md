@@ -1,32 +1,37 @@
-# FraudCell frontend architecture
+# FraudCell frontend mimarisi
 
-## Request flow
+## İstek akışı
 
 ```text
-Browser → Next.js page/API → session role gate → shared fraud service → mock data
-        ← SSR HTML + hydrated TanStack Query cache ←
+Tarayıcı
+  -> Next.js sayfası / aynı-origin BFF (`/api/v1/...`)
+  -> oturum ve rol kontrolü
+  -> `GATEWAY_URL` (`gateway` container'ı)
+  -> Identity / Transaction / Gamification servisleri
 ```
 
-The UI talks only to `/api/v1/...` through custom hooks. Server Components do not call those HTTP endpoints because that would add a second network hop inside the same application. They call `src/lib/server/fraud-service.ts`, the same data layer used by the BFF routes.
+Tarayıcı yalnız Next.js ile konuşur. Böylece backend adresi ve tokenlar client bundle'a girmez, CORS gerekmez ve rol kontrolü UI bileşenlerine bırakılmaz. AI skorlama endpoint'i public değildir; Transaction servisi AI servisini kendi Docker ağı üzerinden çağırır.
 
-When real microservices arrive, replace the mock calls inside the server service and keep component contracts unchanged.
+## BFF ve render
 
-## Rendering and navigation
+- Route Handler'lar gelen veriyi doğrular, oturumu kontrol eder ve isteği gateway'e iletir.
+- Server Component'ler ilk ekran verisini sunucuda alır; client dashboard'lar bu veriyi TanStack Query `initialData` olarak kullanır.
+- Client mutation'ları yalnız aynı-origin `/api/v1/...` yollarını çağırır ve ilgili query cache'ini yeniler.
+- `app/loading.tsx` navigation sırasında iskelet gösterir; responsive shell ve PWA manifest/service worker korunur.
 
-- Page files verify the role and resolve their first dataset on the server.
-- Client dashboards receive that dataset as TanStack Query `initialData`, so the first HTML already contains useful content.
-- `app/loading.tsx` provides the prefetched Suspense fallback for dynamic navigation.
-- The request-time header cookie lookup is isolated behind its own Suspense boundary. It cannot block the page skeleton.
-- Native Next.js `Link` prefetching is retained instead of adding a second router abstraction.
-- The manifest, early install-prompt capture and network-first service worker make the responsive shell installable without caching authenticated data offline.
+## Yanıt sözleşmesi
 
-## BFF response contract
-
-Every JSON route returns `ApiResponse<T>`:
+BFF, UI'ya tek biçimli yanıt döndürür:
 
 ```ts
 { success: true, data: value, error: null }
-{ success: false, data: null, error: { code, message } }
+{ success: false, data: null, error: message }
 ```
 
-This stable envelope is shared by auth, queries and mutations.
+Backend hata kodu korunur; erişim tokenı, refresh tokenı ve iç servis hata ayrıntıları tarayıcı JSON'una eklenmez.
+
+## Container sınırı
+
+Next.js 16 `output: "standalone"` üretir. Runtime image yalnız traced server dosyalarını, `public` ve `.next/static` içeriğini taşır. Frontend, gateway health durumundan sonra başlar ve `http://localhost:3000/login` üzerinden healthcheck edilir.
+
+`COOKIE_SECURE=false` yalnız yerel HTTP demosu içindir. HTTPS deployment'ta `COOKIE_SECURE=true` ve rastgele `AUTH_SECRET` zorunludur.

@@ -6,6 +6,6 @@ export function apiSuccess<T>(data: T, status = 200) {
 }
 
 export function apiError(code: number, message: string) {
-  const body: ApiResponse<never> = { success: false, data: null, error: { code, message } };
+  const body: ApiResponse<never> = { success: false, data: null, error: message };
   return Response.json(body, { status: code });
 }

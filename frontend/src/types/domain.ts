@@ -20,7 +20,7 @@ export type AnalystDecision = "ONAYLANDI" | "BLOKLANDI";
 export interface ApiResponse<T> {
   success: boolean;
   data: T | null;
-  error: { code: number; message: string } | null;
+  error: string | null;
 }
 
 export interface User {
@@ -34,8 +34,8 @@ export interface User {
 export type SessionUser = Pick<User, "user_id" | "full_name" | "role">;
 
 export interface LoginRequest {
-  gsm: string;
-  otp: string;
+  identifier: string;
+  password: string;
 }
 
 export interface LoginResult {
@@ -55,14 +55,21 @@ export interface TransactionCase {
     timestamp: string;
   };
   ai_analysis: {
-    risk_score: number;
-    fraud_type: FraudType;
+    risk_score: number | null;
+    fraud_type: FraudType | "BELIRSIZ";
     recommended_decision: "ONAY" | "INCELEME" | "BLOK";
+    prediction_status: "AVAILABLE" | "UNAVAILABLE";
+    reason: string;
   };
   status: CaseStatus;
   risk_level: RiskLevel;
   assigned_analyst_id: string | null;
   sla_deadline: string;
+  hold_status: string | null;
+  customer_verification: string | null;
+  version: number;
+  created_at: string;
+  decided_at: string | null;
 }
 
 export interface GamificationProfile {
@@ -76,7 +83,7 @@ export interface SupervisorMetrics {
   sla_compliance_rate: number;
   ai_accuracy_rate: number;
   active_overdue_cases: number;
-  fraud_distribution: Record<FraudType, number>;
+  fraud_distribution: Record<FraudType | "BELIRSIZ", number>;
 }
 
 export interface DecisionRequest {
@@ -107,6 +114,7 @@ export interface TransactionSimulationRequest {
   receiver: string;
   device: string;
   location: string;
+  hour?: number;
 }
 
 export interface TransactionSimulationResult {

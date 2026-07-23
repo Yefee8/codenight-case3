@@ -16,14 +16,27 @@ import type {
   TransactionSimulationResult,
 } from "@/types/domain";
 
+let refreshPromise: Promise<boolean> | null = null;
+
+function refreshSession() {
+  refreshPromise ??= fetch("/api/v1/auth/refresh", { method: "POST" })
+    .then((response) => response.ok)
+    .finally(() => { refreshPromise = null; });
+  return refreshPromise;
+}
+
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(url, {
+  const options = {
     ...init,
     headers: { "Content-Type": "application/json", ...init?.headers },
-  });
+  };
+  let response = await fetch(url, options);
+  if (response.status === 401 && !url.startsWith("/api/v1/auth/") && await refreshSession()) {
+    response = await fetch(url, options);
+  }
   const payload = await response.json() as ApiResponse<T>;
   if (!response.ok || !payload.success || payload.data === null) {
-    throw new Error(payload.error?.message ?? "İstek tamamlanamadı");
+    throw new Error(payload.error ?? "İstek tamamlanamadı");
   }
   return payload.data;
 }
@@ -42,6 +55,28 @@ export function useApproveTransaction() {
     mutationFn: ({ id, ...body }: DecisionRequest & { id: string }) => request<TransactionCase>(`/api/v1/cases/${id}/decision`, { method: "PATCH", body: JSON.stringify(body) }),
     onSuccess: (data) => {
       queryClient.setQueryData(["cases", data.case_id], data);
+      void Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["cases"] }),
+        queryClient.invalidateQueries({ queryKey: ["game-profile"] }),
+        queryClient.invalidateQueries({ queryKey: ["leaderboard"] }),
+        queryClient.invalidateQueries({ queryKey: ["supervisor-metrics"] }),
+        queryClient.invalidateQueries({ queryKey: ["analyst-performance"] }),
+      ]);
+      // ponytail: one delayed refresh covers RabbitMQ eventual consistency; replace with SSE only if needed.
+      setTimeout(() => void Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["game-profile"] }),
+        queryClient.invalidateQueries({ queryKey: ["leaderboard"] }),
+      ]), 1_000);
+    },
+  });
+}
+
+export function useStartReview() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id: string) => request<TransactionCase>(`/api/v1/cases/${id}/actions/start-review`, { method: "POST" }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(["cases", data.case_id], data);
       void queryClient.invalidateQueries({ queryKey: ["cases"] });
     },
   });
@@ -51,7 +86,14 @@ export function useAssignCase() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ({ id, ...body }: AssignmentRequest & { id: string }) => request<TransactionCase>(`/api/v1/cases/${id}/assignment`, { method: "PATCH", body: JSON.stringify(body) }),
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["cases"] }),
+    onSuccess: (data) => {
+      queryClient.setQueryData(["cases", data.case_id], data);
+      void Promise.all([
+        queryClient.invalidateQueries({ queryKey: ["cases"] }),
+        queryClient.invalidateQueries({ queryKey: ["supervisor-metrics"] }),
+        queryClient.invalidateQueries({ queryKey: ["analyst-performance"] }),
+      ]);
+    },
   });
 }
 
@@ -75,7 +117,10 @@ export function useSimulateTransaction() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (body: TransactionSimulationRequest) => request<TransactionSimulationResult>("/api/v1/transactions/simulate", { method: "POST", body: JSON.stringify(body) }),
-    onSuccess: () => void queryClient.invalidateQueries({ queryKey: ["cases"] }),
+    onSuccess: () => void Promise.all([
+      queryClient.invalidateQueries({ queryKey: ["cases"] }),
+      queryClient.invalidateQueries({ queryKey: ["supervisor-metrics"] }),
+    ]),
   });
 }
 

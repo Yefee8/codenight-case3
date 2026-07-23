@@ -4,10 +4,10 @@
 |---|---|---|
 | `AppHeader` | Reads the signed server session | Keeps request-time cookie work outside the shared page shell. |
 | `AppShell` | Role-aware links, active state, PWA install, theme and logout | Browser-only interactions stay together; identity is still supplied by the server. |
-| `LoginForm` | Collects GSM/OTP and invokes `useLogin` | Components never create authentication state locally. |
-| `AnalystDashboard` | Queue selection, decisions and profile overlay | One client boundary owns the analyst interactions while SSR provides the first data. |
-| `SupervisorDashboard` | Metrics, chart, performance and assignment | Related operations share one cache and avoid prop drilling. |
-| `CustomerPortal` | Simulation, verification dialog and feedback | It is mounted only after the server authorizes a customer. |
+| `LoginForm` | Collects username/GSM identifier and password, then invokes `useLogin` | Components never create authentication state locally. |
+| `AnalystDashboard` | Assigned queue, review/decision controls and gamification profile | One client boundary owns the analyst interactions while SSR provides the first data. |
+| `SupervisorDashboard` | Metrics, performance, Supervisor assignment and read-only Admin cases | Related operations share one cache and avoid prop drilling. |
+| `CustomerPortal` | Transaction simulation and AI result | It is mounted only after the server authorizes a customer. |
 | `Leaderboard` | Ranking presentation | SSR renders the initial top ten; Query handles later refreshes. |
 | `PageSkeleton` | Route transition placeholder | Mirrors dashboard geometry to avoid the old-page pause and layout shift. |
 | `Providers` | TanStack Query and toast roots | A single instance prevents cache loss between client navigations. |

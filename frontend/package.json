@@ -2,12 +2,14 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.4",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "check:auth": "node scripts/check-auth.mjs",
+    "check:workflow": "node scripts/check-workflow.mjs",
     "check:pwa": "node scripts/check-pwa.mjs"
   },
   "dependencies": {

@@ -1,0 +1,185 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: fraudcell
+      RABBITMQ_DEFAULT_PASS: fraudcell
+    ports:
+      - "15672:15672"
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  identity-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: identity
+      POSTGRES_USER: fraudcell
+      POSTGRES_PASSWORD: fraudcell
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraudcell -d identity"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - identity_pg_data:/var/lib/postgresql/data
+
+  transaction-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: transactions
+      POSTGRES_USER: fraudcell
+      POSTGRES_PASSWORD: fraudcell
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraudcell -d transactions"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - transaction_pg_data:/var/lib/postgresql/data
+
+  ai-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ai
+      POSTGRES_USER: fraudcell
+      POSTGRES_PASSWORD: fraudcell
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraudcell -d ai"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - ai_pg_data:/var/lib/postgresql/data
+
+  gamification-db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: gamification
+      POSTGRES_USER: fraudcell
+      POSTGRES_PASSWORD: fraudcell
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraudcell -d gamification"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - gamification_pg_data:/var/lib/postgresql/data
+
+  identity-service:
+    build: ./services/identity-service
+    environment:
+      DATABASE_URL: postgresql+psycopg://fraudcell:fraudcell@identity-db:5432/identity
+      JWT_SECRET: ${JWT_SECRET:-fraudcell-demo-secret}
+    depends_on:
+      identity-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "8001:8000"
+
+  ai-service:
+    build: ./services/ai-service
+    environment:
+      DATABASE_URL: postgresql+psycopg://fraudcell:fraudcell@ai-db:5432/ai
+    depends_on:
+      ai-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "8003:8000"
+
+  transaction-service:
+    build: ./services/transaction-service
+    environment:
+      DATABASE_URL: postgresql+psycopg://fraudcell:fraudcell@transaction-db:5432/transactions
+      AI_SERVICE_URL: http://ai-service:8000
+      AMQP_URL: amqp://fraudcell:fraudcell@rabbitmq:5672/%2F
+      JWT_SECRET: ${JWT_SECRET:-fraudcell-demo-secret}
+    depends_on:
+      transaction-db:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "8002:8000"
+
+  gamification-service:
+    build: ./services/gamification-service
+    environment:
+      DATABASE_URL: postgresql+psycopg://fraudcell:fraudcell@gamification-db:5432/gamification
+      AMQP_URL: amqp://fraudcell:fraudcell@rabbitmq:5672/%2F
+      JWT_SECRET: ${JWT_SECRET:-fraudcell-demo-secret}
+    depends_on:
+      gamification-db:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    ports:
+      - "8004:8000"
+  gateway:
+    build: ./services/gateway
+    depends_on:
+      identity-service:
+        condition: service_healthy
+      transaction-service:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+      gamification-service:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  frontend:
+    build: ./frontend
+    environment:
+      GATEWAY_URL: http://gateway
+      AUTH_SECRET: ${AUTH_SECRET:-fraudcell-demo-session-secret}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+    depends_on:
+      gateway:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/login').then(response => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+volumes:
+  rabbitmq_data:
+  identity_pg_data:
+  transaction_pg_data:
+  ai_pg_data:
+  gamification_pg_data:
