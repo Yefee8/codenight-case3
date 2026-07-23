@@ -55,7 +55,7 @@ Her mikroservisin kendi PostgreSQL konteyneri ve SQLAlchemy modeli vardır:
 | AI | `ai-db` / `ai` |
 | Gamification | `gamification-db` / `gamification` |
 
-Transaction servisi AI kapalıyken de `prediction_status=UNAVAILABLE`, `fraud_type=BELIRSIZ`, `recommended_decision=INCELEME` ile manuel inceleme kuyruğu üretir. Analist `BLOKLANDI` kararı verdiğinde `transaction.blocked` event'i RabbitMQ'ya basılır; Gamification bunu dinleyip analiste +10 puan yazar.
+Transaction servisi AI kapalıyken de `prediction_status=UNAVAILABLE`, `fraud_type=BELIRSIZ`, `recommended_decision=INCELEME` ile manuel inceleme kuyruğu üretir. Analist `BLOKLANDI` kararı verdiğinde `transaction.blocked` event'i RabbitMQ'ya basılır; Gamification bunu dinleyip analiste +10 puan yazar ve `/api/v1/game/notifications/stream` SSE akışıyla UI leaderboard/profil cache'ini yeniler.
 
 ## Zorunlu Demo Akışı
 
@@ -64,7 +64,7 @@ Transaction servisi AI kapalıyken de `prediction_status=UNAVAILABLE`, `fraud_ty
 3. AI `CALINTI_KART` ve `INCELEME` döndürür.
 4. `supervisor` vakayı `usr_analyst_1` analistine atar.
 5. `analyst` incelemeyi başlatır ve kararı `BLOKLANDI` verir.
-6. `GET /api/v1/game/leaderboard?period=daily` analistin puanını gösterir.
+6. `GET /api/v1/game/leaderboard?period=daily` analistin puanını gösterir; açık staff ekranı SSE ile puan değişimini otomatik yeniler.
 
 ## Güvenlik Testleri
 

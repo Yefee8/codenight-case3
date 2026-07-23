@@ -25,7 +25,7 @@ flowchart LR
 | Identity | Kullanıcı, bcrypt parola, JWT, refresh rotation/logout, lockout ve audit |
 | Transaction | İşlem, AI çağrısı, risk vakası, state machine, SLA zamanı ve karar eventi |
 | AI | Deterministik kural bazlı risk skoru, karar ve fraud tipi |
-| Gamification | RabbitMQ consumer, idempotent puan ledger'ı, profil ve leaderboard |
+| Gamification | RabbitMQ consumer, idempotent puan ledger'ı, profil, leaderboard ve puan SSE stream |
 | RabbitMQ | `fraudcell.events.v1` topic exchange üzerinden `transaction.blocked` olayı |
 
 ## Repo ağacı
@@ -118,6 +118,7 @@ YENI → ATANDI → INCELENIYOR → ONAYLANDI → KAPANDI
 - Server Components kendi public BFF endpointlerini çağırmaz; `src/lib/server/fraud-service.ts` üzerinden gateway'e doğrudan server-side gider.
 - Browser yalnız aynı-origin `/api/v1/...` BFF endpointlerini çağırır.
 - TanStack Query SSR `initialData` ile hydrate olur; mutation sonrası ilgili case, metrik, profil ve leaderboard query'leri invalidate edilir.
+- Staff ekranları `/api/v1/game/notifications/stream` EventSource bağlantısı açar; `points.changed` event'i gelince profil ve leaderboard query'leri yeniden çekilir.
 - Kullanıcıya özel ve mutation çağrıları cache'lenmez; backend client `cache: "no-store"` kullanır.
 - Supervisor metrikleri ve analist performansı canlı case ve Identity staff verilerinden BFF içinde türetilir.
 

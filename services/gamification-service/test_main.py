@@ -7,9 +7,20 @@ from sqlalchemy.pool import StaticPool
 from database import Base
 from models import AnalystProfile, PointLedger
 from rabbitmq import process_decision_event
+from sse import sse_event
 
 
 class DecisionEventTest(unittest.TestCase):
+    def test_sse_event_format(self):
+        event = sse_event(
+            "points.changed",
+            {"total_points": 10, "level": "Bronz", "badges": ["First"], "daily_rank": 1},
+        )
+
+        self.assertIn("event: points.changed\n", event)
+        self.assertIn('"total_points":10', event)
+        self.assertTrue(event.endswith("\n\n"))
+
     def test_points_and_duplicate_event(self):
         engine = create_engine(
             "sqlite://", connect_args={"check_same_thread": False}, poolclass=StaticPool

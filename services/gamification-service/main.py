@@ -1,3 +1,4 @@
+import asyncio
 import os
 from contextlib import asynccontextmanager
 from threading import Event, Thread
@@ -8,15 +9,17 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.encoders import jsonable_encoder
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from fastapi.responses import StreamingResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jwt import InvalidTokenError
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from database import get_db, init_db
+from database import SessionLocal, get_db, init_db
 from models import AnalystProfile
 from rabbitmq import consume_forever
+from sse import sse_event
 
 JWT_SECRET = os.getenv("JWT_SECRET", "fraudcell-demo-secret")
 JWT_ALGORITHM = "HS256"
@@ -186,6 +189,27 @@ def analyst_profile(
     if user["role"] == "ANALYST" and user_id != user["user_id"]:
         raise HTTPException(403, "Başka bir analistin profilini görüntüleyemezsiniz")
     return api_success(profile_data(user_id, db))
+
+
+@app.get("/api/v1/game/notifications/stream")
+async def notification_stream(user: Annotated[dict, Depends(game_user)]):
+    async def events():
+        last = ""
+        while True:
+            with SessionLocal() as db:
+                current = sse_event("points.changed", profile_data(user["user_id"], db))
+            if current != last:
+                yield current
+                last = current
+            else:
+                yield ": keep-alive\n\n"
+            await asyncio.sleep(3)
+
+    return StreamingResponse(
+        events(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"},
+    )
 
 
 def profile_data(user_id: str, db: Session) -> Profile:

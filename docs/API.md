@@ -105,6 +105,7 @@ BFF güvenilir session'dan `analyst_id` ve `analyst_name` ekler. UI'dan gönderi
 |---|---|---|---|
 | `GET` | `/api/v1/game/leaderboard` | Analyst, Supervisor, Admin | Gamification DB |
 | `GET` | `/api/v1/game/profile/{userId}` | Analyst kendi profili; Supervisor/Admin tümü | Gamification DB |
+| `GET` | `/api/v1/game/notifications/stream` | Analyst, Supervisor, Admin | `text/event-stream`; `points.changed` event'i |
 | `GET` | `/api/v1/metrics/supervisor` | Supervisor, Admin | Case verisinden türetilir |
 | `GET` | `/api/v1/analysts/performance` | Supervisor, Admin | Identity staff + case verisi |
 
@@ -209,6 +210,7 @@ Eşikler:
 | `GET` | `/api/v1/game/profile/me` | `X-User-Id` header'ı ile profil |
 | `GET` | `/api/v1/game/profile/{id}` | Profil |
 | `GET` | `/api/v1/game/profiles/{id}` | Alias |
+| `GET` | `/api/v1/game/notifications/stream` | Profil puanı değişince SSE |
 
 Puanlar: terminal karar `+10`; aynı eventte `sla_breached=true` ise ayrıca `-5` (net `+5`). Aynı `event_id` ikinci kez puan üretmez.
 

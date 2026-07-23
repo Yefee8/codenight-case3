@@ -26,6 +26,23 @@ async function call(cookie, path, init = {}) {
   return { response, body: await response.json() };
 }
 
+async function assertGameStream(cookie) {
+  const controller = new AbortController();
+  const response = await fetch(`${base}/api/v1/game/notifications/stream`, {
+    headers: { cookie },
+    signal: controller.signal,
+  });
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /text\/event-stream/);
+  const reader = response.body.getReader();
+  const chunk = await Promise.race([
+    reader.read(),
+    new Promise((_, reject) => setTimeout(() => reject(new Error("SSE event timeout")), 3_000)),
+  ]);
+  controller.abort();
+  assert.match(new TextDecoder().decode(chunk.value), /event: points\.changed/);
+}
+
 const customer = await login("customer");
 const created = await call(customer, "/api/v1/transactions/simulate", {
   method: "POST",
@@ -60,6 +77,7 @@ assert.equal(riskOverride.body.data.risk_level, "YUKSEK");
 assert.equal(riskOverride.body.data.risk_override.reason, "Supervisor manuel risk kontrolü");
 
 const analyst = await login("analyst");
+await assertGameStream(analyst);
 const before = await call(analyst, "/api/v1/game/profile/usr_analyst_1");
 assert.equal(before.response.status, 200);
 
